@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/ReactCamping-CRA-My/static/css/main.bc55ddc5.css",
+    "main.js": "/ReactCamping-CRA-My/static/js/main.98e3ceaa.js",
+    "static/js/787.5480e000.chunk.js": "/ReactCamping-CRA-My/static/js/787.5480e000.chunk.js",
+    "static/media/indexBottomBg.svg": "/ReactCamping-CRA-My/static/media/indexBottomBg.78700524b64cfe0643b38cbcfdc69cb5.svg",
+    "static/media/1.jpg": "/ReactCamping-CRA-My/static/media/1.b39bf1ed9989d128fd27.jpg",
+    "static/media/2.jpg": "/ReactCamping-CRA-My/static/media/2.0d65be5929c89cc6f3f9.jpg",
+    "static/media/3.jpg": "/ReactCamping-CRA-My/static/media/3.a2305edb6afde0796c50.jpg",
+    "static/media/index.jpg": "/ReactCamping-CRA-My/static/media/index.d984ebfe0726bcaf823b.jpg",
+    "static/media/002.jpg": "/ReactCamping-CRA-My/static/media/002.a257f507a0e91511381d.jpg",
+    "static/media/index2.jpg": "/ReactCamping-CRA-My/static/media/index2.1110d953dee45125f134.jpg",
+    "static/media/004.jpg": "/ReactCamping-CRA-My/static/media/004.4ec237299e1673f62898.jpg",
+    "static/media/001.jpg": "/ReactCamping-CRA-My/static/media/001.9b67e951410b04487321.jpg",
+    "static/media/006.jpg": "/ReactCamping-CRA-My/static/media/006.b18f9b30f4ee00fa2e8c.jpg",
+    "static/media/index3.jpg": "/ReactCamping-CRA-My/static/media/index3.b18f9b30f4ee00fa2e8c.jpg",
+    "static/media/003.jpg": "/ReactCamping-CRA-My/static/media/003.493b4861f23b51e1057f.jpg",
+    "static/media/005.jpg": "/ReactCamping-CRA-My/static/media/005.588776121a6eb0259209.jpg",
+    "static/media/5.jpg": "/ReactCamping-CRA-My/static/media/5.6263878f2a5a6891ad70.jpg",
+    "static/media/4.webp": "/ReactCamping-CRA-My/static/media/4.403997fcc7c8c7934472.webp",
+    "static/media/index4.webp": "/ReactCamping-CRA-My/static/media/index4.403997fcc7c8c7934472.webp",
+    "static/media/coverBottom.svg": "/ReactCamping-CRA-My/static/media/coverBottom.cb170001206397af842328e6c8e7d2e1.svg",
+    "static/media/logo.png": "/ReactCamping-CRA-My/static/media/logo.5cc38610a4c0d3745411.png",
+    "static/media/indexIcon.png": "/ReactCamping-CRA-My/static/media/indexIcon.1841a45355cc1655d7ce.png",
+    "static/media/logo.svg": "/ReactCamping-CRA-My/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/star-half.svg": "/ReactCamping-CRA-My/static/media/star-half.be529ee58cbe1ec9bf66343d08a4c31f.svg",
+    "index.html": "/ReactCamping-CRA-My/index.html",
+    "static/media/star-empty.svg": "/ReactCamping-CRA-My/static/media/star-empty.9e7df284fbf8e345a5b15afafc8a6376.svg",
+    "static/media/star-solid.svg": "/ReactCamping-CRA-My/static/media/star-solid.b3b862741db241e07bbe92949e0eb2da.svg",
+    "main.bc55ddc5.css.map": "/ReactCamping-CRA-My/static/css/main.bc55ddc5.css.map",
+    "main.98e3ceaa.js.map": "/ReactCamping-CRA-My/static/js/main.98e3ceaa.js.map",
+    "787.5480e000.chunk.js.map": "/ReactCamping-CRA-My/static/js/787.5480e000.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bc55ddc5.css",
+    "static/js/main.98e3ceaa.js"
+  ]
+}
