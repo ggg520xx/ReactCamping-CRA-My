@@ -1,0 +1,85 @@
+import { indexIcon, indexBottomBg, IndexBg } from '../../../assets/index/IndexMange';
+
+
+
+
+const CampAboutUs = (props) => {
+
+
+
+
+
+
+
+
+
+
+    return (
+        <>
+
+            {/* 限縮最外層 上下的內推*/}
+            <div className="mt-5 py-16 w-full h-auto bg-no-repeat bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${indexBottomBg})` }}>
+
+
+            {/* <div id="particles-js"></div> */}
+            {/* 標題區塊 */}
+
+
+            <div class="container">
+
+                {/* 灰區塊 內推 影片和文字 的灰區塊 */}
+                <div className='py-12 px-12 relative bg-gray-300/30'>
+
+
+                    <div className='row'>
+
+                        <div className='col-12 col-lg-6 p-1'>
+
+                            {/* <!-- 自適應縮放寫法  應該沒成立.. --> */}
+                            <div className="relative w-full ">
+                                <iframe className="w-full h-[300px]" src="https://www.youtube.com/embed/7gaCnI-06fM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                        <div className='col-12 col-lg-6 p-1'>
+
+
+                            {/* flex flex-col justify-around h-[300px] px-6 */}
+
+                            <div className="px-7 ">
+
+                                <h4 className="mb-6">
+
+                                    <strong className='text-green-800 font-bold text-2xl'>關於我們</strong>
+
+
+                                </h4>
+
+
+                                <p className="text-left text-lg">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti ullam porro eveniet ipsam quos perspiciatis, nemo quia? Quae consequuntur assumenda sit aliquam asperiores. Dolore natus molestiae nobis sit explicabo distinctio?
+                                </p>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            </div>
+
+
+
+        </>
+    );
+
+
+
+}
+
+export default CampAboutUs;
