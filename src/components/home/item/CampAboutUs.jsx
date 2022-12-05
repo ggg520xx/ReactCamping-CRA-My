@@ -18,7 +18,7 @@ const CampAboutUs = (props) => {
         <>
 
             {/* 限縮最外層 上下的內推*/}
-            <div className="mt-5 py-16 w-full h-auto bg-no-repeat bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${indexBottomBg})` }}>
+            <div className="py-24 w-full h-auto bg-no-repeat bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${IndexBg})` }}>
 
 
             {/* <div id="particles-js"></div> */}

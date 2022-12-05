@@ -4,7 +4,11 @@ import { loadFull } from "tsparticles";
 import ParticlesConfig from '../../plugins/particles/ParticlesConfig';
 
 
-import SearchPick from './item/SearchPick';
+import SearchPath from './item/SearchPath';
+
+import SearchPickSide from './item/SearchPickSide';
+import SearchPickSideRight from './item/SearchPickSideRight';
+
 
 
 
@@ -23,7 +27,7 @@ function Search() {
     const particlesLoaded = useCallback(async container => {
         await console.log(container);
     }, []);
-    // ---------------------------------------------------------------
+    // -------------------------------- -------------------------------
 
 
 
@@ -32,7 +36,20 @@ function Search() {
         <>
             <Particles init={particlesInit} loaded={particlesLoaded} className="inset-0 w-full h-full absolute z-[-1] " params={ParticlesConfig} />
 
-            <SearchPick />
+
+            <div className="container">
+                <SearchPath />
+
+
+                <div className='row'>
+                    <SearchPickSide />
+                    <SearchPickSideRight />
+                </div>
+
+
+
+
+            </div>
         </>
     );
 }

@@ -21,7 +21,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import "swiper/css/effect-fade";
 
-
 import "swiper/css/autoplay";
 // import "swiper/css/zoom";
 // import 'swiper/css/scrollbar';
@@ -71,12 +70,12 @@ const SearchBar = (props) => {
 
 
                     autoplay={{
-                        delay: 2500,
+                        delay: 1000,   // 停留此照片時間
                         disableOnInteraction: false,
                     }}
                     loop={true} // 循环模式选项
                     // zoom={{ maxRatio: 3 }}
-                    speed={2000}
+                    speed={1000} // 轉換下一張的速度 快或慢
 
                     pagination={{
                         // clickable: true, //頁數 
@@ -88,15 +87,18 @@ const SearchBar = (props) => {
 
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}
-                    className="flex flex-col justify-center !z-[-3]"
+                    className="flex flex-col justify-center !z-[-3] "
                 >
+
+                    {/* scale-125 transition-transform ease-in delay-1000 duration-1000 */}
+                    {/* ease-in-out transform scale-125 transition duration-500 */}
                     {/* className="flex flex-col justify-center w-6/12" */}
 
 
                     <SwiperSlide>
                         <div className='item'>
                             <picture>
-                                <img src={indexBanner} alt="" className="w-full max-h-[80vh] object-cover " />
+                                <img src={indexBanner} alt="" className="w-full max-h-screen object-cover " />
                             </picture>
                         </div>
                     </SwiperSlide>
@@ -104,21 +106,21 @@ const SearchBar = (props) => {
                     <SwiperSlide>
                         <div className='item'>
                             <picture>
-                                <img src={indexBanner2} alt="" className="w-full max-h-[80vh] object-cover " />
+                                <img src={indexBanner2} alt="" className="w-full max-h-screen object-cover " />
                             </picture>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className='item'>
                             <picture>
-                                <img src={indexBanner3} alt="" className="w-full max-h-[80vh] object-cover " />
+                                <img src={indexBanner3} alt="" className="w-full max-h-screen object-cover " />
                             </picture>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className='item'>
                             <picture>
-                                <img src={indexBanner4} alt="" className="w-full max-h-[80vh] object-cover " />
+                                <img src={indexBanner4} alt="" className="w-full max-h-screen object-cover " />
                             </picture>
                         </div>
                     </SwiperSlide>
@@ -133,7 +135,7 @@ const SearchBar = (props) => {
                 <SearchBarShadow className="flex flex-col justify-center">
 
                     {/* 控制內部搜尋框 的最大大小 2xl以上範圍為 外容器的80％ */}
-                    <div className="relative p-6 w-full 2xl:max-w-[80%] sm:mx-auto">
+                    <div className="relative p-6 w-full 2xl:max-w-[80%] mx-auto">
 
                         {/* 彩色邊框 的外型內推 搜尋框*/}
                         <div className="overflow-hidden z-0 rounded-full relative p-1">
@@ -234,17 +236,14 @@ const SearchBar = (props) => {
 
             </div>
 
+            
             {/* bg-fixed 固定背景 */}
 
             {/* <div className="relative border border-red-500 z-2">
-
                 <div className="w-full absolute">
-
                     <picture >
                         <img src={coverBanner} alt="" className="w-full" />
                     </picture>
-
-
                 </div>
             </div> */}
 

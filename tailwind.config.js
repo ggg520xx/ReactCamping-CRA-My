@@ -47,6 +47,9 @@ module.exports = {
         sub_color: '#949C7C',
         p_color: '#8DA291',
         my_yellow: '#FFE180',
+        my_black: '#1e1e1e',
+
+        soft_color:'#f2ede6'
         
         // primary: '#b22222',
         // secondary: '#949C7C'
