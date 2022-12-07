@@ -1,4 +1,4 @@
-import { indexIcon, indexBottomBg, IndexBg } from '../../../assets/index/IndexMange';
+import { indexIcon, indexBottomBg } from '../../../assets/index/IndexMange';
 
 
 
@@ -18,7 +18,7 @@ const CampAboutUs = (props) => {
         <>
 
             {/* 限縮最外層 上下的內推*/}
-            <div className="py-24 w-full h-auto bg-no-repeat bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${IndexBg})` }}>
+            <div className="py-24 w-full h-auto bg-no-repeat bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${indexBottomBg})` }}>
 
 
             {/* <div id="particles-js"></div> */}

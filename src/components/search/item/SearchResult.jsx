@@ -18,7 +18,7 @@ const SearchResult = (props) => {
         <>
 
             {/* 全列表範圍 */}
-            <div className='min-h-screen w-full'>
+            <div className=' w-full'>
 
 
                 {/* border border-blue-200 */}
@@ -26,7 +26,7 @@ const SearchResult = (props) => {
 
                 {/* 單一個的區塊 */}
 
-                <Link to='' className="block mb-5   ">
+                <Link to='/page' className="block mb-5   ">
 
                     <div className="row border border-blue-200 bg-white hover:shadow-xl hover:border-blue-600">
 
@@ -119,7 +119,7 @@ const SearchResult = (props) => {
 
 
 
-                <Link to='' className="block mb-5   ">
+                <Link to='/page' className="block mb-5   ">
 
                     <div className="row border border-blue-200 bg-white hover:shadow-xl hover:border-blue-600">
 

@@ -96,7 +96,7 @@ function Layout() {
                     <div className="row  items-center justify-between">
 
 
-                        <div className="col-6">
+                        <div className="col-5">
 
                             <div className="flex justify-around text-lg text-white">
 

@@ -46,7 +46,7 @@
 /* 自訂元件樣式 或寫在原子處就好 自己寫的盡量包code起來 比較好管理先後*/
 @layer components {
   .container {
-    max-width: 1110px !important;
+    max-width: 1200px !important;
     margin: 0 auto;
 
     height: 100%;

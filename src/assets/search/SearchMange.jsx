@@ -8,6 +8,14 @@ import solidstar from './collect/star-solid.svg';
 import halfstar from './collect/star-half.svg';
 import emptystar from './collect/star-empty.svg';
 
+// ---------------------------------
 
 
-export { searchDemo, searchDemo2, solidstar, halfstar, emptystar }
+
+import underDemo from './collect/underdemo.jpg';
+
+
+
+
+
+export { searchDemo, searchDemo2, solidstar, halfstar, emptystar, underDemo }

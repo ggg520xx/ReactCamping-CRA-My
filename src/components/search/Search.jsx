@@ -11,8 +11,15 @@ import SearchPickSideRight from './item/SearchPickSideRight';
 
 
 
+import SearchUnderSlogan from './item/SearchUnderSlogan';
+
+
+
 
 function Search() {
+
+
+
 
     // 漂浮點狀特效 load func
     // ---------------------------------------------------------------
@@ -37,19 +44,14 @@ function Search() {
             <Particles init={particlesInit} loaded={particlesLoaded} className="inset-0 w-full h-full absolute z-[-1] " params={ParticlesConfig} />
 
 
-            <div className="container">
+            <div className="container pb-5">
                 <SearchPath />
-
-
                 <div className='row'>
                     <SearchPickSide />
                     <SearchPickSideRight />
                 </div>
-
-
-
-
             </div>
+            <SearchUnderSlogan />
         </>
     );
 }

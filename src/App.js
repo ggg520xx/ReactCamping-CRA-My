@@ -10,6 +10,7 @@ import { Routes, Route } from "react-router-dom";
 import Layout from './components/layout/Layout'
 import Home from './components/home/Home'
 import Search from './components/search/Search'
+import Page from './components/page/Page'
 
 
 import Demo from './components/demo/demo'
@@ -17,6 +18,9 @@ import NotFound from './components/NotFound'
 // import 就能使用 那個函式頁面(擁有這個函式功能) 來自於這裡(順利吃到外部元件)
 // 同時該頁面也要記得 export 並給予路徑和設定該路徑顯示元件
 // 我們會將元件路徑寫在App.js 該頁面的使用元件 則會寫在外面 使用import引入到這裡 一一載入使用
+
+
+
 
 
 
@@ -29,6 +33,7 @@ function App() {
         <Route path='/' element={<Layout />} >
           <Route index element={<Home />} />
           <Route path='search' element={<Search />} />
+          <Route path='page' element={<Page />} />
 
 
           <Route path='demo' element={<Demo />} />

@@ -28,7 +28,7 @@ const SearchPickSideRight = (props) => {
 
 
                 {/* bg-gray-100 w-full px-8 py-3  shadow-xl rounded-3xl mb-3 */}
-                <div className='bg-gray-100 w-full px-8 py-5  shadow-xl rounded-md border-gray-200 border'>
+                <div className='bg-gray-100 w-full px-8 py-5 shadow-xl rounded-md border-gray-200 border'>
 
                     {/* <h3 className='font-bold text-xl'>
                         找到 <span>{ }</span>  <span className="text-blue-500">0</span> 個 相關搜尋結果

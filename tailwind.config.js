@@ -48,6 +48,7 @@ module.exports = {
         p_color: '#8DA291',
         my_yellow: '#FFE180',
         my_black: '#1e1e1e',
+        my_green: '#445a49',
 
         soft_color:'#f2ede6'
         

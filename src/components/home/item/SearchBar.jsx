@@ -3,7 +3,7 @@ import { indexBanner, indexBanner2, indexBanner3, indexBanner4, coverBanner } fr
 import { Link, useNavigate } from "react-router-dom";
 
 
-import { SearchBarGlowColor1, SearchBarGlowColor2, SearchBarGlowColor3, SearchBarGlowColor4, SearchBarShadow, SearchBarShadow2 } from './SearchBarStyle'
+import { SearchBarGlowColor1, SearchBarGlowColor2, SearchBarGlowColor3, SearchBarGlowColor4, SearchBarShadow, SearchBarShadow2 } from './itemStyle/SearchBarStyle'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
@@ -29,8 +29,8 @@ import "swiper/css/autoplay";
 
 const SearchBar = (props) => {
 
-
-    const navigate = useNavigate();  // 一定要這段
+    // 一定要這段
+    const navigate = useNavigate();
 
     const inputStyle = {
         width: "66%",
@@ -98,7 +98,7 @@ const SearchBar = (props) => {
                     <SwiperSlide>
                         <div className='item'>
                             <picture>
-                                <img src={indexBanner} alt="" className="w-full max-h-screen object-cover " />
+                                <img src={indexBanner} alt="" className="w-full h-screen object-cover " />
                             </picture>
                         </div>
                     </SwiperSlide>
@@ -106,21 +106,21 @@ const SearchBar = (props) => {
                     <SwiperSlide>
                         <div className='item'>
                             <picture>
-                                <img src={indexBanner2} alt="" className="w-full max-h-screen object-cover " />
+                                <img src={indexBanner2} alt="" className="w-full h-screen object-cover " />
                             </picture>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className='item'>
                             <picture>
-                                <img src={indexBanner3} alt="" className="w-full max-h-screen object-cover " />
+                                <img src={indexBanner3} alt="" className="w-full h-screen object-cover " />
                             </picture>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className='item'>
                             <picture>
-                                <img src={indexBanner4} alt="" className="w-full max-h-screen object-cover " />
+                                <img src={indexBanner4} alt="" className="w-full h-screen object-cover " />
                             </picture>
                         </div>
                     </SwiperSlide>
@@ -222,7 +222,7 @@ const SearchBar = (props) => {
 
                 </SearchBarShadow2>
 
-                
+
                 <div className="w-full absolute -translate-y-full">
 
                     <picture >
@@ -236,7 +236,7 @@ const SearchBar = (props) => {
 
             </div>
 
-            
+
             {/* bg-fixed 固定背景 */}
 
             {/* <div className="relative border border-red-500 z-2">
@@ -247,9 +247,9 @@ const SearchBar = (props) => {
                 </div>
             </div> */}
 
-            
 
-        
+
+
 
 
 

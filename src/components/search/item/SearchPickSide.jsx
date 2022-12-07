@@ -146,7 +146,7 @@ const SearchPickSide = (props) => {
 
 
                         <div className="pb-5">
-                            <p className="my-1">提供設施</p>
+                            <p className="my-1">設施服務</p>
                             <div className='row'>
                                 <button className='col-11  mx-auto my-1 border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white'>盥洗淋浴設施</button>
                                 <button className='col-11  mx-auto my-1 border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white'>遊樂器材設施</button>
