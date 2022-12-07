@@ -28,7 +28,7 @@ const PageFeedback = (props) => {
 
 
 
-                        <div className="row border min-h-[600px] ">
+                        <div className="row min-h-[600px] ">
 
 
 
@@ -169,7 +169,7 @@ const PageFeedback = (props) => {
 
 
 
-                            <div className="col-9  p-8 flex justify-around items-center flex-col bg-green-300">
+                            <div className="col-9  p-8 flex justify-around items-center flex-col bg-green-200">
 
 
 

@@ -1,4 +1,5 @@
-import { indexIcon, indexBottomBg } from '../../../assets/index/IndexMange';
+// import { indexIcon, indexBottomBg } from '../../../assets/index/IndexMange';
+// 背景圖放到 搜尋頁使用了 這頁就不重複
 
 
 
@@ -17,8 +18,8 @@ const CampAboutUs = (props) => {
     return (
         <>
 
-            {/* 限縮最外層 上下的內推*/}
-            <div className="py-24 w-full h-auto bg-no-repeat bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${indexBottomBg})` }}>
+            {/* 限縮最外層 上下的內推  // 背景圖放到 搜尋頁使用了 這頁就不重複 引入style拔掉*/}
+            <div className="py-24 w-full h-auto bg-no-repeat bg-cover bg-center bg-fixed" style={{  }}>
 
 
             {/* <div id="particles-js"></div> */}

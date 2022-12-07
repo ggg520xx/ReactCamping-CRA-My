@@ -1,17 +1,12 @@
-import { useCallback } from "react";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import ParticlesConfig from '../../plugins/particles/ParticlesConfig';
-
-
 import SearchPath from './item/SearchPath';
-
 import SearchPickSide from './item/SearchPickSide';
 import SearchPickSideRight from './item/SearchPickSideRight';
-
-
-
 import SearchUnderSlogan from './item/SearchUnderSlogan';
+
+
+
+// 突然想放背景圖 來包裹所有元件
+import { indexBottomBg } from '../../assets/search/SearchMange';
 
 
 
@@ -19,39 +14,28 @@ import SearchUnderSlogan from './item/SearchUnderSlogan';
 function Search() {
 
 
-
-
-    // 漂浮點狀特效 load func
-    // ---------------------------------------------------------------
-    const particlesInit = useCallback(async engine => {
-        console.log(engine);
-        // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
-        // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-        // starting from v2 you can add only the features you need reducing the bundle size
-        await loadFull(engine);
-    }, []);
-
-    const particlesLoaded = useCallback(async container => {
-        await console.log(container);
-    }, []);
-    // -------------------------------- -------------------------------
-
-
-
-
     return (
         <>
-            <Particles init={particlesInit} loaded={particlesLoaded} className="inset-0 w-full h-full absolute z-[-1] " params={ParticlesConfig} />
+
+            {/* // 突然想放背景圖 來包裹所有元件 */}
+            <div className="w-full h-auto bg-no-repeat bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${indexBottomBg})` }}>
 
 
-            <div className="container pb-5">
-                <SearchPath />
-                <div className='row'>
-                    <SearchPickSide />
-                    <SearchPickSideRight />
+
+                {/* 元件引用 */}
+                <div className="container pb-5">
+                    <SearchPath />
+                    <div className='row'>
+                        <SearchPickSide />
+                        <SearchPickSideRight />
+                    </div>
                 </div>
+                <SearchUnderSlogan />
+
+
+
+
             </div>
-            <SearchUnderSlogan />
         </>
     );
 }

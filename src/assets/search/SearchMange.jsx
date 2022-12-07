@@ -16,6 +16,10 @@ import underDemo from './collect/underdemo.jpg';
 
 
 
+// 背景圖
+import indexBottomBg from './collect/indexBottomBg.svg';
 
 
-export { searchDemo, searchDemo2, solidstar, halfstar, emptystar, underDemo }
+
+
+export { searchDemo, searchDemo2, solidstar, halfstar, emptystar, underDemo, indexBottomBg }

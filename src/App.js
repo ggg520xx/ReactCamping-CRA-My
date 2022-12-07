@@ -13,6 +13,12 @@ import Search from './components/search/Search'
 import Page from './components/page/Page'
 
 
+import AdminLayout from './components/adminLayout/AdminLayout'
+import AdminHome from './components/adminHome/AdminHome'
+
+
+
+
 import Demo from './components/demo/demo'
 import NotFound from './components/NotFound'
 // import 就能使用 那個函式頁面(擁有這個函式功能) 來自於這裡(順利吃到外部元件)
@@ -42,8 +48,10 @@ function App() {
 
         {/* 如果要設計後台的話 */}
         {/* 可能會寫 那個元件 必須登入權限為何才可以造訪頁面 */}
-        {/* <Route path='/admin' element={<AdminLayout />} > */}
-        {/* <Route path="/admin" element={<AdminHome />} /> */}
+        <Route path='/admin' element={<AdminLayout />} >
+          <Route index element={<AdminHome />} />
+        </Route>
+
         {/* <Route path="member" element={<member />} />
           <Route path="task" element={<task />} /> */}
         {/* <Route path="*" element={<NotFound />} /> */}
