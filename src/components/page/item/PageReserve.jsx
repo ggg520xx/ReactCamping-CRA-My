@@ -29,7 +29,7 @@ const PageReserve = (props) => {
 
                             {/* <div className="col-4 border border-red-100"> */}
                             <div className="col-3 pl-0">
-                                <img className='h-[160px] w-full' src={ga1} alt="" />
+                                <img className='h-[160px] w-full object-cover' src={ga1} alt="" />
                             </div>
 
 
@@ -117,7 +117,7 @@ const PageReserve = (props) => {
 
                             {/* <div className="col-4 border border-red-100"> */}
                             <div className="col-3 pl-0">
-                                <img className='h-[160px] w-full' src={ga2} alt="" />
+                                <img className='h-[160px] w-full object-cover' src={ga2} alt="" />
                             </div>
 
 

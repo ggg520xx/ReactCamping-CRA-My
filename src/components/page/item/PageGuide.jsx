@@ -1,24 +1,39 @@
 // 導覽頁面 引入滾動監控
+
+import React, { useState } from "react";
 import Scrollspy from 'react-scrollspy'
-
-
-
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 
 
 const PageGuide = (props) => {
 
 
+
+    const navigate = useNavigate();
+    const handleBack = () => {
+        navigate(-1);
+    };
+
+
     return (
         <>
 
-            <div className="bg-my_black w-full min-h-[120px] p-5  flex items-center">
+            {/* mx-auto 防止我寬度 改為 3/4 要置中 */}
+            <div className="bg-my_black w-full min-h-[80px] p-5 mx-auto flex items-center mt-4 ">
 
                 <div className='container'>
 
                     <div className="flex items-center justify-center">
 
+
+                        <button onClick={handleBack}>上衣頁</button>
+
+
+
+
                         <Scrollspy items={['section-1', 'section-2', 'section-3', 'section-4']} className="flex text-lg text-white" >
+
 
                             <li>
                                 <a href="#section-1">

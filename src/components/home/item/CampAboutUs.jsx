@@ -51,7 +51,7 @@ const CampAboutUs = (props) => {
 
                                 <h4 className="mb-6">
 
-                                    <strong className='text-green-800 font-bold text-2xl'>關於我們</strong>
+                                    <strong className='text-my_green font-bold text-2xl'>關於我們</strong>
 
 
                                 </h4>

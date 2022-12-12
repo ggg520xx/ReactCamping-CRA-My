@@ -35,10 +35,10 @@ const PageFeedback = (props) => {
 
                             <div className="col-3  ">
 
-                                <div className="h-2/5 bg-red-200 p-8 flex justify-around items-center flex-col">
+                                <div className="h-2/5 bg-soft_color p-8 flex justify-around items-center flex-col">
 
 
-                                    <div className='bg-my_black h-[60px] w-[70px] text-white rounded-xl flex justify-center items-center'><strong className='text-3xl'>3.8</strong><sub>/5</sub></div>
+                                    <div className='dark:bg-gray-700 h-[60px] w-[70px] text-white rounded-xl flex justify-center items-center'><strong className='text-3xl'>3.8</strong><sub>/5</sub></div>
 
 
                                     {/* 星星和價格 用flex共排 用老師的星星評價map*/}
@@ -62,7 +62,7 @@ const PageFeedback = (props) => {
                                 </div>
 
 
-                                <div className="h-3/5 bg-blue-200 p-8 flex justify-around items-center flex-col">
+                                <div className="h-3/5 bg-white p-8 flex justify-around items-center flex-col">
 
                                     <div className='text-center'>
                                         <strong>衛生</strong>
@@ -158,10 +158,10 @@ const PageFeedback = (props) => {
 
 
                             {/* <div className="h-5/6 bg-green-800 w-full flex justify-around items-center flex-col">
-                                <div className='bg-gray-200 h-1/4 mb-2 w-full'>12</div>
-                                <div className='bg-gray-200 h-1/4 mb-2 w-full'>33</div>
-                                <div className='bg-gray-200 h-1/4 mb-2 w-full'>55</div>
-                                <div className='bg-gray-200 h-1/4 mb-2 w-full'>66</div>
+                                <div className='bg-gray-100 rounded-2xl h-1/4 mb-2 w-full'>12</div>
+                                <div className='bg-gray-100 rounded-2xl h-1/4 mb-2 w-full'>33</div>
+                                <div className='bg-gray-100 rounded-2xl h-1/4 mb-2 w-full'>55</div>
+                                <div className='bg-gray-100 rounded-2xl h-1/4 mb-2 w-full'>66</div>
                             </div>
 
                             <div className="h-1/6 bg-red-800 w-full">
@@ -169,18 +169,18 @@ const PageFeedback = (props) => {
 
 
 
-                            <div className="col-9  p-8 flex justify-around items-center flex-col bg-green-200">
+                            <div className="col-9  p-8 flex justify-around items-center flex-col bg-white">
 
 
 
 
 
-                                <div className='bg-gray-200 mb-2 w-full p-5'>
+                                <div className='bg-gray-100 rounded-2xl mb-2 w-full p-5'>
 
                                     <div className='row'>
                                         <div className="col-10">
 
-                                            <strong className="text-xl pl-3 text-white bg-green-600 rounded-xl py-1 mb-2 block">匿名</strong>
+                                            <strong className="text-xl pl-3 text-white bg-my_green rounded-xl py-1 mb-2 block">匿名</strong>
                                             <p>新留言需要排序自動為最上.</p>
                                             <p>新留言需要排序自動為最上.</p>
 
@@ -193,7 +193,7 @@ const PageFeedback = (props) => {
 
 
                                                 
-                                                <div className='bg-my_black h-[30px] w-[50px] text-white rounded-xl flex justify-center items-center'>
+                                                <div className='dark:bg-gray-700 h-[30px] w-[50px] text-white rounded-xl flex justify-center items-center'>
 
                                                     <strong className='text-md'>4</strong>
                                                    
@@ -210,12 +210,12 @@ const PageFeedback = (props) => {
 
 
 
-                                <div className='bg-gray-200 mb-2 w-full p-5'>
+                                <div className='bg-gray-100 rounded-2xl mb-2 w-full p-5'>
 
                                     <div className='row'>
                                         <div className="col-10">
 
-                                            <strong className="text-xl pl-3 text-white bg-green-600 rounded-xl py-1 mb-2 block">賽特</strong>
+                                            <strong className="text-xl pl-3 text-white bg-my_green rounded-xl py-1 mb-2 block">賽特</strong>
                                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae amet ipsum expedita ad quisquam odit voluptatem repellendus soluta explicabo voluptatum laudantium vitae, ratione itaque a reiciendis inventore minus ea recusandae esse eum! Itaque corrupti quo amet tempora quia eos corporis?</p>
 
                                         </div>
@@ -227,7 +227,7 @@ const PageFeedback = (props) => {
 
 
 
-                                                <div className='bg-my_black h-[30px] w-[50px] text-white rounded-xl flex justify-center items-center'>
+                                                <div className='dark:bg-gray-700 h-[30px] w-[50px] text-white rounded-xl flex justify-center items-center'>
 
                                                     <strong className='text-md'>4.5</strong>
 
@@ -241,12 +241,12 @@ const PageFeedback = (props) => {
                                     </div>
 
                                 </div>
-                                <div className='bg-gray-200 mb-2 w-full p-5'>
+                                <div className='bg-gray-100 rounded-2xl mb-2 w-full p-5'>
 
                                     <div className='row'>
                                         <div className="col-10">
 
-                                            <strong className="text-xl pl-3 text-white bg-green-600 rounded-xl py-1 mb-2 block">米哈遊</strong>
+                                            <strong className="text-xl pl-3 text-white bg-my_green rounded-xl py-1 mb-2 block">米哈遊</strong>
                                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt ratione maxime aperiam earum officia aliquid cumque culpa, eligendi tempore atque saepe reiciendis beatae nisi voluptatibus dolores deleniti. Itaque, eaque nesciunt.</p>
 
                                         </div>
@@ -258,7 +258,7 @@ const PageFeedback = (props) => {
 
 
 
-                                                <div className='bg-my_black h-[30px] w-[50px] text-white rounded-xl flex justify-center items-center'>
+                                                <div className='dark:bg-gray-700 h-[30px] w-[50px] text-white rounded-xl flex justify-center items-center'>
 
                                                     <strong className='text-md'>4</strong>
 
@@ -272,12 +272,12 @@ const PageFeedback = (props) => {
                                     </div>
 
                                 </div>
-                                <div className='bg-gray-200 mb-2 w-full p-5'>
+                                <div className='bg-gray-100 rounded-2xl mb-2 w-full p-5'>
 
                                     <div className='row'>
                                         <div className="col-10">
 
-                                            <strong className="text-xl pl-3 text-white bg-green-600 rounded-xl py-1 mb-2 block">匿名</strong>
+                                            <strong className="text-xl pl-3 text-white bg-my_green rounded-xl py-1 mb-2 block">匿名</strong>
                                             <p>orem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt ratione maxime aperiam earum officia aliquid cumque culpa, eligendi tempore atque saepe reiciendis beatae nisi voluptatibus dolores deleniti. Itaque, eaque nesciunt.</p>
 
                                         </div>
@@ -289,7 +289,7 @@ const PageFeedback = (props) => {
 
 
 
-                                                <div className='bg-my_black h-[30px] w-[50px] text-white rounded-xl flex justify-center items-center'>
+                                                <div className='dark:bg-gray-700 h-[30px] w-[50px] text-white rounded-xl flex justify-center items-center'>
 
                                                     <strong className='text-md'>4</strong>
 

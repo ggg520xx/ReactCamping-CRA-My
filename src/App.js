@@ -13,8 +13,12 @@ import Search from './components/search/Search'
 import Page from './components/page/Page'
 
 
-import AdminLayout from './components/adminLayout/AdminLayout'
-import AdminHome from './components/adminHome/AdminHome'
+import MemberLayout from './components/memberLayout/MemberLayout'
+import MemberMain from './components/memberMain/MemberMain'
+
+
+import MemberOrder from './components/memberOrder/MemberOrder'
+import MemberLike from './components/memberLike/MemberLike'
 
 
 
@@ -46,10 +50,17 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
 
+
+       
+
         {/* 如果要設計後台的話 */}
         {/* 可能會寫 那個元件 必須登入權限為何才可以造訪頁面 */}
-        <Route path='/admin' element={<AdminLayout />} >
-          <Route index element={<AdminHome />} />
+        <Route path='member' element={<MemberLayout />} >
+
+          <Route index element={<MemberMain />} />
+
+          <Route path='order' element={<MemberOrder />} />
+          <Route path='like' element={<MemberLike />} />
         </Route>
 
         {/* <Route path="member" element={<member />} />

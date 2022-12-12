@@ -32,7 +32,7 @@ const SearchResult = (props) => {
 
                         {/* <div className="col-4 border border-red-100"> */}
                         <div className="col-4 pl-0">
-                            <img className='h-[160px] w-full' src={searchDemo} alt="" />
+                            <img className='h-[160px] w-full object-cover' src={searchDemo} alt="" />
                         </div>
 
                         <div className="col-8  relative">
@@ -49,7 +49,7 @@ const SearchResult = (props) => {
 
 
 
-                                <div>
+                                <div className='text-left'>
                                     <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
                                     <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
                                     <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
@@ -125,7 +125,7 @@ const SearchResult = (props) => {
 
                         {/* <div className="col-4 border border-red-100"> */}
                         <div className="col-4 pl-0">
-                            <img className='h-[160px] w-full' src={searchDemo2} alt="" />
+                            <img className='h-[160px] w-full object-cover' src={searchDemo2} alt="" />
                         </div>
 
                         <div className="col-8  relative">

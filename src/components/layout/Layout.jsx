@@ -3,7 +3,8 @@ import { Link, Outlet } from "react-router-dom";
 
 // import indexLogo from '../../assets/index/logo.png';
 import { indexLogo, FbSvgComp, InsSvgComp, TwiSvgComp, LineSvgComp } from '../../assets/layout/LayoutMange';
-
+import "./LayoutStyle.css";
+import React, { useState } from 'react';
 
 // ---------------------------------------------------------------------------
 
@@ -22,14 +23,14 @@ import { indexLogo, FbSvgComp, InsSvgComp, TwiSvgComp, LineSvgComp } from '../..
 
 function Layout() {
 
-
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div>
+        <>
             {/* <Header /> 拉出來寫外元件也可以*/}
 
             {/* Navbar 整體背景 沾粘不用Fixed 用 sticky  */}
-            <nav class="z-20 bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 sticky top-0 right-0 left-0">
+            <nav class="z-20 min-h-[60px] px-2 sm:px-4 py-2.5  bg-my_black sticky top-0 right-0 left-0 ">
                 {/* 內部控制 寬度 flex 置中 */}
                 <div class="container flex flex-wrap items-center justify-between mx-auto">
 
@@ -42,7 +43,7 @@ function Layout() {
                     </Link>
 
                     {/* 編排該區塊的順位 order:2 */}
-                    <div class="flex md:order-2">
+                    <div class="relative flex md:order-2">
 
 
                         {/* 大畫面時的 搜尋欄 */}
@@ -56,41 +57,51 @@ function Layout() {
 
 
                         {/* 大畫面時的 頭像按鈕 */}
-                        <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" >
+                        <button onClick={() => setIsOpen(!isOpen)} type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" >
                             <img class='rounded-2xl' src="https://avatar2.bahamut.com.tw/avataruserpic/f/8/f853853/f853853_s.png?v=1669060152382" alt="" />
                         </button>
 
-                        {/* 頭像的下拉 Dropdown menu 不分大小畫面 */}
-                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600">
-                            <div class="px-4 py-3">
-                                <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-                                <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+
+                        {isOpen && (
+                            <div class="dropdown_position w-[160px] z-50 absolute my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600">
+                                <div class="px-4 py-3">
+                                    <span class="block text-sm text-gray-900 dark:text-white">Bonnie Anko</span>
+                                    <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">一般會員身分</span>
+                                </div>
+                                <ul class="py-1" aria-labelledby="user-menu-button">
+                                    <li>
+                                        <Link to="/member" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">會員頁面</Link>
+                                    </li>
+                                
+
+
+                                    <li>
+                                        <Link to="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">成為營主</Link>
+                                    </li>
+                                    
+                                    <li>
+                                        <Link to="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">登出</Link>
+                                    </li>
+                                </ul>
                             </div>
-                            <ul class="py-1" aria-labelledby="user-menu-button">
-                                <li>
-                                    <Link href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</Link>
-                                </li>
-                                <li>
-                                    <Link href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</Link>
-                                </li>
-                                <li>
-                                    <Link href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</Link>
-                                </li>
-                                <li>
-                                    <Link href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</Link>
-                                </li>
-                            </ul>
-                        </div>
+                        )}
+
+
+
+                        
+
+                        {/* 頭像的下拉 Dropdown menu 不分大小畫面 */}
+                        
                     </div>
                 </div>
             </nav>
 
             {/* 不一定要包main */}
-            <main>
-                <Outlet />
-            </main>
 
-            <div className="bg-my_black w-full min-h-[120px] p-5  flex items-center">
+            <Outlet />
+
+
+            <div className="bg-my_black w-full min-h-[120px]  p-5  flex items-center">
                 <div className='container'>
 
                     <div className="row  items-center justify-between">
@@ -159,7 +170,7 @@ function Layout() {
 
             {/* <div className="footer">表尾2288544</div> */}
             {/* <Footer /> 拉出來寫外元件也可以*/}
-        </div>
+        </>
     );
 }
 
