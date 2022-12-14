@@ -41,7 +41,7 @@ const MemberLayout = () => {
 
                 <div className='col-2 bg-my_green sticky top-0 left-0 right-0 p-0 rounded-br-[70px]'>
 
-                    <nav class="px-2 sm:px-4 py-2.5  bg-my_black ">
+                    <nav class="h-[63px] px-2 sm:px-4 py-2.5  bg-my_black ">
                         {/* 內部控制 寬度 flex 置中 */}
                         <div class="container flex flex-wrap items-center justify-center mx-auto">
 

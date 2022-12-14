@@ -330,32 +330,55 @@ function MemberMain() {
 
 
                                 {/* 詳細的左邊 */}
-                                <div className="col-6 ">
+                                <div className="col-7 ">
 
-                                    <h4 className="text-xl font-bold text-left">營區資訊</h4>
+                                    <h4 className="py-4 text-xl font-bold text-left">營區資訊</h4>
 
 
-                                    <div className='row py-4'>
-
-                                        <div className='col-5 text-left'>
+                                    <div className="row">
+                                        <div className='col-4 text-left'>
                                             <strong className='block mb-2'>營區名稱：</strong>
-                                            <strong className='block mb-2'>營區主人：</strong>
-                                            <strong className='block mb-2'>營區地址：</strong>
-                                            <strong className='block mb-2'>聯絡方式：</strong>
-                                            <strong className='block'>其他資訊：</strong>
                                         </div>
+                                        <div className='col-8 text-left'>
+                                            <strong className='block mb-2'>安可休閒露營區</strong>
+                                        </div>
+                                    </div>
 
-                                        <div className='col-7 text-left'>
-                                            <span className='block mb-2'>2022年12月30日</span>
-                                            <span className='block mb-2'>2022年12月31日</span>
-                                            <span className='block mb-2'>1 日</span>
-                                            <span className='block mb-2'>草皮A區</span>
-                                            <span className='block'>
+                                    <div className="row">
+                                        <div className='col-4 text-left'>
+                                            <strong className='block mb-2'>營區主人：</strong>
+                                        </div>
+                                        <div className='col-8 text-left'>
+                                            <strong className='block mb-2'>安可休</strong>
+                                        </div>
+                                    </div>
 
+                                    <div className="row">
+                                        <div className='col-4 text-left'>
+                                            <strong className='block mb-2'>營區地址：</strong>
+                                        </div>
+                                        <div className='col-8 text-left'>
+                                            <strong className='block mb-2'>台南市xxxx台南市xxxxx台南市xxxxx台南市xxxxx台南市xxxxx台南市xxxxxx</strong>
+                                        </div>
+                                    </div>
 
-                                                <Link to='/'>
-                                                    <FontAwesomeIcon className='mr-2' icon={faFacebook} />
-                                                </Link>
+                                    <div className="row">
+                                        <div className='col-4 text-left'>
+                                            <strong className='block mb-2'>聯絡方式：</strong>
+                                        </div>
+                                        <div className='col-8 text-left'>
+                                            <strong className='block mb-2'>02-2222222</strong>
+                                        </div>
+                                    </div>
+
+                                    <div className="row">
+                                        <div className='col-4 text-left'>
+                                            <strong className='block mb-2'>其他資訊：</strong>
+                                        </div>
+                                        <div className='col-8 text-left'>
+                                            <strong className='block mb-2'> <Link to='/'>
+                                                <FontAwesomeIcon className='mr-2' icon={faFacebook} />
+                                            </Link>
                                                 <Link to='/'>
                                                     <FontAwesomeIcon className='mr-2' icon={faInstagram} />
                                                 </Link>
@@ -364,10 +387,8 @@ function MemberMain() {
                                                 </Link>
                                                 <Link to='/'>
                                                     <FontAwesomeIcon className='mr-2' icon={faLine} />
-                                                </Link>
-                                            </span>
+                                                </Link></strong>
                                         </div>
-
                                     </div>
 
 
@@ -380,36 +401,76 @@ function MemberMain() {
 
 
                                 {/* 詳細的右邊 */}
-                                <div className="col-6">
+                                <div className="col-5">
 
-                                    <h4 className="text-xl font-bold text-left">訂單資訊</h4>
+                                    <h4 className="py-4 text-xl font-bold text-left">訂單資訊</h4>
 
-                                    <div className='row py-4'>
+                                    
 
-                                        <div className='col-5 text-left'>
+
+
+                                    <div className="row">
+                                        <div className='col-4 text-left'>
                                             <strong className='block mb-2'>成立日期：</strong>
-                                            <strong className='block mb-2'>成立時間：</strong>
-                                            <strong className='block mb-2'>訂購者：</strong>
-                                            <strong className='block mb-2'>付款日：</strong>
-                                            <strong className='block mb-2'>付款方式：</strong>
-                                            <strong className='block mb-2'>付款金額：</strong>
-                                            <strong className='block'>評價回饋：</strong>
                                         </div>
-
-                                        <div className='col-7 text-left'>
-                                            <span className='block mb-2'>2022年12月28日</span>
-                                            <span className='block mb-2'>14時20分38秒</span>
-                                            <span className='block mb-2'>芝麻凜</span>
-                                            <span className='block mb-2'>2022年12月29日</span>
-                                            <span className='block mb-2'> 刷卡</span>
-                                            <span className='block mb-2'> 1230 元</span>
-
-
-                                            <span className='block'> <button>尚不可使用</button> </span>
-
+                                        <div className='col-8 text-left'>
+                                            <strong className='block mb-2'>2022年12月28日</strong>
                                         </div>
-
                                     </div>
+
+                                    <div className="row">
+                                        <div className='col-4 text-left'>
+                                            <strong className='block mb-2'>成立時間：</strong>
+                                        </div>
+                                        <div className='col-8 text-left'>
+                                            <strong className='block mb-2'>14時20分38秒</strong>
+                                        </div>
+                                    </div>
+
+                                    <div className="row">
+                                        <div className='col-4 text-left'>
+                                            <strong className='block mb-2'>訂購者：</strong>
+                                        </div>
+                                        <div className='col-8 text-left'>
+                                            <strong className='block mb-2'>芝麻凜</strong>
+                                        </div>
+                                    </div>
+
+                                    <div className="row">
+                                        <div className='col-4 text-left'>
+                                            <strong className='block mb-2'>付款日：</strong>
+                                        </div>
+                                        <div className='col-8 text-left'>
+                                            <strong className='block mb-2'>2022年12月29日</strong>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className='col-4 text-left'>
+                                            <strong className='block mb-2'>付款方式：</strong>
+                                        </div>
+                                        <div className='col-8 text-left'>
+                                            <strong className='block mb-2'>刷卡</strong>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className='col-4 text-left'>
+                                            <strong className='block mb-2'>付款金額：</strong>
+                                        </div>
+                                        <div className='col-8 text-left'>
+                                            <strong className='block mb-2'>1230 元</strong>
+                                        </div>
+                                    </div>
+
+                                    <div className="row">
+                                        <div className='col-4 text-left'>
+                                            <strong className='block mb-2'>評價回饋：</strong>
+                                        </div>
+                                        <div className='col-8 text-left'>
+                                            <strong className='block mb-2'><button>尚不可使用</button></strong>
+                                        </div>
+                                    </div>
+
+                                
 
                                 </div>
 

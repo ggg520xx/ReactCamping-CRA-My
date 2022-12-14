@@ -66,6 +66,8 @@ function MemberLike() {
                         {likeTab === 1 &&
 
                             <div className="row">
+
+                                
                                 <div className="col-3">
                                     <div className="relative col-span-1 mt-5 bg-red-300" onClick={() => { }}>
 
@@ -296,9 +298,9 @@ function MemberLike() {
 
 export default MemberLike;
 
-// 匯出這個函式功能
-{/* {likeTab === 1 ? <div> 1 </div> : <div> 目前並無記錄 </div>}
-{likeTab === 2 ? <div> 2 </div> : <div> 目前並無記錄 </div>}
-{likeTab === 3 ? <div> 3 </div> : <div> 目前並無記錄 </div>}
-{likeTab === 4 ? <div> 4 </div> : <div> 目前並無記錄 </div>}
-{likeTab === 5 ? <div> 5 </div> : <div> 目前並無記錄 </div>} */}
+// // 匯出這個函式功能
+// {/* {likeTab === 1 ? <div> 1 </div> : <div> 目前並無記錄 </div>}
+// {likeTab === 2 ? <div> 2 </div> : <div> 目前並無記錄 </div>}
+// {likeTab === 3 ? <div> 3 </div> : <div> 目前並無記錄 </div>}
+// {likeTab === 4 ? <div> 4 </div> : <div> 目前並無記錄 </div>}
+// {likeTab === 5 ? <div> 5 </div> : <div> 目前並無記錄 </div>} */}

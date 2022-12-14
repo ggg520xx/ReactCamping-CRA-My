@@ -11,6 +11,9 @@ import Layout from './components/layout/Layout'
 import Home from './components/home/Home'
 import Search from './components/search/Search'
 import Page from './components/page/Page'
+import Reserve from './components/reserve/Reserve'
+import Payment from './components/payment/Payment'
+import Finish from './components/finish/Finish'
 
 
 import MemberLayout from './components/memberLayout/MemberLayout'
@@ -46,11 +49,27 @@ function App() {
           <Route path='page' element={<Page />} />
 
 
+          
+
+        
+
+          <Route path='reserve' element={<Reserve />} />
+          <Route path='payment' element={<Payment />} />
+          <Route path='finish' element={<Finish />} />
+
+
+          <Route path='finish' element={<Finish />} />
+          
+
+
           <Route path='demo' element={<Demo />} />
           <Route path="*" element={<NotFound />} />
         </Route>
 
+        
+    
 
+       
        
 
         {/* 如果要設計後台的話 */}
@@ -63,6 +82,10 @@ function App() {
           <Route path='like' element={<MemberLike />} />
         </Route>
 
+        
+        {/* <Route path='reserve' element={<Reserve />} >
+          </Route> */}
+        
         {/* <Route path="member" element={<member />} />
           <Route path="task" element={<task />} /> */}
         {/* <Route path="*" element={<NotFound />} /> */}

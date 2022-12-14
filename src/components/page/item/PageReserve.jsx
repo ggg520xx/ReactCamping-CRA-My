@@ -1,3 +1,4 @@
+import { Link, useNavigate } from "react-router-dom";
 import { ga1, ga2 } from '../../../assets/page/PageMange';
 
 
@@ -5,23 +6,23 @@ import { ga1, ga2 } from '../../../assets/page/PageMange';
 
 const PageReserve = (props) => {
 
-
+    const navigate = useNavigate();
 
 
     return (
         <>
-            <div className='mt-5 relative bg-gray-100 w-full px-8 py-5  h-full shadow-xl rounded-md border-gray-200 border'>
+            <div className='mt-5 relative bg-gray-100 w-full px-8 py-5  h-full shadow-xl rounded-md border-gray-200 border' id="section-reserve">
 
 
 
-                <div className='text-left'>
+                <div className='text-left' >
 
                     <h5 className="font-bold text-xl">營區預定</h5>
 
 
                     <div className="pt-6">
 
-                        
+
 
 
                         {/* 單個 */}
@@ -72,7 +73,7 @@ const PageReserve = (props) => {
 
                                 <div className="flex flex-col justify-around items-center h-full py-3">
 
-                                    
+
 
                                     <input className='w-3/4' type="text" value='選擇入營及離營日期' />
                                     <input className='w-3/4' type="text" value='帳數' />
@@ -83,7 +84,7 @@ const PageReserve = (props) => {
 
                             </div>
 
-                            
+
 
 
 
@@ -93,15 +94,17 @@ const PageReserve = (props) => {
 
                                 <div className="flex flex-col justify-around items-center h-full py-3">
 
-                                    
+
                                     <h6 className="flex flex-col">
                                         <span className='text-blue-500 text-3xl font-bold'>$1300</span>
                                         <span className='font-bold'>/ (平日價)1晚</span>
                                     </h6>
 
-                                    <button className='w-full border border-green-400 rounded-3xl py-1 px-3 text-md font-semibold hover:bg-green-700 hover:text-white'>預訂</button>
+                                    <button onClick={() => {
+                                        navigate("/reserve")
+                                    }} className='w-full border border-green-400 rounded-3xl py-1 px-3 text-md font-semibold hover:bg-green-700 hover:text-white'>預訂</button>
 
-                                    
+
 
                                 </div>
 
@@ -187,7 +190,11 @@ const PageReserve = (props) => {
                                         <span className='font-bold'>/ (平日價)1晚</span>
                                     </h6>
 
-                                    <button className='w-full border border-green-400 rounded-3xl py-1 px-3 text-md font-semibold hover:bg-green-700 hover:text-white'>預訂</button>
+                                   
+                                        <button onClick={() => {
+                                            navigate("/reserve")
+                                        }} className='w-full border border-green-400 rounded-3xl py-1 px-3 text-md font-semibold hover:bg-green-700 hover:text-white'>預訂</button>
+                                  
 
 
 

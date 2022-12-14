@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import Scrollspy from 'react-scrollspy'
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+// import { faFacebook, faInstagram, faTwitter, faLine } from "@fortawesome/free-brands-svg-icons"
+import { faSignOutAlt, faArrowLeft, faUser } from '@fortawesome/free-solid-svg-icons';
 
 
 const PageGuide = (props) => {
@@ -24,19 +27,20 @@ const PageGuide = (props) => {
 
                 <div className='container'>
 
-                    <div className="flex items-center justify-center">
+                    <div className="relative flex items-center justify-center">
+
+                        <button className='absolute left-0 text-white text-lg' onClick={handleBack}>   <FontAwesomeIcon className="text-white" icon={faArrowLeft} />上一頁</button>
 
 
-                        <button onClick={handleBack}>上衣頁</button>
 
 
 
 
-                        <Scrollspy items={['section-1', 'section-2', 'section-3', 'section-4']} className="flex text-lg text-white" >
+                        <Scrollspy items={['section-info', 'section-reserve', 'section-feedback', 'section-notice']} className="flex text-lg text-white" >
 
 
                             <li>
-                                <a href="#section-1">
+                                <a href="#section-info">
                                     <h4 className=' p-2 hover:border-b'>
                                         <span className='p-2'>營區資訊</span>
                                     </h4>
@@ -46,7 +50,7 @@ const PageGuide = (props) => {
                             <hr className="border h-auto" />
 
                             <li>
-                                <a href="#section-2">
+                                <a href="#section-reserve">
                                     <h4 className=' p-2 hover:border-b'>
                                         <span className='p-2'>營區預定</span>
                                     </h4>
@@ -56,7 +60,7 @@ const PageGuide = (props) => {
                             <hr className="border h-auto" />
 
                             <li>
-                                <a href="#section-3">
+                                <a href="#section-feedback">
                                     <h4 className=' p-2 hover:border-b'>
                                         <span className='p-2'>評價回饋</span>
                                     </h4>
@@ -66,9 +70,9 @@ const PageGuide = (props) => {
                             <hr className="border h-auto" />
 
                             <li>
-                                <a href="#section-4">
+                                <a href="#section-notice">
                                     <h4 className=' p-2 hover:border-b'>
-                                        <span className='p-2'>查看地圖</span>
+                                        <span className='p-2'>營區須知</span>
                                     </h4>
                                 </a>
                             </li>
