@@ -17,17 +17,18 @@ import {
     faCaretRight,
     faBookmark
 } from '@fortawesome/free-solid-svg-icons'
+
+
 import {
     faFacebook,
     faInstagram,
     faTwitter,
     faLine
 } from '@fortawesome/free-brands-svg-icons'
-import { Link } from 'react-router-dom'
 
 import { indexIcon, hot1, hot2, hot3 } from '../../assets/index/IndexMange'
 
-import { useNavigate } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 
 
 function Reserve() {

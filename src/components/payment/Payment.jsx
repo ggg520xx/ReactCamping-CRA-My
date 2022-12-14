@@ -23,11 +23,11 @@ import {
     faTwitter,
     faLine
 } from '@fortawesome/free-brands-svg-icons'
-import { Link } from 'react-router-dom'
+
 
 import { indexIcon, hot1, hot2, hot3 } from '../../assets/index/IndexMange'
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 import CreditCardInput from './func/CreditCardInput';
@@ -111,7 +111,9 @@ function Payment() {
                         </Link> */}
 
                         <div>
-                            <input
+                            <input onClick={() => {
+                                navigate("/finish")
+                            }}
                                 className="text-md h-[50px] w-3/4 border bg-my_black py-1 px-3 font-semibold text-white  hover:bg-white hover:text-my_green"
                                 type="submit"
                                 value="結帳完成"
