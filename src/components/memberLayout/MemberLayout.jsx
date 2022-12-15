@@ -36,7 +36,9 @@ const MemberLayout = () => {
     return (
         <>
 
-            <div className="row h-screen">
+       
+
+            <div className="row h-screen  bg-soft_color ">
 
 
                 <div className='col-2 bg-my_green sticky top-0 left-0 right-0 p-0 rounded-br-[70px]'>
@@ -67,15 +69,15 @@ const MemberLayout = () => {
 
 
                         <Link to='' className="block">
-                            <div className=" text-white text-lg font-bold w-3/4 mx-auto mt-5 min-h-[50px] flex justify-center items-center border-b-2">會員主頁</div>
+                            <div className="hover:bg-white hover:text-my_black rounded-xl border-t  text-white text-lg font-bold w-3/4 mx-auto mt-5 min-h-[50px] flex justify-center items-center border-b-2">會員主頁</div>
                         </Link>
 
                         <Link to='order' className="block">
-                            <div className=" text-white text-lg font-bold w-3/4 mx-auto mt-5 min-h-[50px] flex justify-center items-center border-b-2">訂單記錄</div>
+                            <div className="hover:bg-white hover:text-my_black rounded-xl border-t text-white text-lg font-bold w-3/4 mx-auto mt-5 min-h-[50px] flex justify-center items-center border-b-2">訂單記錄</div>
                         </Link>
 
                         <Link to='like' className="block">
-                            <div className=" text-white text-lg font-bold w-3/4 mx-auto mt-5 min-h-[50px] flex justify-center items-center border-b-2">收藏清單</div>
+                            <div className="hover:bg-white hover:text-my_black rounded-xl border-t text-white text-lg font-bold w-3/4 mx-auto mt-5 min-h-[50px] flex justify-center items-center border-b-2">收藏清單</div>
                         </Link>
 
 
@@ -125,7 +127,7 @@ const MemberLayout = () => {
                                 
                                 <button onClick={handleBack}  className="px-3">
                                     <div class="flex items-center">
-                                        <FontAwesomeIcon className="text-white" icon={faArrowLeft} />
+                                        <FontAwesomeIcon className="text-white mx-1" icon={faArrowLeft} />
                                         <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">回上頁 </span>
                                     </div>
                                 </button>
@@ -134,7 +136,7 @@ const MemberLayout = () => {
 
                                 <button className="px-3">
                                     <div class="flex items-center">
-                                        <FontAwesomeIcon className="text-white" icon={faSignOutAlt} />
+                                        <FontAwesomeIcon className="text-white mx-1" icon={faSignOutAlt} />
                                         <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">登出 </span>
                                     </div>
                                 </button>

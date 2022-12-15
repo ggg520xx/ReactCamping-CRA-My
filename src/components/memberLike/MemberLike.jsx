@@ -32,7 +32,8 @@ function MemberLike() {
 
 
 
-            <DivContentZone className="bg-soft_color py-3">
+            <DivContentZone className="py-3">
+                {/* bg-soft_color */}
 
                 {/* <h2 className="text-xl font-bold">歡迎，您尚有 <span className="text-blue-500">1</span> 筆 行程待進行</h2>
                 <strong>準備好開始您的行程了嗎</strong> */}
@@ -41,15 +42,15 @@ function MemberLike() {
 
 
                 <div>
-                    <button className='border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white' onClick={() => handleLikeTabChange(1)}>北部營區</button>
+                    <button className='border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white' onClick={() => handleLikeTabChange(1)}>北部營區</button>
 
-                    <button className='border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white' onClick={() => handleLikeTabChange(2)}>中部營區</button>
+                    <button className='border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white' onClick={() => handleLikeTabChange(2)}>中部營區</button>
 
-                    <button className='border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white' onClick={() => handleLikeTabChange(3)}>南部營區</button>
+                    <button className='border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white' onClick={() => handleLikeTabChange(3)}>南部營區</button>
 
-                    <button className='border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white' onClick={() => handleLikeTabChange(4)}>東部營區</button>
+                    <button className='border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white' onClick={() => handleLikeTabChange(4)}>東部營區</button>
 
-                    <button className='border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white' onClick={() => handleLikeTabChange(5)}>外島營區</button>
+                    <button className='border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white' onClick={() => handleLikeTabChange(5)}>外島營區</button>
 
 
 
@@ -69,7 +70,7 @@ function MemberLike() {
 
                                 
                                 <div className="col-3">
-                                    <div className="relative col-span-1 mt-5 bg-red-300" onClick={() => { }}>
+                                    <div className="relative col-span-1 mt-5 bg-white" onClick={() => { }}>
 
 
                                         {/* <Link to="/about">About</Link> */}
@@ -82,14 +83,45 @@ function MemberLike() {
                                                 <img src={hot1} className="hover:opacity-80 min-h-[200px] w-full object-cover" alt="" />
 
                                                 {/* 此處包裹為下層文字區塊 */}
-                                                <div className="p-1 text-gray-900 min-h-[30px]">
+                                                <div className=" text-gray-900 min-h-[30px] text-left px-6 py-5">
 
-                                                    {/* 營區名稱和地點在哪 */}
-                                                    <h5 className="font-bold tracking-wider text-lg mt-2 mb-2">安可休閒露營區</h5>
+
+                                                    <div className='row items-center py-2'>
+
+                                                        <div className='col-6 p-0'>
+                                                            {/* 營區名稱和地點在哪 */}
+                                                            <h5 className="font-bold tracking-wider text-xl">安可休閒露營區</h5>
+                                                        </div>
+
+                                                        <div className='col-6 p-0'>
+
+                                                            {/* 星星和價格 用flex共排 用老師的星星評價map*/}
+                                                            <div className='flex items-center justify-end'>
+                                                                <p className="text-md flex">
+                                                                    {/* star 星星的map計算引入匯出 現在就用img */}
+                                                                    <img className="h-3.5" src={solidstar} alt="" />
+                                                                    <img className="h-3.5" src={solidstar} alt="" />
+                                                                    <img className="h-3.5" src={solidstar} alt="" />
+                                                                    <img className="h-3.5" src={solidstar} alt="" />
+                                                                    <img className="h-3.5" src={solidstar} alt="" />
+                                                                </p>
+
+                                                            </div>
+                                                        </div>
+
+
+
+                                                    </div>
+
+
+
+
+
+
 
                                                     <p>
                                                         <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
-                                                        <span>地區：xxx</span>
+                                                        <strong className=''>地區：xxx</strong>
                                                     </p>
 
 
@@ -98,34 +130,15 @@ function MemberLike() {
                                                     {/* <div className="mb-3">
                                     {campTag.map((item, index) => <span className="rounded m-tagStyle mr-1" key={index}>{item.tagName}</span>)}
                                 </div> */}
-                                                    <div>
-                                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
-                                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
-                                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
-                                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
+
+                                                    <div className='py-2'>
+                                                        <span className="mr-1 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">標籤</span>
+                                                        <span className="mr-1 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">標籤</span>
+                                                        <span className="mr-1 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">標籤</span>
                                                     </div>
 
-                                                    {/* 星星和價格 用flex共排 用老師的星星評價map*/}
-                                                    <div className='flex items-center justify-around'>
-                                                        <p className="text-md flex">
 
-                                                            {/* star 星星的map計算引入匯出 現在就用img */}
 
-                                                            <img className="h-3.5" src={solidstar} alt="" />
-                                                            <img className="h-3.5" src={solidstar} alt="" />
-                                                            <img className="h-3.5" src={solidstar} alt="" />
-                                                            <img className="h-3.5" src={solidstar} alt="" />
-                                                            <img className="h-3.5" src={solidstar} alt="" />
-
-                                                            <span>4.7</span>
-                                                            <span>(45)</span>
-                                                        </p>
-
-                                                        <h6 className="">
-                                                            <span className='text-blue-500 text-xl font-bold'>$1300</span>
-                                                            <span className='font-bold'>/ 晚</span>
-                                                        </h6>
-                                                    </div>
 
 
 
@@ -167,7 +180,7 @@ function MemberLike() {
 
 
                                 <div className="col-3">
-                                    <div className="relative col-span-1 mt-5 bg-red-300" onClick={() => { }}>
+                                    <div className="relative col-span-1 mt-5 bg-white" onClick={() => { }}>
 
 
                                         {/* <Link to="/about">About</Link> */}
@@ -180,14 +193,45 @@ function MemberLike() {
                                                 <img src={hot1} className="hover:opacity-80 min-h-[200px] w-full object-cover" alt="" />
 
                                                 {/* 此處包裹為下層文字區塊 */}
-                                                <div className="p-1 text-gray-900 min-h-[30px]">
+                                                <div className=" text-gray-900 min-h-[30px] text-left px-6 py-5">
 
-                                                    {/* 營區名稱和地點在哪 */}
-                                                    <h5 className="font-bold tracking-wider text-lg mt-2 mb-2">安可休閒露營區</h5>
+
+                                                    <div className='row items-center py-2'>
+
+                                                        <div className='col-6 p-0'>
+                                                            {/* 營區名稱和地點在哪 */}
+                                                            <h5 className="font-bold tracking-wider text-xl">安可休閒露營區</h5>
+                                                        </div>
+
+                                                        <div className='col-6 p-0'>
+
+                                                            {/* 星星和價格 用flex共排 用老師的星星評價map*/}
+                                                            <div className='flex items-center justify-end'>
+                                                                <p className="text-md flex">
+                                                                    {/* star 星星的map計算引入匯出 現在就用img */}
+                                                                    <img className="h-3.5" src={solidstar} alt="" />
+                                                                    <img className="h-3.5" src={solidstar} alt="" />
+                                                                    <img className="h-3.5" src={solidstar} alt="" />
+                                                                    <img className="h-3.5" src={solidstar} alt="" />
+                                                                    <img className="h-3.5" src={solidstar} alt="" />
+                                                                </p>
+
+                                                            </div>
+                                                        </div>
+
+
+
+                                                    </div>
+
+
+
+
+
+
 
                                                     <p>
                                                         <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
-                                                        <span>地區：xxx</span>
+                                                        <strong className=''>地區：xxx</strong>
                                                     </p>
 
 
@@ -196,34 +240,15 @@ function MemberLike() {
                                                     {/* <div className="mb-3">
                                     {campTag.map((item, index) => <span className="rounded m-tagStyle mr-1" key={index}>{item.tagName}</span>)}
                                 </div> */}
-                                                    <div>
-                                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
-                                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
-                                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
-                                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
+
+                                                    <div className='py-2'>
+                                                        <span className="mr-1 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">標籤</span>
+                                                        <span className="mr-1 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">標籤</span>
+                                                        <span className="mr-1 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">標籤</span>
                                                     </div>
 
-                                                    {/* 星星和價格 用flex共排 用老師的星星評價map*/}
-                                                    <div className='flex items-center justify-around'>
-                                                        <p className="text-md flex">
 
-                                                            {/* star 星星的map計算引入匯出 現在就用img */}
 
-                                                            <img className="h-3.5" src={solidstar} alt="" />
-                                                            <img className="h-3.5" src={solidstar} alt="" />
-                                                            <img className="h-3.5" src={solidstar} alt="" />
-                                                            <img className="h-3.5" src={solidstar} alt="" />
-                                                            <img className="h-3.5" src={solidstar} alt="" />
-
-                                                            <span>4.7</span>
-                                                            <span>(45)</span>
-                                                        </p>
-
-                                                        <h6 className="">
-                                                            <span className='text-blue-500 text-xl font-bold'>$1300</span>
-                                                            <span className='font-bold'>/ 晚</span>
-                                                        </h6>
-                                                    </div>
 
 
 

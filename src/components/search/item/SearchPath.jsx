@@ -29,7 +29,7 @@ const SearchPath = (props) => {
             <div className='py-5'>
             
                 <div className="w-full  bg-soft_color text-left pl-5 py-1 rounded-[50px]" >
-                    <p className="font-bold  text-blue-500" >
+                    <p className="font-bold  text-my_blue" >
                         <Link to="/" className="font-bold" >
                             首頁&nbsp;&nbsp;
                         </Link>

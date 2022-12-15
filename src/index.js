@@ -13,13 +13,12 @@ import { BrowserRouter } from "react-router-dom";
 
 
 
-
 // eslint-disable-next-line
 import "swiper/css/bundle";
 // import "./styles.css";
 
 
-
+import ScrollToTop from "./hooks/useScrollTop.jsx";
 
 
 
@@ -27,7 +26,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <App />
+      <ScrollToTop>
+        <App />
+      </ScrollToTop>
     </BrowserRouter>
   </React.StrictMode>
 );

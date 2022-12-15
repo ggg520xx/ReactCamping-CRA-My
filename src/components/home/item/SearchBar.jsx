@@ -3,7 +3,7 @@ import { indexBanner, indexBanner2, indexBanner3, indexBanner4, coverBanner } fr
 import { Link, useNavigate } from "react-router-dom";
 
 
-import { SearchBarGlowColor1, SearchBarGlowColor2, SearchBarGlowColor3, SearchBarGlowColor4, SearchBarShadow, SearchBarShadow2 } from './itemStyle/SearchBarStyle'
+import { SearchBarGlowColor1, SearchBarGlowColor2, SearchBarGlowColor3, SearchBarGlowColor4, SearchBarShadow, SearchBarShadow2, Searchtext } from './itemStyle/SearchBarStyle'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
@@ -26,11 +26,15 @@ import "swiper/css/autoplay";
 // import 'swiper/css/scrollbar';
 
 
+import "./itemStyle/sup.css";
+
 
 const SearchBar = (props) => {
 
     // 一定要這段
     const navigate = useNavigate();
+
+
 
     const inputStyle = {
         width: "66%",
@@ -39,6 +43,10 @@ const SearchBar = (props) => {
         borderTopRightRadius: "40px",
         borderBottomRightRadius: "40px",
     }
+
+  
+
+
 
 
     return (
@@ -59,7 +67,7 @@ const SearchBar = (props) => {
             {/* <div className="w-full h-full bg-no-repeat bg-cover bg-center" style={{ backgroundImage: `url(${indexBanner})` }}> </div> */}
 
 
-            <div className="w-full h-full">
+            <div className="w-full h-full relative coverBanner">
 
                 <Swiper
                     // 告訴 Swiper 這個會用到多少module
@@ -127,29 +135,29 @@ const SearchBar = (props) => {
 
                 </Swiper>
 
-
+                {/* style={{ background-color: rgba(0, 0, 0, 0.6) }} */}
 
                 {/* ------------------------------------------------------ */}
 
                 {/* 搜尋框的陰影遮罩 外容器的75％ 及控制位置 */}
                 <SearchBarShadow className="flex flex-col justify-center">
 
-                    {/* 控制內部搜尋框 的最大大小 2xl以上範圍為 外容器的80％ */}
-                    <div className="relative p-6 w-full 2xl:max-w-[80%] mx-auto">
+                    {/* 控制內部搜尋框 的最大大小 2xl以上範圍為 外容器的80％ 2xl:max-w-[80%]拿掉 */}
+                    <div className="relative p-6 w-full  mx-auto">
 
                         {/* 彩色邊框 的外型內推 搜尋框*/}
                         <div className="overflow-hidden z-0 rounded-full relative p-1">
 
                             {/* 最中間白色搜尋框樣式 */}
                             <form action="" className="relative flex z-50 bg-white rounded-full">
-                                <input type="text" placeholder="enter your search here" className="rounded-full flex-1 px-6 py-4 text-gray-700 focus:outline-none" />
+                                <input type="text" placeholder="立即開啟你的行程，這次想去哪呢？" className="rounded-full flex-1 px-6 py-4 text-gray-700 focus:outline-none" />
 
-                                <button className="bg-indigo-500 text-white rounded-full font-semibold px-8 py-4 hover:bg-indigo-400 focus:bg-indigo-600 focus:outline-none" onClick={(e) => { navigate('/search') }}>Search</button>
+                                <button className="bg-p_color text-white rounded-full font-semibold px-8 py-4 hover:bg-my_green focus:bg-sub_color focus:outline-none" onClick={(e) => { navigate('/search') }}>Search</button>
                             </form>
-                            <SearchBarGlowColor1 className="z-10 bg-pink-400 absolute"></SearchBarGlowColor1>
-                            <SearchBarGlowColor2 className="z-20 bg-purple-400 absolute"></SearchBarGlowColor2>
-                            <SearchBarGlowColor3 className="z-30 bg-yellow-400 absolute"></SearchBarGlowColor3>
-                            <SearchBarGlowColor4 className="z-40 bg-blue-400 absolute"></SearchBarGlowColor4>
+                            <SearchBarGlowColor1 className="z-10 bg-p_color absolute"></SearchBarGlowColor1>
+                            <SearchBarGlowColor2 className="z-20 bg-sub_color absolute"></SearchBarGlowColor2>
+                            <SearchBarGlowColor3 className="z-30 bg-my_yellow absolute"></SearchBarGlowColor3>
+                            <SearchBarGlowColor4 className="z-40 bg-soft_color absolute"></SearchBarGlowColor4>
                         </div>
                     </div>
                 </SearchBarShadow>
@@ -157,10 +165,18 @@ const SearchBar = (props) => {
 
 
 
-                {/* 第二搜尋框 之後調整 */}
-                <SearchBarShadow2 className="bg-white border" style={inputStyle}>
+
+                <Searchtext className="text-5xl  text-white font-extrabold">
+                    搜尋想去的地區，直接出發吧
+                </Searchtext>
+
+
+                {/* 第二搜尋框 之後調整 */} 
+                {/* <SearchBarShadow2 className="bg-white border" style={inputStyle}>
                     <div className="d-flex justify-content-between " >
-                        {/* <!-- input --> */}
+
+
+
                         <div className=" pl-3 d-flex " style={{ width: "90%" }} >
 
                             <div className=" p-2  pl-4 border-right" style={{ width: "35%", borderRight: "1px solid gray" }}>
@@ -220,16 +236,15 @@ const SearchBar = (props) => {
 
                     </div>
 
-                </SearchBarShadow2>
+                </SearchBarShadow2> */}
 
 
+                
+                {/* 樹林的cover白色區塊 */}
                 <div className="w-full absolute -translate-y-full">
-
                     <picture >
                         <img src={coverBanner} alt="" className="w-full" />
                     </picture>
-
-
                 </div>
 
 

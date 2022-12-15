@@ -43,17 +43,17 @@ const SearchPickSideRight = (props) => {
                         </h3>
 
                         <div className="flex flex-wrap">
-                            <button className='m-1 border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white'>小木屋營區類</button>
+                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>小木屋營區類</button>
 
-                            <button className='m-1 border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white'>盥洗淋浴設施</button>
-                            <button className='m-1 border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white'>供早或晚餐點</button>
-                            <button className='m-1 border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white'>提供租借裝備</button>
+                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>盥洗淋浴設施</button>
+                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>供早或晚餐點</button>
+                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>提供租借裝備</button>
 
-                            <button className='m-1 border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white'>戲水區</button>
-                            <button className='m-1 border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white'>可泡湯</button>
-                            <button className='m-1 border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white'>遮雨棚</button>
-                            <button className='m-1 border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white'>戲水區</button>
-                            <button className='m-1 border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white'>停車位</button>
+                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>戲水區</button>
+                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>可泡湯</button>
+                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>遮雨棚</button>
+                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>戲水區</button>
+                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>停車位</button>
 
                             {/* 要能再次被點選取消 */}
                             {/* {searchFilterTag.map((item, index) => <button key={index} type="button" className="m-searchTag3 rounded" onClick={handleTagClick}>{item}</button>)} */}
@@ -67,9 +67,9 @@ const SearchPickSideRight = (props) => {
                     {/* 執行再次搜尋條件 或清除條件 */}
                     <div className='row justify-around'>
 
-                        <button className='col-4   my-1 border border-green-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-green-700 hover:text-white'>執行條件搜尋</button>
+                        <button className='col-4   my-1 border border-blue-800 rounded-sm py-1 px-3 text-md font-semibold hover:bg-my_blue hover:text-white'>執行條件搜尋</button>
 
-                        <button className='col-4   my-1 border border-red-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-red-700 hover:text-white'>清除所有篩選</button>
+                        <button className='col-4   my-1 border border-red-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-red-800 hover:text-white'>清除所有篩選</button>
 
                     </div>
 

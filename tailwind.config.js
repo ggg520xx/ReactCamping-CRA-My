@@ -44,13 +44,18 @@ module.exports = {
     extend: {
       colors: {
         main_color: '#38470B',
-        sub_color: '#949C7C',
+        
+        sub_color: '#a2ad80',
         p_color: '#8DA291',
+        psub_color:'#B4E0C5',
+
         my_yellow: '#FFE180',
         my_black: '#1e1e1e',
         my_green: '#445a49',
-
-        soft_color:'#f2ede6'
+        
+        my_blue: '#173954',
+        soft_color: '#f2ede6'
+        
         
         // primary: '#b22222',
         // secondary: '#949C7C'

@@ -32,11 +32,11 @@ const PagePic = (props) => {
 
                 <div className="flex flex-col justify-around items-start py-3">
 
-                    <h5 className="font-bold text-xl">安安休閒露營區</h5>
+                    <h5 className="font-bold text-2xl mb-3">安安休閒露營區</h5>
 
                     <p>
                         <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
-                        <span>地區：xxx</span>
+                        <strong>地區：xxx</strong>
                     </p>
 
 
@@ -63,7 +63,7 @@ const PagePic = (props) => {
                         <div>
 
                             <h6 className="">
-                                <span className='text-blue-500 text-3xl font-bold'>$1300</span>
+                                <span className='text-p_color text-3xl font-bold'>$1300</span>
                                 <span className='font-bold'>/ 晚</span>
                             </h6>
 

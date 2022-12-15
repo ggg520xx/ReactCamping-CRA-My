@@ -175,15 +175,16 @@ function MemberOrder() {
 
 
 
-            <DivContentZone className="bg-soft_color py-3">
+            <DivContentZone className="py-3">
+{/* bg-soft_color */}
 
                 {/* <h2 className="text-xl font-bold">歡迎，您尚有 <span className="text-blue-500">1</span> 筆 行程待進行</h2>
                 <strong>準備好開始您的行程了嗎</strong> */}
 
                 <div>
                     <div>
-                        <button className='border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white' onClick={() => handleTabChange(1)}>過去完成記錄</button>
-                        <button className='border border-blue-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-blue-800 hover:text-white' onClick={() => handleTabChange(2)}>取消訂單記錄</button>
+                        <button className='border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white' onClick={() => handleTabChange(1)}>過去完成記錄</button>
+                        <button className='border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white' onClick={() => handleTabChange(2)}>取消訂單記錄</button>
                     </div>
 
 
@@ -204,14 +205,16 @@ function MemberOrder() {
 
                     {/* 點選為1或2  並且同時有值  activeTab === 1 && XX = TRUE 之後補上資料*/}
 
-                    {activeTab === 1 ? <div>
-                        <div className="mt-4 row border border-blue-200 bg-white hover:shadow-xl hover:border-blue-600 w-4/5 mx-auto">
+                    {activeTab === 1 ? 
+                    
+                    <div>
+                       <div className="mt-5 row border border-psub_color bg-white hover:shadow-xl hover:border-sub_color w-4/5 mx-auto">
 
                             {/* <div className="col-4 border border-red-100"> */}
                             <div className="col-3 py-3.5 border-r">
 
 
-                                <strong className='bg-my_green block text-white mb-2'>訂單編號：<span>2022120301</span></strong>
+                                <strong className='bg-p_color block text-white mb-2'>訂單編號：<span>2022120301</span></strong>
 
 
                                 <img className='h-[160px] w-full object-cover' src={searchDemo} alt="" />
@@ -234,18 +237,13 @@ function MemberOrder() {
 
 
                                     <div className="text-left">
-                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
-                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
-                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
-                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
-                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
-                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
-                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
-                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
-                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
-                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
-                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
-                                        <span className="mr-1 bg-blue-200 py-0.5 px-1.5 text-sm font-bold text-blue-800">標籤</span>
+                                        <span className="mr-1 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">標籤</span>
+                                        <span className="mr-1 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">標籤</span>
+                                        <span className="mr-1 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">標籤</span>
+                                        <span className="mr-1 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">標籤</span>
+                                        <span className="mr-1 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">標籤</span>
+                                        <span className="mr-1 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">標籤</span>
+                                        <span className="mr-1 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">標籤</span>
                                     </div>
 
 
@@ -341,7 +339,7 @@ function MemberOrder() {
 
 
 
-                                    <button onClick={handleClick} className='w-full border border-green-400 rounded-3xl py-1 px-3 text-md font-semibold hover:bg-green-700 hover:text-white'>
+                                    <button onClick={handleClick} className='w-full border border-psub_color rounded-3xl py-1 px-3 text-md font-semibold hover:bg-sub_color hover:text-white'>
 
                                         {expanded ? "詳細收回" : "詳細展開"}
 
@@ -723,9 +721,9 @@ function MemberOrder() {
 
                                     <div className='row justify-around'>
 
-                                        <button className='col-4   my-1 border border-green-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-green-700 hover:text-white'>送出評價</button>
+                                        <button className='col-4   my-1 border border-blue-800 rounded-sm py-1 px-3 text-md font-semibold hover:bg-my_blue hover:text-white'>送出評價</button>
 
-                                        <button onClick={handleVisible} className='col-4   my-1 border border-red-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-red-700 hover:text-white'>取消離開</button>
+                                        <button onClick={handleVisible} className='col-4   my-1 border border-red-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-red-800 hover:text-white'>取消離開</button>
 
                                     </div>
                                 </DivCoverStyled>

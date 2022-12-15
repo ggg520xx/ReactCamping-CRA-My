@@ -94,17 +94,16 @@ const SearchBarGlowColor4 = styled.div`top: -10%;
 
 
 const SearchBarShadow = styled.div`background-color: rgba(0, 0, 0, 0.6);
-    width: 70%;
+    width: 50%;
     position: absolute;
-    top: 90px;
-    right: 0;
+    transform: translate(32%, 170%);
+    top: 0;
     left: 0;
-    margin: auto;
-    padding: 1px;
     border-radius: 100px;`
 /* @apply border border-yellow-300; */
 /* flex
 justify-center */
+
 
 const SearchBarShadow2 = styled.form`    width: 75%;
     position: absolute;
@@ -118,6 +117,12 @@ const SearchBarShadow2 = styled.form`    width: 75%;
 /* @apply border border-yellow-300; */
 /* flex
 justify-center */
+
+
+const Searchtext = styled.div`
+    position: absolute;
+    top: 37%;
+    right: 22%;`
     
 
 
@@ -127,4 +132,4 @@ justify-center */
 
 
 
-export { SearchBarGlowColor1, SearchBarGlowColor2, SearchBarGlowColor3, SearchBarGlowColor4, SearchBarShadow, SearchBarShadow2 }
+export { SearchBarGlowColor1, SearchBarGlowColor2, SearchBarGlowColor3, SearchBarGlowColor4, SearchBarShadow, SearchBarShadow2, Searchtext }

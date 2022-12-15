@@ -108,9 +108,11 @@ function Finish() {
                             <div className="col-6 ">
 
 
+                                {/* hover:opacity-80 */}
+
                                 <img
                                     src={hot1}
-                                    className="min-h-[200px] w-full object-cover hover:opacity-80"
+                                    className="min-h-[200px] w-full object-cover"
                                     alt=""
                                 />
                             </div>

@@ -17,11 +17,11 @@ const CampSearch = (props) => {
 
 
 
-            <div className='pb-5'>
+            <div className='pb-8'>
 
 
 
-                <div className="flex p-5 border border-red-500 justify-center items-end">
+                <div className="flex p-5  justify-center items-end">
                     {/* <FontAwesomeIcon icon={faCoffee} className="mr-2" />
                 <FontAwesomeIcon icon={faAtom} className="w-12 h-12" /> */}
                     <img src={indexIcon} className='w-20 h-20' alt="" />
@@ -30,26 +30,40 @@ const CampSearch = (props) => {
                 </div>
 
 
-                <div className="grid grid-cols-12 gap-5">
-                    <div className="col-span-4 mt-5 bg-red-300"><img className="h-[200px] w-full object-cover rounded-[30px]" src={location1} alt="" />
-                        <p>北中南xx營區</p>
+                <div className="grid grid-cols-12 gap-7">
+
+                    <div className="col-span-4 mt-5 "><img className="mb-2 h-[200px] w-full object-cover rounded-[30px]" src={location1} alt="" />
+                        <strong className="">北部營區</strong>
                     </div>
-                    <div className="col-span-4 mt-5 bg-red-300"><img className="h-[200px] w-full object-cover rounded-[30px]" src={location2} alt="" />
-                        <p>北中南xx營區</p>
+
+
+                    <div className="col-span-4 mt-5 "><img className="mb-2 h-[200px] w-full object-cover rounded-[30px]" src={location2} alt="" />
+                        <strong className="">中部營區</strong>
                     </div>
-                    <div className="col-span-4 mt-5 bg-red-300"><img className="h-[200px] w-full object-cover rounded-[30px]" src={location3} alt="" />
-                        <p>北中南xx營區</p>
+
+
+                    <div className="col-span-4 mt-5 "><img className="mb-2 h-[200px] w-full object-cover rounded-[30px]" src={location3} alt="" />
+                        <strong className="">南部營區</strong>
                     </div>
+
+
                 </div>
 
 
                 <div className="grid grid-cols-12 gap-5 justify-center">
-                    <div className="col-span-4 col-start-2 col-end-6 mt-5 bg-red-300"><img className="h-[200px] w-full object-cover rounded-[30px]" src={location4} alt="" />
-                        <p>北中南xx營區</p>
+
+
+                    <div className="col-span-4 col-start-2 col-end-6 mt-5 "><img className="mb-2 h-[200px] w-full object-cover rounded-[30px]" src={location4} alt="" />
+                        <strong className="">東部營區</strong>
                     </div>
-                    <div className="col-span-4 col-start-8 col-end-12 mt-5 bg-red-300"><img className="h-[200px] w-full object-cover rounded-[30px]" src={location5} alt="" />
-                        <p>北中南xx營區</p>
+
+
+                    <div className="col-span-4 col-start-8 col-end-12 mt-5 ">
+                        <img className="mb-2 h-[200px] w-full object-cover rounded-[30px]" src={location5} alt="" />
+                        <strong className="">外島營區</strong>
                     </div>
+
+
 
                 </div>
 

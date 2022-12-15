@@ -1,10 +1,14 @@
 // import { Link, useNavigate } from "react-router-dom";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 // import indexLogo from '../../assets/index/logo.png';
 import { indexLogo, FbSvgComp, InsSvgComp, TwiSvgComp, LineSvgComp } from '../../assets/layout/LayoutMange';
 import "./LayoutStyle.css";
 import React, { useState } from 'react';
+
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faSignOutAlt, faArrowLeft, faUser } from '@fortawesome/free-solid-svg-icons';
 
 // ---------------------------------------------------------------------------
 
@@ -24,6 +28,11 @@ import React, { useState } from 'react';
 function Layout() {
 
     const [isOpen, setIsOpen] = useState(false);
+
+
+    // 一定要這段
+    const navigate = useNavigate();
+
 
     return (
         <>
@@ -46,52 +55,58 @@ function Layout() {
                     <div class="relative flex md:order-2">
 
 
-                        {/* 大畫面時的 搜尋欄 */}
-                        {/* <div class="relative">
-                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                <svg class="w-5 h-5 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
-                                <span class="sr-only">Search icon</span>
+
+                        <button onClick={() => {
+                            navigate("/login")
+                        }} className="px-3">
+                            <div class="flex items-center">
+                                <FontAwesomeIcon className="text-white mx-1" icon={faUser} />
+                                <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">登入 </span>
                             </div>
-                            <input type="text" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." />
-                        </div> */}
-
-
-                        {/* 大畫面時的 頭像按鈕 */}
-                        <button onClick={() => setIsOpen(!isOpen)} type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" >
-                            <img class='rounded-2xl' src="https://avatar2.bahamut.com.tw/avataruserpic/f/8/f853853/f853853_s.png?v=1669060152382" alt="" />
                         </button>
 
 
-                        {isOpen && (
-                            <div class="dropdown_position w-[160px] z-50 absolute my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600">
-                                <div class="px-4 py-3">
-                                    <span class="block text-sm text-gray-900 dark:text-white">Bonnie Anko</span>
-                                    <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">一般會員身分</span>
+                        <div>
+
+
+
+                            {/* 大畫面時的 頭像按鈕 */}
+                            <button onClick={() => setIsOpen(!isOpen)} type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" >
+                                <img class='rounded-2xl' src="https://avatar2.bahamut.com.tw/avataruserpic/f/8/f853853/f853853_s.png?v=1669060152382" alt="" />
+                            </button>
+
+
+                            {isOpen && (
+                                <div class="dropdown_position w-[160px] z-50 absolute my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600">
+                                    <div class="px-4 py-3">
+                                        <span class="block text-sm text-gray-900 dark:text-white">Bonnie Anko</span>
+                                        <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">一般會員身分</span>
+                                    </div>
+                                    <ul class="py-1" aria-labelledby="user-menu-button">
+                                        <li>
+                                            <Link to="/member" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">會員頁面</Link>
+                                        </li>
+
+
+
+                                        <li>
+                                            <Link to="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">成為營主</Link>
+                                        </li>
+
+                                        <li>
+                                            <Link to="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">登出</Link>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <ul class="py-1" aria-labelledby="user-menu-button">
-                                    <li>
-                                        <Link to="/member" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">會員頁面</Link>
-                                    </li>
-                                
+                            )}
 
-
-                                    <li>
-                                        <Link to="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">成為營主</Link>
-                                    </li>
-                                    
-                                    <li>
-                                        <Link to="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">登出</Link>
-                                    </li>
-                                </ul>
-                            </div>
-                        )}
+                        </div>
 
 
 
-                        
 
-                        {/* 頭像的下拉 Dropdown menu 不分大小畫面 */}
-                        
+
+
                     </div>
                 </div>
             </nav>

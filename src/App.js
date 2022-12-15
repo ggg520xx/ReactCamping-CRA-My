@@ -15,6 +15,8 @@ import Reserve from './components/reserve/Reserve'
 import Payment from './components/payment/Payment'
 import Finish from './components/finish/Finish'
 
+import Login from './components/login/Login'
+import Register from './components/register/Register'
 
 import MemberLayout from './components/memberLayout/MemberLayout'
 import MemberMain from './components/memberMain/MemberMain'
@@ -48,17 +50,13 @@ function App() {
           <Route path='search' element={<Search />} />
           <Route path='page' element={<Page />} />
 
-
-          
-
-        
-
           <Route path='reserve' element={<Reserve />} />
           <Route path='payment' element={<Payment />} />
           <Route path='finish' element={<Finish />} />
 
 
-          <Route path='finish' element={<Finish />} />
+          <Route path='login' element={<Login />} />
+          <Route path='register' element={<Register />} />
           
 
 
