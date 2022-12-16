@@ -241,7 +241,7 @@ const SearchBar = (props) => {
 
                 
                 {/* 樹林的cover白色區塊 */}
-                <div className="w-full absolute -translate-y-full">
+                <div className="w-full absolute -translate-y-[calc(100%-1%)]">
                     <picture >
                         <img src={coverBanner} alt="" className="w-full" />
                     </picture>

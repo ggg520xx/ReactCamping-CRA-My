@@ -48,7 +48,6 @@ function Reserve() {
 
     const onSubmit = (data) => {
 
-
         // 有抓取物件再轉換 頁面
         let formdata = JSON.stringify(data)
         alert(formdata);
@@ -92,7 +91,11 @@ function Reserve() {
 
                 <div className="row">
                     <div className="col-7 mb-3 h-full w-full rounded-md border border-gray-200 bg-my_green px-8 py-8 shadow-xl">
+
+
                         <form onSubmit={handleSubmit(onSubmit)}>
+
+
                             <h4 className="mb-3 text-left text-2xl font-bold text-white">
                                 訂購人資料
                             </h4>
@@ -226,7 +229,7 @@ function Reserve() {
 
                             <div>
                                 <input
-                                    className="text-md h-[50px] w-3/4 border bg-my_black py-1 px-3 font-semibold text-white  hover:bg-white hover:text-my_green"
+                                    className="text-md h-[50px] w-3/4  bg-my_black py-1 px-3 font-semibold text-white  hover:bg-white hover:text-my_green"
                                     type="submit"
                                     value="前往付款"
                                 />

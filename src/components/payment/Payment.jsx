@@ -114,7 +114,7 @@ function Payment() {
                             <input onClick={() => {
                                 navigate("/finish")
                             }}
-                                className="text-md h-[50px] w-3/4 border bg-my_black py-1 px-3 font-semibold text-white  hover:bg-white hover:text-my_green"
+                                className="text-md h-[50px] w-3/4 bg-my_black py-1 px-3 font-semibold text-white  hover:bg-white hover:text-my_green"
                                 type="submit"
                                 value="結帳完成"
                             />

@@ -42,21 +42,17 @@ function MemberLike() {
 
 
                 <div>
-                    <button className='border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white' onClick={() => handleLikeTabChange(1)}>北部營區</button>
+                    <div className='h-[60px]'>
+                        <button className='border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white' onClick={() => handleLikeTabChange(1)}>北部營區</button>
 
-                    <button className='border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white' onClick={() => handleLikeTabChange(2)}>中部營區</button>
+                        <button className='border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white' onClick={() => handleLikeTabChange(2)}>中部營區</button>
 
-                    <button className='border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white' onClick={() => handleLikeTabChange(3)}>南部營區</button>
+                        <button className='border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white' onClick={() => handleLikeTabChange(3)}>南部營區</button>
 
-                    <button className='border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white' onClick={() => handleLikeTabChange(4)}>東部營區</button>
+                        <button className='border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white' onClick={() => handleLikeTabChange(4)}>東部營區</button>
 
-                    <button className='border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white' onClick={() => handleLikeTabChange(5)}>外島營區</button>
-
-
-
-                    {/* <div className="col-3">
-
-                    </div> */}
+                        <button className='border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white' onClick={() => handleLikeTabChange(5)}>外島營區</button>
+                    </div>
 
 
                     <div>
@@ -68,7 +64,7 @@ function MemberLike() {
 
                             <div className="row">
 
-                                
+
                                 <div className="col-3">
                                     <div className="relative col-span-1 mt-5 bg-white" onClick={() => { }}>
 

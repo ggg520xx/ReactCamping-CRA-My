@@ -17,7 +17,8 @@ import React, { useState } from "react";
 
 
 
-
+// 突然想放背景圖 來包裹所有元件
+import { indexBottomBg } from '../../assets/search/SearchMange';
 
 
 
@@ -38,7 +39,7 @@ const MemberLayout = () => {
 
        
 
-            <div className="row h-screen  bg-soft_color ">
+            <div className="row h-screen  bg-soft_color bg-no-repeat bg-cover bg-center" style={{ backgroundImage: `url(${indexBottomBg})` }}>
 
 
                 <div className='col-2 bg-my_green sticky top-0 left-0 right-0 p-0 rounded-br-[70px]'>

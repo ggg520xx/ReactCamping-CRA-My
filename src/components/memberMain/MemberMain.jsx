@@ -166,8 +166,12 @@ function MemberMain() {
 
 
 
-                <h2 className="text-xl font-bold">歡迎，您尚有 <span className="text-blue-500">1</span> 筆 行程待進行</h2>
-                <strong>準備好開始您的行程了嗎</strong>
+                <div className='h-[60px]'>
+
+                    <h2 className="text-xl font-bold">歡迎，您尚有 <span className="text-blue-500">1</span> 筆 行程待進行</h2>
+                    <strong>準備好開始您的行程了嗎</strong>
+
+                </div>
 
 
 
@@ -402,7 +406,7 @@ function MemberMain() {
 
                                     <h4 className="py-4 text-xl font-bold text-left">訂單資訊</h4>
 
-                                    
+
 
 
 
@@ -467,7 +471,7 @@ function MemberMain() {
                                         </div>
                                     </div>
 
-                                
+
 
                                 </div>
 
@@ -516,7 +520,7 @@ function MemberMain() {
 
                             <div className="py-5 row items-start bg-white">
                                 <div className="col-5">
-                                     <strong>營區評價</strong>
+                                    <strong>營區評價</strong>
                                 </div>
 
                                 <div className="col-7">
@@ -677,23 +681,23 @@ function MemberMain() {
                                         id="exampleFormControlTextarea1" rows="4" style={{ border: "1.5px solid black" }}
                                         onFocus={(e) => setRankingText("草皮保養的不錯，而且離溪邊很近，可以玩水！！！超讚的露營體驗，推薦大家來玩喔。")}
                                     ></textarea>
-                                  
+
 
 
                                 </div>
                             </div>
                         </div>
 
-                        
-                              <div className='row justify-around'>
 
-                                        <button className='col-4   my-1 border border-blue-800 rounded-sm py-1 px-3 text-md font-semibold hover:bg-my_blue hover:text-white'>送出評價</button>
+                        <div className='row justify-around'>
 
-                                        <button onClick={handleVisible} className='col-4   my-1 border border-red-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-red-800 hover:text-white'>取消離開</button>
+                            <button className='col-4   my-1 border border-blue-800 rounded-sm py-1 px-3 text-md font-semibold hover:bg-my_blue hover:text-white'>送出評價</button>
 
-                                    </div>
-                        
-                      
+                            <button onClick={handleVisible} className='col-4   my-1 border border-red-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-red-800 hover:text-white'>取消離開</button>
+
+                        </div>
+
+
 
 
 

@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
 
-
-
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { faUnlockAlt } from '@fortawesome/free-solid-svg-icons';
-
-
+import { faUnlockAlt, faEnvelope, faKey, faArrowRight, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
 import { Link } from "react-router-dom";
 
+import './LoginStyle.css'
 
 
 
-const Login = (props) => { 
+const Login = (props) => {
+
+
+
 
     const { onLogin, loginAlert, role, msgReg, setMsgReg } = props;
     const [memberEmail, setMemberEmail] = useState("");
@@ -24,19 +23,22 @@ const Login = (props) => {
 
 
 
-    const hint = () => {
-        if (loginAlert === '') {
-            return
-        } else if (loginAlert === '登入成功') {
-            return
-        } else {
-            return (
-                <div className="alert alert-warning" role="alert">
-                    {loginAlert}
-                </div>
-            )
-        }
-    }
+    // const hint = () => {
+    //     if (loginAlert === '') {
+    //         return
+    //     } else if (loginAlert === '登入成功') {
+    //         return
+    //     } else {
+    //         return (
+    //             <div className="alert alert-warning" role="alert">
+    //                 {loginAlert}
+    //             </div>
+    //         )
+    //     }
+    // }
+
+
+
 
 
 
@@ -45,65 +47,107 @@ const Login = (props) => {
             {/* <!-- login_page --> */}
             <div class="h-screen container relative">
 
-                
-                <div class="row justify-center relative">
+                <div class='h-full flex justify-center items-center'>
+
+
+                    <div className="bg-soft_color w-7/12 p-0 rounded shadow-lg py-5  " >
+                        {/* style={{ backgroundColor: "#dfe2dd" }} */}
 
 
 
-                    <div class="w-6/12 p-0 rounded shadow-lg" style={{ backgroundColor: "#dfe2dd" }}>
 
-                        <div className="col-8 m-auto pt-4">
-
-                            <h2 className="text-center font-bold" style={{ color: "var(--darkColor)", letterSpacing: 1 }}>會員登入</h2>
+                        {/* <div> 預備放個露營縮圖 </div> */}
 
 
-                            {/* form */}
-                            {/* Alert === true 顯示 */}
-                            {hint()}
-                            {/* 是否要用form ????*/}
-                            <div class="mt-4 mb-2" >
-                                <div class="input-group mb-2 " style={{ height: 50 }}>
-                                    <div class="input-group-prepend ">
-                                        {/* <span class="input-group-text bg-white" style={{ width: "50", border: "1px solid var(--priceColor)", paddingRight: 13 }}> */}
-                                            {/* <FontAwesomeIcon icon={faEnvelope} className="m-auto" color="var(--priceColor)" style={{ fontSize: 20 }} /> */}
-                                        {/* </span> */}
-                                    </div>
-                                    <input type="text" className="form-control h-100" placeholder="請輸入信箱" onChange={(e) => {
+                        <div className="py-5">
+                            <h2 className="font-bold text-xl text-my_green" style={{ letterSpacing: 1 }}>會員登入</h2>
+                        </div>
+
+
+
+                        <hr className="bg-my_green h-[1px] w-8/12 mx-auto" style={{ border: 'none' }} />
+
+
+                        {/* 帳號密碼區塊 */}
+                        <div className="py-5">
+
+
+                            <div className="flex justify-center py-2">
+
+                                <div className='flex items-center px-5 bg-sub_color'>
+                                    <FontAwesomeIcon icon={faEnvelope} className=" text-white" />
+                                </div>
+
+                                <div>
+                                    <input className="border-transparent" type="text" placeholder="請輸入信箱" style={{ letterSpacing: 1 }} onChange={(e) => {
                                         setMemberEmail(e.target.value);
-                                    }} style={{ letterSpacing: 1 }} required onFocus={(e) => setMemberEmail("test@gmail.com")} value={memberEmail} />
+                                    }} required onFocus={(e) => setMemberEmail("user@gmail.com")} value={memberEmail} />
+
+                                </div>
+                            </div>
+
+
+
+                            <div className="flex justify-center py-2">
+
+                                <div className='flex items-center px-5 bg-sub_color'>
+                                    <FontAwesomeIcon icon={faKey} className=" text-white" />
                                 </div>
 
-                                <div class="input-group mb-2" style={{ height: 50 }}>
-                                    {/* <div class="input-group-prepend">
-                                        <span class="input-group-text bg-white" style={{ width: "50", paddingRight: "14px", border: "1.5px solid var(--priceColor)" }}>
-                                            <FontAwesomeIcon icon={faUnlockAlt} className="m-auto" color="var(--priceColor)" style={{ fontSize: 20 }} />
-                                        </span>
-                                    </div> */}
-                                    <input type="password" className="form-control h-100" placeholder="請輸入密碼" onChange={(e) => {
+                                <div>
+                                    <input className="border-transparent" type="password" placeholder="請輸入密碼" style={{ letterSpacing: 1 }} onChange={(e) => {
                                         setMemberPassword(e.target.value)
-                                    }} style={{ letterSpacing: 1 }} required value={memberPassword} onFocus={(e) => setMemberPassword("1qaz!QAZ2")} />
+                                    }} required onFocus={(e) => setMemberPassword("1qaz!QAZ2")} value={memberPassword} />
+
+                                </div>
+                            </div>
+
+
+
+
+                            <div className="flex justify-center py-5">
+
+                                <button type="" className="font-bold text-my_green button_effect  " onClick={() => onLogin(memberEmail, memberPassword)}
+                                    style={{ fontSize: 18 }}>登 入</button>
+
+
+
+                            </div>
+
+
+
+
+                            <hr className="bg-my_green h-[1px] w-8/12 mx-auto" style={{ border: 'none' }} />
+
+
+
+
+
+                            <div className="flex justify-center py-5">
+
+                                <strong className="">還不是
+
+                                    <span className='text-sub_color mx-1'>Hola Camp會員</span>嗎？
+
+                                </strong>
+
+
+
+                                <div className="px-3">
+
+                                    <Link to="/register" className="text-sub_color hover:text-my_green font-bold" >
+                                        現在去註冊
+                                        <FontAwesomeIcon icon={faCaretRight} className=" text-black" />
+                                    </Link>
                                 </div>
 
-                                <p className="text-muted text-right mb-1">
-                                    {/* <a className="text-dark" href="forgotPassword01.html">
-                                        忘記密碼?
-                                    </a> */}
-                                    {/* <Link to="/forget-password" className="text-dark">忘記密碼?</Link> */}
-                                </p>
-                                <button type="" class="btn myBtn w-100 text-white mt-0" onClick={() => onLogin(memberEmail, memberPassword)}
-                                    style={{ backgroundColor: "var(--priceColor)", fontSize: 18 }}>登 入</button>
+
+
                             </div>
 
-                            <hr className="my-2" />
 
-                            <div className="d-flex justify-content-between mb-3">
-                                <p className="text-muted">還不是會員嗎？</p>
-                                <p className="">
-                                    <Link to="/register" className="font-weight-bold" style={{ color: "var(--darkColor)" }}>
-                                        立即註冊&nbsp;&nbsp;
-                                    </Link>
-                                </p>
-                            </div>
+
+
 
                         </div>
 
@@ -111,8 +155,9 @@ const Login = (props) => {
 
                 </div>
 
+
             </div>
-            {/* <!-- end_login_page --> */}
+            {/* <!-- 登入頁面到此 --> */}
         </ >
     );
 

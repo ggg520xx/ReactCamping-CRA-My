@@ -1,9 +1,10 @@
 import { underDemo } from '../../../assets/search/SearchMange';
-
+import { Link, useNavigate } from "react-router-dom";
 
 
 const SearchUnderSlogan = (props) => {
-
+    // 一定要這段
+    const navigate = useNavigate();
 
 
     return (
@@ -52,8 +53,15 @@ const SearchUnderSlogan = (props) => {
 
 
                                 <div className='w-full text-left text-white'>
-                                    <button className='bg-my_black w-3/4 h-[50px] '>註冊</button>
-                                    <p className='text-lg mt-3'>或已是會員？登入</p>
+
+                                    <button onClick={() => {
+                                        navigate("/register")
+                                    }} className='font-semibold bg-my_black hover:bg-white hover:text-my_green w-3/4 h-[50px]'>註冊</button>
+
+
+                                    <p className='text-lg mt-3'>或已是會員？
+                                        <Link to='/Login' className="hover:text-p_color">登入</Link> 
+                                    </p>
                                 </div>
                             </div>
 

@@ -1,132 +1,239 @@
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faEnvelope, faUser, } from '@fortawesome/free-regular-svg-icons';
-// import { faUnlockAlt, faMobileAlt, faBirthdayCake } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useEffect } from 'react';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faUnlockAlt, faEnvelope, faKey, faArrowRight, faCaretRight, faUser, faCampground, faCheckDouble } from '@fortawesome/free-solid-svg-icons';
+
+import { Link, useNavigate } from "react-router-dom";
+
+import './RegisterStyle.css'
+
+import { useForm } from 'react-hook-form'
 
 
-// import { Link } from "react-router-dom";
+const Register = (props) => {
 
 
-// const Register = (props) => { 
 
-//     const { setMemberEmailReg, setMemberPasswordReg, setMemberNameReg, setPasswordConfirm, msgReg, setMemberPhoneReg, validator } = props
-
-
-//     const hint = () => {
-//         if (msgReg.msg === '') {
-//             return
-//         } else if (msgReg.msg === '註冊成功') {
-//             return
-//         } else {
-//             return (
-//                 <div class="alert alert-warning" role="alert">
-//                     {msgReg.msg}
-//                 </div>
-//             )
-//         }
-//     }
+    const { onLogin, loginAlert, role, msgReg, setMsgReg } = props;
+    const [memberEmail, setMemberEmail] = useState("");
+    const [memberPassword, setMemberPassword] = useState("");
 
 
 
 
-//     return (
-//         <>
-          
-            
-//             <div class="container mb-0" style={{ paddingTop: "66px" }}>
+    // 一定要這段
+    const navigate = useNavigate();
 
-//                 <div class="row d-flex justify-content-center mt-5 ">
 
-//                     <div class="col-6 p-0 rounded cardShadow  bg-white border border-muted">
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+    } = useForm()
 
-//                         <div class="col-7 m-auto">
-//                             <h2 class="text-center mt-5 font-weight-bold" style={{ color: "var(--darkColor)" }}>會員註冊</h2>
-//                             <p className="text-center mb-0">加入會員，立即開啟露營新體驗！</p>
-//                             <div class="mt-3 mb-2">
-//                                 {/* 提示 */}
-//                                 {hint()}
-//                                 <div class="input-group mb-3 " style={{ height: 50 }}>
-//                                     <div class="input-group-prepend ">
-//                                         <span class="input-group-text bg-white" style={{ width: 50, border: "1px solid var(--priceColor)" }}>
-//                                             <FontAwesomeIcon icon={faUser} className="m-auto" color="var(--priceColor)" style={{ fontSize: 20 }} />
-//                                         </span>
-//                                     </div>
-//                                     <input type="text" class="form-control h-100" placeholder="姓名" onChange={(e) => {
-//                                         setMemberNameReg(e.target.value);
-//                                     }} required style={{}} />
-//                                 </div>
 
-//                                 <div class="input-group mb-3 " style={{ height: 50 }}>
-//                                     <div class="input-group-prepend ">
-//                                         <span class="input-group-text bg-white" style={{ width: 50, border: "1px solid var(--priceColor)" }}>
-//                                             <FontAwesomeIcon icon={faEnvelope} className="m-auto" color="var(--priceColor)" style={{ fontSize: 20 }} />
-//                                         </span>
-//                                     </div>
-//                                     <input type="text" class="form-control h-100" placeholder="電子信箱" onChange={(e) => {
-//                                         setMemberEmailReg(e.target.value)
-//                                     }} required style={{}} />
-//                                 </div>
+    const onSubmit = (data) => {
 
-//                                 <div class="input-group mb-3 " style={{ height: 50 }}>
-//                                     <div class="input-group-prepend ">
-//                                         <span class="input-group-text bg-white" style={{ width: 50, border: "1px solid var(--priceColor)" }}>
-//                                             <FontAwesomeIcon icon={faMobileAlt} className="m-auto" color="var(--priceColor)" style={{ fontSize: 20 }} />
-//                                         </span>
-//                                     </div>
-//                                     <input type="tel" class="form-control h-100" placeholder="手機" onChange={(e) => { setMemberPhoneReg(e.target.value) }} required style={{}} />
-//                                 </div>
+        // 有抓取物件再轉換 頁面
+        let formdata = JSON.stringify(data)
+        alert(formdata);
 
-//                                 <div class="input-group mb-3 " style={{ height: 50 }}>
-//                                     <div class="input-group-prepend ">
-//                                         <span class="input-group-text bg-white" style={{ width: 50, border: "1px solid var(--priceColor)" }}>
-//                                             <FontAwesomeIcon icon={faUnlockAlt} className="m-auto" color="var(--priceColor)" style={{ fontSize: 20 }} />
-//                                         </span>
-//                                     </div>
-//                                     <input type="password" class="form-control h-100" placeholder="密碼" onChange={(e) => {
-//                                         setMemberPasswordReg(e.target.value);
-//                                     }} required style={{}} />
-//                                 </div>
-
-//                                 <div class="input-group mb-3 " style={{ height: 50 }}>
-//                                     <div class="input-group-prepend ">
-//                                         <span class="input-group-text bg-white" style={{ width: 50, border: "1px solid var(--priceColor)" }}>
-//                                             <FontAwesomeIcon icon={faUnlockAlt} className="m-auto" color="var(--priceColor)" style={{ fontSize: 20 }} />
-//                                         </span>
-//                                     </div>
-//                                     <input type="password" class="form-control h-100 " placeholder="確認密碼" onChange={(e) => {
-//                                         setPasswordConfirm(e.target.value);
-//                                     }} required style={{}} />
-//                                 </div>
-
-//                                 <button type="" onClick={validator} class="btn myBtn w-100 text-white my-2"
-//                                     style={{ backgroundColor: "var(--priceColor)", fontSize: 18, letterSpacing: 2 }}>成為會員</button>
-//                             </div>
-
-//                             <hr class="my-2" />
-
-//                             <div class="d-flex justify-content-between mb-5">
-//                                 <p class="text-muted">已經是會員了嗎？</p>
-//                                 <p class="">
-//                                     <Link to="/login" class=" font-weight-bold" style={{ color: "var(--darkColor)" }}>
-//                                         立即登入&nbsp;&nbsp;
-//                                     </Link>
-//                                 </p>
-//                             </div>
-
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
+        if (formdata !== '') {
+            navigate("/payment")
+        }
+    }
 
 
 
-//         </>
-//     );
+    // const hint = () => {
+    //     if (loginAlert === '') {
+    //         return
+    //     } else if (loginAlert === '登入成功') {
+    //         return
+    //     } else {
+    //         return (
+    //             <div className="alert alert-warning" role="alert">
+    //                 {loginAlert}
+    //             </div>
+    //         )
+    //     }
+    // }
 
 
 
 
 
-// }
+
+    return (
+        <>
+            {/* <!-- login_page --> */}
+            <div class="h-screen container relative">
+
+                <div class='h-full flex justify-center items-center'>
 
 
-// export default Register;
+                    <div className="bg-soft_color w-7/12 p-0 rounded shadow-lg py-5  " >
+                        {/* style={{ backgroundColor: "#dfe2dd" }} */}
+
+
+                        {/* <div> 預備放個露營縮圖 </div> */}
+
+                        <div className="py-5">
+                            <h2 className="font-bold text-xl text-my_green" style={{ letterSpacing: 1 }}>會員註冊</h2>
+                        </div>
+
+
+
+                        <hr className="bg-my_green h-[1px] w-8/12 mx-auto" style={{ border: 'none' }} />
+
+
+                        {/* 帳號密碼區塊 */}
+                        <div className="py-5">
+
+
+                            <div className="flex justify-center py-2">
+
+                                <div className='flex items-center px-5 bg-sub_color'>
+                                    <FontAwesomeIcon icon={faUser} className=" text-white" />
+                                </div>
+
+                                <div>
+                                    <input className="border-transparent" type="text" placeholder="請輸入姓名" style={{ letterSpacing: 1 }}  required  />
+
+                                </div>
+                            </div>
+
+
+                            <div className="flex justify-center py-2">
+
+                                <div className='flex items-center px-5 bg-sub_color'>
+                                    <FontAwesomeIcon icon={faCampground} className=" text-white" />
+                                </div>
+
+                                <div>
+                                    <input className="border-transparent" type="text" placeholder="請輸入暱稱" style={{ letterSpacing: 1 }}  required  />
+
+                                </div>
+                            </div>
+
+
+                            <div className="flex justify-center py-2">
+
+                                <div className='flex items-center px-5 bg-sub_color'>
+                                    <FontAwesomeIcon icon={faEnvelope} className=" text-white" />
+                                </div>
+
+                                <div>
+                                    <input className="border-transparent" type="text" placeholder="請輸入信箱" style={{ letterSpacing: 1 }}  required  />
+
+                                </div>
+                            </div>
+
+
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+                            <div className="flex justify-center py-2">
+
+                                <div className='flex items-center px-5 bg-sub_color'>
+                                    <FontAwesomeIcon icon={faKey} className=" text-white" />
+                                </div>
+
+                                <div>
+                                    <input className="border-transparent" type="password" placeholder="請輸入密碼" style={{ letterSpacing: 1 }}  required  />
+
+                                </div>
+                            </div>
+
+
+                            <div className="flex justify-center py-2">
+
+                                <div className='flex items-center px-5 bg-sub_color'>
+                                    <FontAwesomeIcon icon={faCheckDouble} className=" text-white" />
+                                </div>
+
+                                <div>
+                                    <input className="border-transparent" type="password" placeholder="再確認密碼" style={{ letterSpacing: 1 }}  required  />
+
+                                </div>
+                            </div>
+
+                            
+
+
+
+
+
+
+
+
+
+                            <div className="flex justify-center py-5">
+
+
+                                <button type="" className="font-bold text-my_green button_effect" onClick={() => onLogin(memberEmail, memberPassword)}
+                                    style={{ fontSize: 18 }}>註 冊</button>
+                            </div>
+
+
+
+
+                            <hr className="bg-my_green h-[1px] w-8/12 mx-auto" style={{ border: 'none' }} />
+
+
+
+                            <div className="flex justify-center py-5">
+
+                                <strong className="">按錯了
+
+                                    <span className='text-sub_color mx-1'>我要回前頁</span>阿！
+                                </strong>
+
+
+
+                                <div className="px-3">
+
+                                    <Link to="/login" className="text-sub_color hover:text-my_green font-bold" >
+                                        現在去登入
+                                        <FontAwesomeIcon icon={faCaretRight} className=" text-black" />
+                                    </Link>
+                                </div>
+
+
+
+                            </div>
+
+
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            {/* <!-- 登入頁面到此 --> */}
+        </ >
+    );
+
+
+
+
+}
+
+export default Register;
+// 匯出這個函式功能
