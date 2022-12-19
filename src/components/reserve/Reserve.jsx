@@ -109,10 +109,10 @@ function Reserve() {
                                         className="w-full text-my_black"
                                         type="text"
                                         placeholder="Last/Family Name"
-                                        {...register('nickname', { required: true, maxLength: 10 })}
+                                        {...register('lastname', { required: true, maxLength: 10 })}
                                     />
                                     <div className="min-h-[30px] text-red-500">
-                                        {errors.nickname && <span>此欄位必填</span>}
+                                        {errors.lastname && <span>此欄位必填</span>}
                                     </div>
                                 </div>
 

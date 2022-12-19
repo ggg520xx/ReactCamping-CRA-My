@@ -37,9 +37,9 @@ const MemberLayout = () => {
     return (
         <>
 
-       
-
-            <div className="row h-screen  bg-soft_color bg-no-repeat bg-cover bg-center" style={{ backgroundImage: `url(${indexBottomBg})` }}>
+            {/* bg-soft_color bg-no-repeat bg-cover bg-center */}
+            {/* style={{ backgroundImage: `url(${indexBottomBg})` }} */}
+            <div className="row h-screen " >
 
 
                 <div className='col-2 bg-my_green sticky top-0 left-0 right-0 p-0 rounded-br-[70px]'>

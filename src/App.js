@@ -41,6 +41,11 @@ import NotFound from './components/NotFound'
 
 
 function App() {
+
+
+  
+
+
   return (
     <div className="App wrapper">
       {/* <div className="header_public">App這邊可以設計一處共用全路由共用的表頭表尾 或是純粹用Layout階層去設計也可以</div> */}
@@ -77,10 +82,14 @@ function App() {
         {/* 可能會寫 那個元件 必須登入權限為何才可以造訪頁面 */}
         <Route path='member' element={<MemberLayout />} >
 
-          <Route index element={<MemberMain />} />
+          
 
+          <Route index element={<MemberMain />} />
           <Route path='order' element={<MemberOrder />} />
           <Route path='like' element={<MemberLike />} />
+
+
+
         </Route>
 
         

@@ -161,7 +161,7 @@ function MemberMain() {
 
 
 
-            <DivContentZone className="py-3">
+            <DivContentZone className="py-3 bg-soft_color ">
                 {/* bg-soft_color */}
 
 
@@ -193,7 +193,7 @@ function MemberMain() {
 
 
 
-                    <div className="col-5  relative py-3.5">
+                    <div className="col-4  relative py-3.5">
 
                         <div className="flex flex-col justify-between items-start h-full ">
 
@@ -276,7 +276,7 @@ function MemberMain() {
                     </div>
 
 
-                    <div className="col-4 relative py-3.5">
+                    <div className="col-5 relative py-3.5">
 
                         <div className="flex flex-col justify-between items-center h-full ">
 
@@ -411,62 +411,62 @@ function MemberMain() {
 
 
                                     <div className="row">
-                                        <div className='col-4 text-left'>
+                                        <div className='col-5 text-left'>
                                             <strong className='block mb-2'>成立日期：</strong>
                                         </div>
-                                        <div className='col-8 text-left'>
+                                        <div className='col-7 text-left'>
                                             <strong className='block mb-2'>2022年12月28日</strong>
                                         </div>
                                     </div>
 
                                     <div className="row">
-                                        <div className='col-4 text-left'>
+                                        <div className='col-5 text-left'>
                                             <strong className='block mb-2'>成立時間：</strong>
                                         </div>
-                                        <div className='col-8 text-left'>
+                                        <div className='col-7 text-left'>
                                             <strong className='block mb-2'>14時20分38秒</strong>
                                         </div>
                                     </div>
 
                                     <div className="row">
-                                        <div className='col-4 text-left'>
+                                        <div className='col-5 text-left'>
                                             <strong className='block mb-2'>訂購者：</strong>
                                         </div>
-                                        <div className='col-8 text-left'>
+                                        <div className='col-7 text-left'>
                                             <strong className='block mb-2'>芝麻凜</strong>
                                         </div>
                                     </div>
 
                                     <div className="row">
-                                        <div className='col-4 text-left'>
+                                        <div className='col-5 text-left'>
                                             <strong className='block mb-2'>付款日：</strong>
                                         </div>
-                                        <div className='col-8 text-left'>
+                                        <div className='col-7 text-left'>
                                             <strong className='block mb-2'>2022年12月29日</strong>
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <div className='col-4 text-left'>
+                                        <div className='col-5 text-left'>
                                             <strong className='block mb-2'>付款方式：</strong>
                                         </div>
-                                        <div className='col-8 text-left'>
+                                        <div className='col-7 text-left'>
                                             <strong className='block mb-2'>刷卡</strong>
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <div className='col-4 text-left'>
+                                        <div className='col-5 text-left'>
                                             <strong className='block mb-2'>付款金額：</strong>
                                         </div>
-                                        <div className='col-8 text-left'>
+                                        <div className='col-7 text-left'>
                                             <strong className='block mb-2'>1230 元</strong>
                                         </div>
                                     </div>
 
                                     <div className="row">
-                                        <div className='col-4 text-left'>
+                                        <div className='col-5 text-left'>
                                             <strong className='block mb-2'>評價回饋：</strong>
                                         </div>
-                                        <div className='col-8 text-left'>
+                                        <div className='col-7 text-left'>
                                             <strong className='block mb-2'><button>尚不可使用</button></strong>
                                         </div>
                                     </div>

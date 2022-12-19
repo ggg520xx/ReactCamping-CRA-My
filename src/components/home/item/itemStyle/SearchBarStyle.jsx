@@ -121,8 +121,8 @@ justify-center */
 
 const Searchtext = styled.div`
     position: absolute;
-    top: 37%;
-    right: 22%;`
+    top: 45%;
+    right: 20%;`
     
 
 

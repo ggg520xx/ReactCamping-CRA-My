@@ -32,7 +32,7 @@ function MemberLike() {
 
 
 
-            <DivContentZone className="py-3">
+            <DivContentZone className="py-3 bg-soft_color">
                 {/* bg-soft_color */}
 
                 {/* <h2 className="text-xl font-bold">歡迎，您尚有 <span className="text-blue-500">1</span> 筆 行程待進行</h2>
