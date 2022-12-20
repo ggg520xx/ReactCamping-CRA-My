@@ -25,11 +25,32 @@ import "swiper/css/autoplay";
 // import "swiper/css/zoom";
 // import 'swiper/css/scrollbar';
 
-
 import "./itemStyle/sup.css";
 
 
-const SearchBar = (props) => {
+
+// ----------------------------------
+
+import React, { useState } from 'react';
+import { MyContextSearch, useMyContextSearch } from '../../../hooks/useContext/InputSearch';
+
+
+
+
+
+
+function SearchBar  (props) {
+
+
+
+
+
+    // 全域引入的 新增輸入搜尋 點擊後會存放全域 輸入的值
+    const { inputGlobal, setInputGlobal } = useMyContextSearch(MyContextSearch);
+
+    // // 新增輸入想改變
+    const [inputChange, setInputChange] = useState("");
+
 
     // 一定要這段
     const navigate = useNavigate();
@@ -44,13 +65,12 @@ const SearchBar = (props) => {
         borderBottomRightRadius: "40px",
     }
 
-  
-
 
 
 
     return (
         <>
+
 
             {/* 看到以下error 把Ally徹底拔掉*/}
             {/* https://ithelp.ithome.com.tw/articles/10302581?sc=iThelpR */}
@@ -150,9 +170,14 @@ const SearchBar = (props) => {
 
                             {/* 最中間白色搜尋框樣式 */}
                             <form action="" className="relative flex z-50 bg-white rounded-full">
-                                <input type="text" placeholder="立即開啟你的行程，這次想去哪呢？" className="rounded-full flex-1 px-6 py-4 text-gray-700 focus:outline-none" />
+                                <input value={inputChange} onChange={(e) => { setInputChange(e.target.value) }} type="text" placeholder="立即開啟你的行程，這次想去哪呢？" className="rounded-full flex-1 px-6 py-4 text-gray-700 focus:outline-none" />
 
-                                <button className="bg-p_color text-white rounded-full font-semibold px-8 py-4 hover:bg-my_green focus:bg-sub_color focus:outline-none" onClick={(e) => { navigate('/search') }}>Search</button>
+                                {/* 點擊後執行寫入 瞬間把input值 拿去使用 */}
+                                <button disabled={inputChange === ''} className="bg-p_color text-white rounded-full font-semibold px-8 py-4 hover:bg-my_green focus:bg-sub_color focus:outline-none" onClick={() => {
+                                    setInputGlobal(inputChange)
+                                    navigate(`/search`)
+
+                                }}>Search</button>
                             </form>
                             <SearchBarGlowColor1 className="z-10 bg-p_color absolute"></SearchBarGlowColor1>
                             <SearchBarGlowColor2 className="z-20 bg-sub_color absolute"></SearchBarGlowColor2>
@@ -171,7 +196,7 @@ const SearchBar = (props) => {
                 </Searchtext>
 
 
-                {/* 第二搜尋框 之後調整 */} 
+                {/* 第二搜尋框 之後調整 */}
                 {/* <SearchBarShadow2 className="bg-white border" style={inputStyle}>
                     <div className="d-flex justify-content-between " >
 
@@ -239,7 +264,7 @@ const SearchBar = (props) => {
                 </SearchBarShadow2> */}
 
 
-                
+
                 {/* 樹林的cover白色區塊 */}
                 <div className="w-full absolute -translate-y-[calc(100%-1%)]">
                     <picture >

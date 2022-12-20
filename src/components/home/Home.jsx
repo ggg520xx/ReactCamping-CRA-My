@@ -9,15 +9,19 @@ import { MyDivBottomShape } from '../../assets/index/IndexMange';
 
 
 
-function Home() {
 
 
+
+
+
+function Home(props) {
 
 
 
     return (
         <>
-            <SearchBar />
+
+            <SearchBar  />
 
 
 

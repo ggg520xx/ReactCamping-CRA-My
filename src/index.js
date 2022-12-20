@@ -11,6 +11,8 @@ import './style/index.css';
 import App from './App';
 import { BrowserRouter } from "react-router-dom";
 
+import axios from 'axios';
+
 
 
 // eslint-disable-next-line

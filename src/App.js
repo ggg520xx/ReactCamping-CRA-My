@@ -37,70 +37,85 @@ import NotFound from './components/NotFound'
 
 
 
+import React, { useState } from 'react';
+
+
+
+import { MyContextSearch } from './hooks/useContext/InputSearch';
 
 
 
 function App() {
 
-
-  
+  const [inputGlobal, setInputGlobal] = useState('');
 
 
   return (
     <div className="App wrapper">
       {/* <div className="header_public">App這邊可以設計一處共用全路由共用的表頭表尾 或是純粹用Layout階層去設計也可以</div> */}
-      <Routes>
-        <Route path='/' element={<Layout />} >
-          <Route index element={<Home />} />
-          <Route path='search' element={<Search />} />
-          <Route path='page' element={<Page />} />
 
+      <MyContextSearch.Provider value={{ inputGlobal, setInputGlobal }}>
 
-          
-          <Route path='reserve' element={<Reserve />} />
-          <Route path='payment' element={<Payment />} />
-          <Route path='finish' element={<Finish />} />
-          
-
-
-          <Route path='login' element={<Login />} />
-          <Route path='register' element={<Register />} />
-          
-
-
-          <Route path='demo' element={<Demo />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-
-        
-    
-
-       
-       
-
-        {/* 如果要設計後台的話 */}
-        {/* 可能會寫 那個元件 必須登入權限為何才可以造訪頁面 */}
-        <Route path='member' element={<MemberLayout />} >
-
-          
-
-          <Route index element={<MemberMain />} />
-          <Route path='order' element={<MemberOrder />} />
-          <Route path='like' element={<MemberLike />} />
+        <Routes>
+          <Route path='/' element={<Layout />} >
 
 
 
-        </Route>
+            <Route index element={<Home />} />
+            <Route path='search' element={<Search />} />
 
-        
-        {/* <Route path='reserve' element={<Reserve />} >
+            <Route path='page' element={<Page />} />
+
+
+
+            <Route path='reserve' element={<Reserve />} />
+            <Route path='payment' element={<Payment />} />
+            <Route path='finish' element={<Finish />} />
+
+
+
+            <Route path='login' element={<Login />} />
+            <Route path='register' element={<Register />} />
+
+
+
+            <Route path='demo' element={<Demo />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+
+
+
+
+
+
+
+          {/* 如果要設計後台的話 */}
+          {/* 可能會寫 那個元件 必須登入權限為何才可以造訪頁面 */}
+          <Route path='member' element={<MemberLayout />} >
+
+
+
+            <Route index element={<MemberMain />} />
+            <Route path='order' element={<MemberOrder />} />
+            <Route path='like' element={<MemberLike />} />
+
+
+
+          </Route>
+
+
+          {/* <Route path='reserve' element={<Reserve />} >
           </Route> */}
-        
-        {/* <Route path="member" element={<member />} />
+
+          {/* <Route path="member" element={<member />} />
           <Route path="task" element={<task />} /> */}
-        {/* <Route path="*" element={<NotFound />} /> */}
-        {/* </Route> */}
-      </Routes>
+          {/* <Route path="*" element={<NotFound />} /> */}
+          {/* </Route> */}
+        </Routes>
+
+
+      </MyContextSearch.Provider>
+
 
       {/* <div className="footer_public">App這邊可以設計一處共用全路由共用的表頭表尾 或是純粹用Layout階層去設計也可以</div> */}
     </div>
