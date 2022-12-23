@@ -24,6 +24,7 @@ const SearchPickSide = (props) => {
     const { inputGlobal, setInputGlobal } = useMyContextSearch(MyContextSearch);
 
 
+    
 
 
 
@@ -52,7 +53,10 @@ const SearchPickSide = (props) => {
                         {/* 點擊不限 清空所有篩選條件 */}
                         <div className="">
                             <div className='row'>
-                                <button onClick={() => { setInputGlobal('') }} className='col-11  mx-auto my-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>不限</button>
+                                <button onClick={() => { 
+                                    setInputGlobal('')
+                                    setAreaChoose('')
+                                     }} className='col-11  mx-auto my-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>不限</button>
                             </div>
                         </div>
                     </div>

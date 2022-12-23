@@ -45,7 +45,7 @@ const SearchResult = (props) => {
 
 
 
-
+ 
 
 
     function useData() {
@@ -61,26 +61,26 @@ const SearchResult = (props) => {
                 axios.get(`http://localhost:3000/camps?_expand=location`)
                     .then(response => {
 
-                       
-                        // setData(response.data);
-                        // const a = response.data.location.name === areaChoose
-
                         let locationSearch = response.data
-                        const locationCamp = locationSearch?.filter(item => item.location['name'] === areaChoose);
+                        let locationCamp = locationSearch?.filter(item => item.location['name'] === areaChoose);
 
+
+                        setInputGlobal(null)
+                        setData(locationCamp);
+
+                        setValueAttr(locationCamp.length);
                         console.log(locationCamp)
 
-                        // setValueAttr(response.data.length);
+                        return
+
                     })
                     .catch(error => {
                         console.log(error);
                     });
-            }
+            } 
+            
 
-
-
-
-            if (inputGlobal === '北部營區' || inputGlobal === '中部營區' || inputGlobal === '南部營區' || inputGlobal === '東部營區' || inputGlobal === '外島營區') {
+            else if (inputGlobal === '北部營區' || inputGlobal === '中部營區' || inputGlobal === '南部營區' || inputGlobal === '東部營區' || inputGlobal === '外島營區') {
 
                 axios.get(`http://localhost:3000/camps?_expand=area`)
                     .then(response => {
@@ -92,7 +92,7 @@ const SearchResult = (props) => {
                         setData(areaCamp);
                         // 賦予與當前一樣選擇的結果 下面回傳出去
 
-
+                        setAreaChoose('')
                         setValueAttr(areaCamp.length);
 
                     })
@@ -100,14 +100,14 @@ const SearchResult = (props) => {
                         console.log(error);
                     });
 
-            } else {
+            } else if (areaChoose ===''){
 
                 axios.get(`http://localhost:3000/camps?q=${inputGlobal}`)
                     .then(response => {
                         console.log(response.data)
                         setData(response.data);
 
-
+                     
                         setValueAttr(response.data.length);
 
                     })
@@ -125,11 +125,19 @@ const SearchResult = (props) => {
     // 如果你希望在 inputGlobal 发生变化时才调用 useData 函数，你可以将第二个参数设置为 [inputGlobal]
     // [inputGlobal] 当 inputGlobal 发生变化时，才会调用 useData 函数并发送 HTTP 请求
 
-    const campData = useData();
+
+
+    
+    let campData = useData();
+
+
+
+   
 
 
 
 
+ 
 
 
 
