@@ -103,19 +103,19 @@ const PageReserve = (props) => {
 
 
                                     <div className='row items-baseline w-full'>
-                                        <div className='col-4 '>
-                                            <strong>型態：</strong>
+                                        <div className='col-6 '>
+                                            <strong>地區型態：</strong>
                                         </div>
-                                        <div className='col-8 '>
+                                        <div className='col-6 '>
                                             <span className='mr-2 text-my_green text-2xl font-bold'>草皮</span>
                                         </div>
                                     </div>
 
                                     <div className='row items-baseline  w-full'>
-                                        <div className='col-4 '>
-                                            <strong>剩餘：</strong>
+                                        <div className='col-6 '>
+                                            <strong>今日剩餘：</strong>
                                         </div>
-                                        <div className='col-8 '>
+                                        <div className='col-6 '>
                                             <span className='mr-2 text-my_green text-2xl font-bold'>10</span>
                                             <span className='mr-2'>帳(間)</span>
                                         </div>

@@ -1,7 +1,63 @@
 import SearchResult from './SearchResult';
 
 
+
+import React, { useState } from 'react';
+import { MyTagShowHide, useMyTagShowHide } from '../../../hooks/useContext/TagShowHide';
+
+
+import { MyContextSearch, useMyContextSearch } from '../../../hooks/useContext/InputSearch';
+
+
 const SearchPickSideRight = (props) => {
+
+    // 傳給
+    const [campDataLength, setCampDataLength] = useState(0);
+
+    // 傳給子元件地區選擇
+    const [areaChoose, setAreaChoose] = useState();
+
+
+
+
+
+    // 全域引入的 新增輸入搜尋 點擊後會存放全域 輸入的值
+    const { limit, setLimit, buildWood, setBuildWood, buildTruck, setBuildTruck, buildOther, setBuildOther, buildNone, setBuildNone, providShower, setProvidShower, providPlay, setProvidPlay, providRentEquip, setProvidRentEquip, providMeal, setProvidMeal, providGuide, setProvidGuide, providPool, setProvidPool, providSpring, setProvidSpring, providRainCover, setProvidRainCover, providCarArea, setProvidCarArea, viewHigh, setViewHigh, viewForest, setViewForest, viewGrass, setViewGrass, viewKawa, setViewKawa, viewCloudSea, setViewCloudSea, viewSunrise, setviewSunrise } = useMyTagShowHide(MyTagShowHide);
+
+
+
+
+
+
+
+    const clearFilters = () => {
+
+        setLimit(false);
+        setBuildWood(false);
+        setBuildTruck(false);
+        setBuildOther(false);
+        setBuildNone(false);
+        setProvidShower(false);
+        setProvidPlay(false);
+        setProvidRentEquip(false);
+        setProvidMeal(false);
+        setProvidGuide(false);
+        setProvidPool(false);
+        setProvidSpring(false);
+
+        setProvidRainCover(false);
+        setProvidCarArea(false);
+        setViewHigh(false);
+        setViewForest(false);
+        setViewGrass(false);
+        setViewKawa(false);
+        setViewCloudSea(false);
+        setviewSunrise(false);
+
+    }
+
+
+
 
 
 
@@ -43,17 +99,49 @@ const SearchPickSideRight = (props) => {
                         </h3>
 
                         <div className="flex flex-wrap">
-                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>小木屋營區類</button>
 
-                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>盥洗淋浴設施</button>
-                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>供早或晚餐點</button>
-                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>提供租借裝備</button>
 
-                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>戲水區</button>
-                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>可泡湯</button>
-                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>遮雨棚</button>
-                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>戲水區</button>
-                            <button className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>停車位</button>
+
+
+                            {limit && <button onClick={() => { setLimit(!limit) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>不限</button>}
+
+                            {buildWood && <button onClick={() => { setBuildWood(!buildWood) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>小木屋營區類</button>}
+
+                            {buildTruck && <button onClick={() => { setBuildTruck(!buildTruck) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>露營車營區類</button>}
+
+                            {buildOther && <button onClick={() => { setBuildOther(!buildOther) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>其他遮蔽建物</button>}
+
+                            {buildNone && <button onClick={() => { setBuildNone(!buildNone) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>僅提供營地類</button>}
+
+                            {providShower && <button onClick={() => { setProvidShower(!providShower) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>盥洗淋浴設施</button>}
+
+                            {providPlay && <button onClick={() => { setProvidPlay(!providPlay) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>遊樂器材設施</button>}
+
+                            {providRentEquip && <button onClick={() => { setProvidRentEquip(!providRentEquip) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>提供租借裝備</button>}
+
+                            {providMeal && <button onClick={() => { setProvidMeal(!providMeal) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>供早或晚餐點</button>}
+
+                            {providGuide && <button onClick={() => { setProvidGuide(!providGuide) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>供導覽或活動</button>}
+
+
+                            {providPool && <button onClick={() => { setProvidPool(!providPool) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>戲水區</button>}
+                            {providSpring && <button onClick={() => { setProvidSpring(!providSpring) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>可泡湯</button>}
+
+
+
+                            {providRainCover && <button onClick={() => { setProvidRainCover(!providRainCover) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>遮雨棚</button>}
+                            {providCarArea && <button onClick={() => { setProvidCarArea(!providCarArea) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>停車位</button>}
+
+                            {viewHigh && <button onClick={() => { setViewHigh(!viewHigh) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>高海拔</button>}
+                            {viewForest && <button onClick={() => { setViewForest(!viewForest) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>森林內</button>}
+                            {viewGrass && <button onClick={() => { setViewGrass(!viewGrass) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>大草皮</button>}
+                            {viewKawa && <button onClick={() => { setViewKawa(!viewKawa) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>近溪流</button>}
+                            {viewCloudSea && <button onClick={() => { setViewCloudSea(!viewCloudSea) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>觀雲海</button>}
+                            {viewSunrise && <button onClick={() => { setviewSunrise(!viewSunrise) }} className='m-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>看日出</button>}
+
+
+
+
 
                             {/* 要能再次被點選取消 */}
                             {/* {searchFilterTag.map((item, index) => <button key={index} type="button" className="m-searchTag3 rounded" onClick={handleTagClick}>{item}</button>)} */}
@@ -67,9 +155,9 @@ const SearchPickSideRight = (props) => {
                     {/* 執行再次搜尋條件 或清除條件 */}
                     <div className='row justify-around'>
 
-                        <button className='col-4   my-1 border border-blue-800 rounded-sm py-1 px-3 text-md font-semibold hover:bg-my_blue hover:text-white'>執行條件搜尋</button>
+                        <button className='col-4   my-1 border border-blue-800 rounded-sm py-1 px-3 text-md font-semibold hover:bg-my_blue hover:text-white'>執行搜尋</button>
 
-                        <button className='col-4   my-1 border border-red-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-red-800 hover:text-white'>清除所有篩選</button>
+                        <button onClick={clearFilters} className='col-4   my-1 border border-red-400 rounded-sm py-1 px-3 text-md font-semibold hover:bg-red-800 hover:text-white'>清空篩選</button>
 
                     </div>
 
@@ -85,7 +173,7 @@ const SearchPickSideRight = (props) => {
 
 
                     <h3 className='font-bold text-xl'>
-                        找到 <span>{ }</span>  <span className="text-blue-500">2</span> 個 相關搜尋結果
+                        找到  <span className="text-blue-500">{campDataLength}</span> 個 相關搜尋結果
                     </h3>
 
 
@@ -108,11 +196,11 @@ const SearchPickSideRight = (props) => {
 
                 </div>
 
+             
 
 
-
-                {/* 搜尋結果 */}
-                <SearchResult />
+                {/* 搜尋結果  引入子層的props */}
+                <SearchResult setValueAttr={setCampDataLength}   />
 
 
 

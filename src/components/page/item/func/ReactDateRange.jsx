@@ -16,6 +16,7 @@ function MyDatePicker(props) {
 
     const today = new Date();
     const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+    const threeWeekLater = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 21);
     const twoMonthLater = new Date(today.getFullYear(), today.getMonth() + 2, today.getDate());
     // 例如，設置初始日期為一周前，最小日期為一個月之類的，最大日期為一個月後，你可以這樣寫
     //     const oneWeekAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
@@ -110,7 +111,7 @@ function MyDatePicker(props) {
                     // 只可從今天開始訂定
                     minDate={today}
                     // 只可訂定1個月內預約 而不是固定日期的方式
-                    maxDate={twoMonthLater}
+                    maxDate={threeWeekLater}
                     // maxDate={new Date(2022, 6, 3)}
 
 

@@ -13,7 +13,7 @@ import { MyContextSearch, useMyContextSearch } from '../../../hooks/useContext/I
 
 
 
-
+import { MyTagShowHide, useMyTagShowHide } from '../../../hooks/useContext/TagShowHide';
 
 
 
@@ -27,8 +27,22 @@ import { MyContextSearch, useMyContextSearch } from '../../../hooks/useContext/I
 const SearchResult = (props) => {
 
 
+    // 父層來的set 拉回陣列數量去計算結果
+    const { setValueAttr } = props;
+
+
     // 這頁也可以藉由 改變值 改變全域 我也可以放到篩選處
     const { inputGlobal, setInputGlobal } = useMyContextSearch(MyContextSearch);
+
+
+
+    // 全域引入的 新增輸入搜尋 點擊後會存放全域 輸入的值
+    const { areaChoose, setAreaChoose } = useMyTagShowHide(MyTagShowHide);
+
+
+
+
+
 
 
 
@@ -38,17 +52,73 @@ const SearchResult = (props) => {
 
         const [data, setData] = useState(null);
 
-        // ${ inputGlobal }
         useEffect(() => {
-            axios.get(`http://localhost:3000/camps?q=${inputGlobal }`)
-                .then(response => {
-                    console.log(response.data)
-                    setData(response.data);
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        }, []);
+
+
+            if (areaChoose !== '') {
+                // 调用另一个 API 进行数据获取
+                // 例如：${areaChoose}
+                axios.get(`http://localhost:3000/camps?_expand=location`)
+                    .then(response => {
+
+                       
+                        // setData(response.data);
+                        // const a = response.data.location.name === areaChoose
+
+                        let locationSearch = response.data
+                        const locationCamp = locationSearch?.filter(item => item.location['name'] === areaChoose);
+
+                        console.log(locationCamp)
+
+                        // setValueAttr(response.data.length);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }
+
+
+
+
+            if (inputGlobal === '北部營區' || inputGlobal === '中部營區' || inputGlobal === '南部營區' || inputGlobal === '東部營區' || inputGlobal === '外島營區') {
+
+                axios.get(`http://localhost:3000/camps?_expand=area`)
+                    .then(response => {
+
+                        let areaSearch = response.data
+                        const areaCamp = areaSearch?.filter(item => item.area['name'] === inputGlobal);
+
+                        console.log(areaCamp)
+                        setData(areaCamp);
+                        // 賦予與當前一樣選擇的結果 下面回傳出去
+
+
+                        setValueAttr(areaCamp.length);
+
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+
+            } else {
+
+                axios.get(`http://localhost:3000/camps?q=${inputGlobal}`)
+                    .then(response => {
+                        console.log(response.data)
+                        setData(response.data);
+
+
+                        setValueAttr(response.data.length);
+
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }
+
+
+        }, [inputGlobal, areaChoose]);
+
         return data;
     }
 
@@ -59,9 +129,18 @@ const SearchResult = (props) => {
 
 
 
+
+
+
+
+
+
     return (
 
         <>
+
+
+
 
             {/* 全列表範圍 */}
             <div className=' w-full'>
@@ -69,16 +148,18 @@ const SearchResult = (props) => {
                 {/* border border-blue-200 */}
                 {/* bg-white */}
 
-                {campData && campData.map((item, index) => (
+                {campData ? campData.map((item, index) => (
+
+
 
 
                     <Link to='/page' key={item.id} className="block mb-5   ">
 
-                        <div className="row border-psub_color bg-white hover:shadow-xl border  hover:border-sub_color">
+                        <div className="row min-h-[210px] border-psub_color bg-white hover:shadow-xl border  hover:border-sub_color">
 
                             {/* <div className="col-4 border border-red-100"> */}
                             <div className="col-4 pl-0">
-                                <img className='h-[160px] w-full object-cover' src={searchDemo} alt="" />
+                                <img className='h-full w-full object-cover' src={searchDemo} alt="" />
                             </div>
 
                             <div className="col-8  relative">
@@ -89,16 +170,39 @@ const SearchResult = (props) => {
 
                                     <p>
                                         <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
-                                        <span>地區：xxx</span>
+                                        <span>地區：{item.address}</span>
                                     </p>
 
 
 
 
-                                    <div className='text-left'>
-                                        <span className="mr-1 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">標籤</span>
-                                        <span className="mr-1 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">標籤</span>
-                                        <span className="mr-1 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">標籤</span>
+                                    <div className='text-left py-2  flex flex-wrap'>
+
+
+
+                                        {item.tag['小木屋營區類'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">小木屋營區類</span>}
+
+                                        {item.tag['露營車營區類'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">露營車營區類</span>}
+                                        {item.tag['其他遮蔽建物'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">其他遮蔽建物</span>}
+                                        {item.tag['僅提供營地類'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">僅提供營地類</span>}
+                                        {item.tag['盥洗淋浴設施'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">盥洗淋浴設施</span>}
+                                        {item.tag['提供租借裝備'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">提供租借裝備</span>}
+                                        {item.tag['供早或晚餐點'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">供早或晚餐點</span>}
+                                        {item.tag['供導覽或活動'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">供導覽或活動</span>}
+                                        {item.tag['戲水區'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">戲水區</span>}
+                                        {item.tag['可泡湯'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">可泡湯</span>}
+                                        {item.tag['遮雨棚'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">遮雨棚</span>}
+                                        {item.tag['停車位'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">停車位</span>}
+                                        {item.tag['高海拔'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">高海拔</span>}
+                                        {item.tag['森林內'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">森林內</span>}
+                                        {item.tag['大草皮'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">大草皮</span>}
+                                        {item.tag['近溪流'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">近溪流</span>}
+                                        {item.tag['觀雲海'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">觀雲海</span>}
+                                        {item.tag['看日出'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">看日出</span>}
+
+
+
+
                                     </div>
 
 
@@ -147,7 +251,10 @@ const SearchResult = (props) => {
                         </div>
                     </Link>
 
-                ))}
+                )) : null}
+
+
+                {/* 当 campData 不存在时，你可以使用 && 运算符判断来确保不会渲染空元素 或者你也可以使用 ternary operator 来进行判断  { ?  : null} 这两种方法都能在 campData 不存在时防止渲染空元素 */}
 
             </div>
 

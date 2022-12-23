@@ -177,7 +177,7 @@ function SearchBar  (props) {
                                     setInputGlobal(inputChange)
                                     navigate(`/search`)
 
-                                }}>Search</button>
+                                }}>{inputChange ? '就找這個' : '隨意看看'}</button>
                             </form>
                             <SearchBarGlowColor1 className="z-10 bg-p_color absolute"></SearchBarGlowColor1>
                             <SearchBarGlowColor2 className="z-20 bg-sub_color absolute"></SearchBarGlowColor2>

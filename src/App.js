@@ -37,24 +37,57 @@ import NotFound from './components/NotFound'
 
 
 
-import React, { useState } from 'react';
-
-
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import { MyContextSearch } from './hooks/useContext/InputSearch';
+// import { MyAllCamps } from './hooks/useContext/AllCamp-停用';
 
 
 
 function App() {
 
+
+
+
+
+  // 全露營地Get
+  function useAllCampData() {
+    const [AllCampData, setAllCampData] = useState(null);
+
+    useEffect(() => {
+      axios.get(`http://localhost:3000/camps`)
+        .then(response => {
+          console.log(response.data)
+          setAllCampData(response.data);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }, []);
+    return AllCampData;
+  }
+  const AllCampGet = useAllCampData();
+
+
+
+
+  // 搜尋我要的關鍵
   const [inputGlobal, setInputGlobal] = useState('');
+
+
+
+
+
+
+
 
 
   return (
     <div className="App wrapper">
       {/* <div className="header_public">App這邊可以設計一處共用全路由共用的表頭表尾 或是純粹用Layout階層去設計也可以</div> */}
 
-      <MyContextSearch.Provider value={{ inputGlobal, setInputGlobal }}>
+      <MyContextSearch.Provider value={{ inputGlobal, setInputGlobal, AllCampGet }}>
 
         <Routes>
           <Route path='/' element={<Layout />} >
@@ -115,6 +148,7 @@ function App() {
 
 
       </MyContextSearch.Provider>
+
 
 
       {/* <div className="footer_public">App這邊可以設計一處共用全路由共用的表頭表尾 或是純粹用Layout階層去設計也可以</div> */}

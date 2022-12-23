@@ -60,14 +60,14 @@ const PagePic = (props) => {
                             <span>(45)</span>
                         </div>
 
-                        <div>
+                        {/* <div>
 
                             <h6 className="">
                                 <span className='text-p_color text-3xl font-bold'>$1300</span>
                                 <span className='font-bold'>/ 晚</span>
                             </h6>
 
-                        </div>
+                        </div> */}
                     </div>
 
                 </div>
