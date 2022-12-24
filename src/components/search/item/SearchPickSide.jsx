@@ -17,7 +17,7 @@ const SearchPickSide = (props) => {
 
 
     // 全域引入的 新增輸入搜尋 點擊後會存放全域 輸入的值
-    const { limit, setLimit, buildWood, setBuildWood, buildTruck, setBuildTruck, buildOther, setBuildOther, buildNone, setBuildNone, providShower, setProvidShower, providPlay, setProvidPlay, providRentEquip, setProvidRentEquip, providMeal, setProvidMeal, providGuide, setProvidGuide, providPool, setProvidPool, providSpring, setProvidSpring, providRainCover, setProvidRainCover, providCarArea, setProvidCarArea, viewHigh, setViewHigh, viewForest, setViewForest, viewGrass, setViewGrass, viewKawa, setViewKawa, viewCloudSea, setViewCloudSea, viewSunrise, setviewSunrise, areaChoose, setAreaChoose, areaChooseId, setAreaChooseId, locationStatus, setlocationStatus, tagvalues, setTagValues } = useMyTagShowHide(MyTagShowHide);
+    const { limit, setLimit, buildWood, setBuildWood, buildTruck, setBuildTruck, buildOther, setBuildOther, buildNone, setBuildNone, providShower, setProvidShower, providPlay, setProvidPlay, providRentEquip, setProvidRentEquip, providMeal, setProvidMeal, providGuide, setProvidGuide, providPool, setProvidPool, providSpring, setProvidSpring, providRainCover, setProvidRainCover, providCarArea, setProvidCarArea, viewHigh, setViewHigh, viewForest, setViewForest, viewGrass, setViewGrass, viewKawa, setViewKawa, viewCloudSea, setViewCloudSea, viewSunrise, setviewSunrise, areaChoose, setAreaChoose, areaChooseId, setAreaChooseId, locationStatus, setlocationStatus, tagvalues, setTagValues, startFilters } = useMyTagShowHide(MyTagShowHide);
 
 
     // 這頁也可以藉由 改變值 改變全域 我也可以放到篩選處
@@ -44,11 +44,10 @@ const SearchPickSide = (props) => {
             {/* #f2ede6  w-full */}
 
             {/* <div className="h-[300px] w-full bg-no-repeat bg-cover bg-center" style={{ backgroundImage: `url(${indexBottomBg})` }}>
-
                 <div className="h-[300px] w-3/4 mx-auto rounded-[50px] bg-no-repeat bg-cover bg-center" style={{ backgroundImage: `url(${indexBottomBg})` }}></div>
-
             </div> */}
 
+            
             <div className="col-3 ">
 
                 <div className='bg-gray-100 w-full px-7 py-3 shadow-xl rounded-md mb-3 border-gray-200 border'>
@@ -64,6 +63,7 @@ const SearchPickSide = (props) => {
                                     setAreaChooseId(0)
                                     setAreaChoose(null)
                                     setInputGlobal('')
+                                    
                                      }} className='col-11  mx-auto my-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>不限</button>
                             </div>
                         </div>
@@ -82,7 +82,8 @@ const SearchPickSide = (props) => {
                     <div className="py-5">
 
 
-       
+                
+                        
 
 
 
@@ -92,7 +93,8 @@ const SearchPickSide = (props) => {
                                 <button onClick={() => {
                                     setlocationStatus(true) 
                                     setAreaChooseId(1)
-                                    setAreaChoose('雙北') }} className='col-5 mx-auto my-1 border border-sub_color rounded-2xl py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>雙北</button>
+                                    setAreaChoose('雙北')
+                                }} className='col-5 mx-auto my-1 border border-sub_color rounded-2xl py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>雙北</button>
 
                                 <button onClick={() => {
                                     setlocationStatus(true) 

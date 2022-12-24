@@ -37,7 +37,7 @@ const SearchResult = (props) => {
 
 
     // 全域引入的 新增輸入搜尋 點擊後會存放全域 輸入的值
-    const { areaChoose, setAreaChoose, areaChooseId, setAreaChooseId, locationStatus, setlocationStatus, locationFilter, setlocationFilter, campDataFilter, setcampDataFilter, campDataResult, setcampDataResult, tagvalues, setTagValues } = useMyTagShowHide(MyTagShowHide);
+    const { areaChoose, setAreaChoose, areaChooseId, setAreaChooseId, locationStatus, setlocationStatus, locationFilter, setlocationFilter, campDataFilter, setcampDataFilter, campDataResult, setcampDataResult, tagvalues, setTagValues, startFilters } = useMyTagShowHide(MyTagShowHide);
 
 
 
@@ -108,10 +108,6 @@ const SearchResult = (props) => {
                 axios.get(`http://localhost:3000/camps?_expand=area`)
                     .then(response => {
 
-
-                        // setAreaChooseId(0)
-                        // setAreaChoose(null)
-
                         let areaSearch = response.data
                         const areaCamp = areaSearch?.filter(item => item.area['name'] === inputGlobal);
 
@@ -158,7 +154,12 @@ const SearchResult = (props) => {
 
 
     // 將上面跑完判斷的 設為filter 值 去跑 特點挑選 回傳需要的組陣列結果
-    // setcampDataFilter(campData);
+    setcampDataFilter(campData);
+
+    // setTimeout(startFilters, 100)
+
+    // startFilters();
+    // setTimeout(() => startFilters , 0)
 
 
     // 最後才使用 篩選結果跑result
@@ -167,46 +168,18 @@ const SearchResult = (props) => {
 
 
 
-    
 
-
-
-
-    // if (tagvalues !== []) { 
-
-    //     const result = campData.filter(item => { 
-
-
-    //     })
-
-    // }
 
     return (
 
-
-
-
-
         <>
-
             {/* 全列表範圍 */}
             <div className=' w-full'>
 
 
-                
+                {/* campDataFilter */}
 
-
-
-
-
-
-                {/* border border-blue-200 */}
-                {/* bg-white */}
-
-                {campData ? campData.map((item, index) => (
-
-
-
+                {campDataResult ? campDataResult?.map((item, index) => (
 
                     <Link to='/page' key={item.id} className="block mb-5   ">
 

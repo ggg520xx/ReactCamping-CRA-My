@@ -123,14 +123,67 @@ function App() {
 
   // 產出的轉到篩選 特點
   const [campDataFilter, setcampDataFilter] = useState([]);
-  
+
   // 特點產出 最後變成結果 導出陣列的結果狀態
   const [campDataResult, setcampDataResult] = useState([]);
 
 
 
+
   // 定義點擊篩選的標籤的值存放為陣列
   const [tagvalues, setTagValues] = useState([]);
+
+
+
+
+
+  
+
+  // 執行搜尋按鈕 會將 tagValue 藉由點擊所組起來的 陣列拿去和 物件比對 該項目為true回傳
+  const startFilters = () => {
+    
+    console.log(campDataFilter)
+
+
+ 
+      const result = campDataFilter?.filter(item => {
+        return tagvalues?.every(tag => item.tag[tag] === true);
+      });
+      setcampDataResult(result)
+      console.log(result)
+    
+  }
+
+  useEffect(startFilters, [campDataFilter]);
+
+
+
+  // const useStartFilters = () => {
+
+  //   const [data, setData] = useState(null);
+
+  //   useEffect(() => {
+  //     console.log(campDataFilter)
+
+
+
+  //     const result = campDataFilter?.filter(item => {
+  //       return tagvalues?.every(tag => item.tag[tag] === true);
+  //     });
+  //     setData(result)
+
+
+  //   }, [campDataFilter])
+
+  //   return data;
+
+  // }
+
+  // let resultA = useStartFilters();
+
+  // setcampDataResult(resultA)
+
+
 
 
 
@@ -143,7 +196,7 @@ function App() {
       <MyContextSearch.Provider value={{ inputGlobal, setInputGlobal, AllCampGet }}>
 
 
-        <MyTagShowHide.Provider value={{ buildWood, setBuildWood, buildTruck, setBuildTruck, buildOther, setBuildOther, buildNone, setBuildNone, providShower, setProvidShower, providPlay, setProvidPlay, providRentEquip, setProvidRentEquip, providMeal, setProvidMeal, providGuide, setProvidGuide, providPool, setProvidPool, providSpring, setProvidSpring, providRainCover, setProvidRainCover, providCarArea, setProvidCarArea, viewHigh, setViewHigh, viewForest, setViewForest, viewGrass, setViewGrass, viewKawa, setViewKawa, viewCloudSea, setViewCloudSea, viewSunrise, setviewSunrise, areaChoose, setAreaChoose, areaChooseId, setAreaChooseId, locationStatus, setlocationStatus, locationFilter, setlocationFilter, campDataFilter, setcampDataFilter, tagvalues, setTagValues, campDataResult, setcampDataResult }}>
+        <MyTagShowHide.Provider value={{ buildWood, setBuildWood, buildTruck, setBuildTruck, buildOther, setBuildOther, buildNone, setBuildNone, providShower, setProvidShower, providPlay, setProvidPlay, providRentEquip, setProvidRentEquip, providMeal, setProvidMeal, providGuide, setProvidGuide, providPool, setProvidPool, providSpring, setProvidSpring, providRainCover, setProvidRainCover, providCarArea, setProvidCarArea, viewHigh, setViewHigh, viewForest, setViewForest, viewGrass, setViewGrass, viewKawa, setViewKawa, viewCloudSea, setViewCloudSea, viewSunrise, setviewSunrise, areaChoose, setAreaChoose, areaChooseId, setAreaChooseId, locationStatus, setlocationStatus, locationFilter, setlocationFilter, campDataFilter, setcampDataFilter, tagvalues, setTagValues, campDataResult, setcampDataResult, startFilters }}>
 
 
 

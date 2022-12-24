@@ -22,7 +22,7 @@ const SearchPickSideRight = (props) => {
 
 
     // 全域引入的 新增輸入搜尋 點擊後會存放全域 輸入的值
-    const { buildWood, setBuildWood, buildTruck, setBuildTruck, buildOther, setBuildOther, buildNone, setBuildNone, providShower, setProvidShower, providPlay, setProvidPlay, providRentEquip, setProvidRentEquip, providMeal, setProvidMeal, providGuide, setProvidGuide, providPool, setProvidPool, providSpring, setProvidSpring, providRainCover, setProvidRainCover, providCarArea, setProvidCarArea, viewHigh, setViewHigh, viewForest, setViewForest, viewGrass, setViewGrass, viewKawa, setViewKawa, viewCloudSea, setViewCloudSea, viewSunrise, setviewSunrise, tagvalues, setTagValues, campDataFilter, setcampDataFilter, campDataResult, setcampDataResult } = useMyTagShowHide(MyTagShowHide);
+    const { buildWood, setBuildWood, buildTruck, setBuildTruck, buildOther, setBuildOther, buildNone, setBuildNone, providShower, setProvidShower, providPlay, setProvidPlay, providRentEquip, setProvidRentEquip, providMeal, setProvidMeal, providGuide, setProvidGuide, providPool, setProvidPool, providSpring, setProvidSpring, providRainCover, setProvidRainCover, providCarArea, setProvidCarArea, viewHigh, setViewHigh, viewForest, setViewForest, viewGrass, setViewGrass, viewKawa, setViewKawa, viewCloudSea, setViewCloudSea, viewSunrise, setviewSunrise, tagvalues, setTagValues, campDataFilter, setcampDataFilter, campDataResult, setcampDataResult, startFilters } = useMyTagShowHide(MyTagShowHide);
 
 
 
@@ -55,59 +55,13 @@ const SearchPickSideRight = (props) => {
         setviewSunrise(false);
 
         setTagValues([]);
+        setcampDataResult(campDataFilter)
 
     }
 
 
 
 
-
-
-
-
-
-    // 執行搜尋按鈕 會將 tagValue 藉由點擊所組起來的 陣列拿去和 物件比對 該項目為true回傳
-    const startFilters = () => {
-
-        // if (tagvalues === []) {
-
-        //     setcampDataResult(campDataFilter)
-
-        // }
-
-        // else {
-
-
-        //     const result = campDataFilter.filter(item => {
-        //         return tagvalues.every(tag => item.tag[tag] === true);
-        //     });
-
-        //     console.log(result)
-        //     setcampDataResult(result)
-
-        // }
-
-
-
-        if (tagvalues !== []) { 
-
-
-            const result = campDataFilter?.filter(item => {
-                return tagvalues?.every(tag => item.tag[tag] === true);
-            });
-    
-            console.log(result)
-            setcampDataResult(result)
-        }
-
-
-
-
-
-    }
-
-
-    // console.log(tagvalues)
 
 
 
