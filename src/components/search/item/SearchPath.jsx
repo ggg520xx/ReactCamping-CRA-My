@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 
 import { MyContextSearch, useMyContextSearch } from '../../../hooks/useContext/InputSearch';
-
+import { MyTagShowHide, useMyTagShowHide } from '../../../hooks/useContext/TagShowHide';
 
 const SearchPath = (props) => {
 
@@ -9,7 +9,7 @@ const SearchPath = (props) => {
     // 全域引入的 新增輸入搜尋 點擊後會存放全域 輸入的值
     const { inputGlobal, setInputGlobal } = useMyContextSearch(MyContextSearch);
 
-
+    const {areaChoose, setAreaChoose, areaChooseId, setAreaChooseId } = useMyTagShowHide(MyTagShowHide);
 
 
     return (
@@ -33,14 +33,24 @@ const SearchPath = (props) => {
                 <div className="w-full  bg-soft_color text-left pl-5 py-1 rounded-[50px]" >
                     <p className="font-bold  text-my_blue" >
                         <Link to="/" className="font-bold" >
-                            首頁&nbsp;&nbsp;
+                            首頁
                         </Link>
+
+                        &nbsp;&nbsp;
 
                         <span className="text-black">&gt;</span>
 
                         &nbsp;&nbsp;
 
-                        <span>{inputGlobal === '' ? '全部' : inputGlobal }</span>
+                        <span>{inputGlobal === '' ? '全部' : inputGlobal}</span>
+
+                        &nbsp;&nbsp;
+
+                        <span className="text-black">&gt;</span>
+                        
+                        &nbsp;&nbsp;
+
+                        <span>{areaChoose === null ? '不限' : areaChoose}</span>
                     </p>
                 </div>
 

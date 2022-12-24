@@ -27,8 +27,9 @@ import { MyTagShowHide, useMyTagShowHide } from '../../../hooks/useContext/TagSh
 const SearchResult = (props) => {
 
 
-    // 父層來的set 拉回陣列數量去計算結果
-    const { setValueAttr } = props;
+    // 父層來的set拉回陣列數量 計算 {/* <SearchResult setValueAttr={setCampDataLength} 傳props停用 /> */}
+    // const { setValueAttr } = props;
+
 
 
     // 這頁也可以藉由 改變值 改變全域 我也可以放到篩選處
@@ -83,14 +84,14 @@ const SearchResult = (props) => {
                             setData(clickSetChoose);
                             // 導出原搜尋的 進階篩選地區
 
-                            setValueAttr(clickSetChoose?.length);
+                            // setValueAttr(clickSetChoose?.length); 拉回陣列數量 計算停用
 
                             setlocationStatus(true)
 
                         } else {
 
                             setData(locationCamp);
-                            setValueAttr(locationCamp.length);
+                            // setValueAttr(locationCamp.length); 拉回陣列數量 計算停用
 
                         }
 
@@ -116,7 +117,9 @@ const SearchResult = (props) => {
                         setlocationFilter(areaCamp)
                         setData(areaCamp);
                         // 賦予與當前一樣選擇的結果 下面回傳出去
-                        setValueAttr(areaCamp.length);
+
+
+                        // setValueAttr(areaCamp.length); 拉回陣列數量 計算停用
 
                     })
                     .catch(error => {
@@ -133,7 +136,9 @@ const SearchResult = (props) => {
                         // setlocationFilter 這個很重要 另外存放 到全域 才能在篩選處做調整
                         setlocationFilter(response.data)
                         setData(response.data);
-                        setValueAttr(response.data.length);
+
+                        // setValueAttr(response.data.length);拉回陣列數量 計算停用
+
                     })
                     .catch(error => {
                         console.log(error);
@@ -198,7 +203,7 @@ const SearchResult = (props) => {
 
                                     <p>
                                         <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
-                                        <span>地區：{item.address}</span>
+                                        <span>地點：{item.address}</span>
                                     </p>
 
 
@@ -255,7 +260,7 @@ const SearchResult = (props) => {
                                         <div>
 
                                             <h6 className="">
-                                                <span className='text-p_color text-3xl font-bold'>$1300</span>
+                                                <span className='text-p_color text-3xl font-bold'>${item.showLowPrice}</span>
                                                 <span className='font-bold'>/ 晚</span>
                                             </h6>
 
@@ -284,10 +289,10 @@ const SearchResult = (props) => {
 
 
 
-                        
 
 
-          
+
+
 
 
 
@@ -296,8 +301,8 @@ const SearchResult = (props) => {
         </>
 
 
-        
-        
+
+
     );
 
 }

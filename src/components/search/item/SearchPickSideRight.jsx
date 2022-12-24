@@ -12,7 +12,7 @@ import { MyContextSearch, useMyContextSearch } from '../../../hooks/useContext/I
 const SearchPickSideRight = (props) => {
 
     // 傳給
-    const [campDataLength, setCampDataLength] = useState(0);
+    // const [campDataLength, setCampDataLength] = useState(0); 拉回陣列數量 計算停用
 
     // 傳給子元件地區選擇
     const [areaChoose, setAreaChoose] = useState();
@@ -22,7 +22,7 @@ const SearchPickSideRight = (props) => {
 
 
     // 全域引入的 新增輸入搜尋 點擊後會存放全域 輸入的值
-    const { buildWood, setBuildWood, buildTruck, setBuildTruck, buildOther, setBuildOther, buildNone, setBuildNone, providShower, setProvidShower, providPlay, setProvidPlay, providRentEquip, setProvidRentEquip, providMeal, setProvidMeal, providGuide, setProvidGuide, providPool, setProvidPool, providSpring, setProvidSpring, providRainCover, setProvidRainCover, providCarArea, setProvidCarArea, viewHigh, setViewHigh, viewForest, setViewForest, viewGrass, setViewGrass, viewKawa, setViewKawa, viewCloudSea, setViewCloudSea, viewSunrise, setviewSunrise, tagvalues, setTagValues, campDataFilter, setcampDataFilter, campDataResult, setcampDataResult, startFilters } = useMyTagShowHide(MyTagShowHide);
+    const { buildWood, setBuildWood, buildTruck, setBuildTruck, buildOther, setBuildOther, buildNone, setBuildNone, providShower, setProvidShower, providPlay, setProvidPlay, providRentEquip, setProvidRentEquip, providMeal, setProvidMeal, providGuide, setProvidGuide, providPool, setProvidPool, providSpring, setProvidSpring, providRainCover, setProvidRainCover, providCarArea, setProvidCarArea, viewHigh, setViewHigh, viewForest, setViewForest, viewGrass, setViewGrass, viewKawa, setViewKawa, viewCloudSea, setViewCloudSea, viewSunrise, setviewSunrise, tagvalues, setTagValues, campDataFilter, setcampDataFilter, campDataResult, setcampDataResult, startFilters, campDataNum, setcampDataNum, campDataPrice, setcampDataPrice } = useMyTagShowHide(MyTagShowHide);
 
 
 
@@ -57,6 +57,8 @@ const SearchPickSideRight = (props) => {
         setTagValues([]);
         setcampDataResult(campDataFilter)
 
+        setcampDataNum(campDataFilter?.length)
+
     }
 
 
@@ -75,6 +77,23 @@ const SearchPickSideRight = (props) => {
             : tagvalues.concat(e.target.value);
         setTagValues(newValues);
     }
+
+
+
+    // 點擊排序讀取出來的值
+    const handleChange = (e) => {
+
+        console.log(e.target.value)
+
+        if (e.target.value === 'price_hightolow') {
+            setcampDataPrice('price_hightolow')
+        }
+        
+        if (e.target.value === 'price_lowtohigh') {
+            setcampDataPrice('price_lowtohigh')
+        }
+    }
+
 
 
 
@@ -188,14 +207,14 @@ const SearchPickSideRight = (props) => {
 
 
                     <h3 className='font-bold text-xl'>
-                        找到  <span className="text-blue-500">{campDataLength}</span> 個 相關搜尋結果
+                        找到  <span className="text-blue-500">{campDataNum}</span> 個 相關搜尋結果
                     </h3>
 
 
 
                     <label for="underline_filter" class="sr-only">Underline select</label>
 
-                    <select id="underline_filter" class="text-center block py-2.5 px-0 w-1/4 text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                    <select onChange={(e) => { handleChange(e) }} id="underline_filter" class="text-center block py-2.5 px-0 w-1/4 text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
 
                         <option selected value="default_filter">預設推薦</option>
                         <hr />
@@ -215,7 +234,9 @@ const SearchPickSideRight = (props) => {
 
 
                 {/* 搜尋結果  引入子層的props */}
-                <SearchResult setValueAttr={setCampDataLength} />
+                <SearchResult />
+
+                {/* <SearchResult setValueAttr={setCampDataLength} 傳props停用 /> */}
 
 
 

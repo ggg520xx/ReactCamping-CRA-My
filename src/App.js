@@ -128,7 +128,11 @@ function App() {
   const [campDataResult, setcampDataResult] = useState([]);
 
 
+  // 計算數量的 改成全域
+  const [campDataNum, setcampDataNum] = useState(0);
 
+  // 價格排序
+  const [campDataPrice, setcampDataPrice] = useState('');
 
   // 定義點擊篩選的標籤的值存放為陣列
   const [tagvalues, setTagValues] = useState([]);
@@ -137,24 +141,57 @@ function App() {
 
 
 
-  
+
 
   // 執行搜尋按鈕 會將 tagValue 藉由點擊所組起來的 陣列拿去和 物件比對 該項目為true回傳
   const startFilters = () => {
-    
-    console.log(campDataFilter)
+
+    // console.log(campDataFilter)
+    // console.log(result)
+
+    // const result = campDataFilter?.filter(item => {
+    //   return tagvalues?.every(tag => item.tag[tag] === true);
+    // });
 
 
- 
+    // 不知道為何 寫進去 幫判斷式才不會報錯
+
+    if (campDataPrice === 'price_hightolow') {
+
+      const result = campDataFilter?.filter(item => {
+        return tagvalues?.every(tag => item.tag[tag] === true);
+      }).sort((a, b) => b.showLowPrice - a.showLowPrice);
+
+      setcampDataNum(result?.length);
+      setcampDataResult(result)
+
+    }
+
+    else if (campDataPrice === 'price_lowtohigh') {
+
+      const result = campDataFilter?.filter(item => {
+        return tagvalues?.every(tag => item.tag[tag] === true);
+      }).sort((a, b) => a.showLowPrice - b.showLowPrice);
+
+      setcampDataNum(result?.length);
+      setcampDataResult(result)
+
+
+    }
+
+    else {
+
       const result = campDataFilter?.filter(item => {
         return tagvalues?.every(tag => item.tag[tag] === true);
       });
+
+      setcampDataNum(result?.length);
       setcampDataResult(result)
-      console.log(result)
-    
+    }
+
   }
 
-  useEffect(startFilters, [campDataFilter]);
+  useEffect(startFilters, [campDataFilter, campDataPrice]);
 
 
 
@@ -196,7 +233,7 @@ function App() {
       <MyContextSearch.Provider value={{ inputGlobal, setInputGlobal, AllCampGet }}>
 
 
-        <MyTagShowHide.Provider value={{ buildWood, setBuildWood, buildTruck, setBuildTruck, buildOther, setBuildOther, buildNone, setBuildNone, providShower, setProvidShower, providPlay, setProvidPlay, providRentEquip, setProvidRentEquip, providMeal, setProvidMeal, providGuide, setProvidGuide, providPool, setProvidPool, providSpring, setProvidSpring, providRainCover, setProvidRainCover, providCarArea, setProvidCarArea, viewHigh, setViewHigh, viewForest, setViewForest, viewGrass, setViewGrass, viewKawa, setViewKawa, viewCloudSea, setViewCloudSea, viewSunrise, setviewSunrise, areaChoose, setAreaChoose, areaChooseId, setAreaChooseId, locationStatus, setlocationStatus, locationFilter, setlocationFilter, campDataFilter, setcampDataFilter, tagvalues, setTagValues, campDataResult, setcampDataResult, startFilters }}>
+        <MyTagShowHide.Provider value={{ buildWood, setBuildWood, buildTruck, setBuildTruck, buildOther, setBuildOther, buildNone, setBuildNone, providShower, setProvidShower, providPlay, setProvidPlay, providRentEquip, setProvidRentEquip, providMeal, setProvidMeal, providGuide, setProvidGuide, providPool, setProvidPool, providSpring, setProvidSpring, providRainCover, setProvidRainCover, providCarArea, setProvidCarArea, viewHigh, setViewHigh, viewForest, setViewForest, viewGrass, setViewGrass, viewKawa, setViewKawa, viewCloudSea, setViewCloudSea, viewSunrise, setviewSunrise, areaChoose, setAreaChoose, areaChooseId, setAreaChooseId, locationStatus, setlocationStatus, locationFilter, setlocationFilter, campDataFilter, setcampDataFilter, tagvalues, setTagValues, campDataResult, setcampDataResult, startFilters, campDataNum, setcampDataNum, campDataPrice, setcampDataPrice }}>
 
 
 

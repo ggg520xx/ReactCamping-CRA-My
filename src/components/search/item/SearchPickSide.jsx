@@ -17,7 +17,7 @@ const SearchPickSide = (props) => {
 
 
     // 全域引入的 新增輸入搜尋 點擊後會存放全域 輸入的值
-    const { limit, setLimit, buildWood, setBuildWood, buildTruck, setBuildTruck, buildOther, setBuildOther, buildNone, setBuildNone, providShower, setProvidShower, providPlay, setProvidPlay, providRentEquip, setProvidRentEquip, providMeal, setProvidMeal, providGuide, setProvidGuide, providPool, setProvidPool, providSpring, setProvidSpring, providRainCover, setProvidRainCover, providCarArea, setProvidCarArea, viewHigh, setViewHigh, viewForest, setViewForest, viewGrass, setViewGrass, viewKawa, setViewKawa, viewCloudSea, setViewCloudSea, viewSunrise, setviewSunrise, areaChoose, setAreaChoose, areaChooseId, setAreaChooseId, locationStatus, setlocationStatus, tagvalues, setTagValues, startFilters } = useMyTagShowHide(MyTagShowHide);
+    const {  buildWood, setBuildWood, buildTruck, setBuildTruck, buildOther, setBuildOther, buildNone, setBuildNone, providShower, setProvidShower, providPlay, setProvidPlay, providRentEquip, setProvidRentEquip, providMeal, setProvidMeal, providGuide, setProvidGuide, providPool, setProvidPool, providSpring, setProvidSpring, providRainCover, setProvidRainCover, providCarArea, setProvidCarArea, viewHigh, setViewHigh, viewForest, setViewForest, viewGrass, setViewGrass, viewKawa, setViewKawa, viewCloudSea, setViewCloudSea, viewSunrise, setviewSunrise, areaChoose, setAreaChoose, areaChooseId, setAreaChooseId, locationStatus, setlocationStatus, tagvalues, setTagValues } = useMyTagShowHide(MyTagShowHide);
 
 
     // 這頁也可以藉由 改變值 改變全域 我也可以放到篩選處
@@ -63,6 +63,7 @@ const SearchPickSide = (props) => {
                                     setAreaChooseId(0)
                                     setAreaChoose(null)
                                     setInputGlobal('')
+                                    
                                     
                                      }} className='col-11  mx-auto my-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>不限</button>
                             </div>
