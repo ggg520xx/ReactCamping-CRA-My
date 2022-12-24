@@ -34,7 +34,7 @@ import "./itemStyle/sup.css";
 import React, { useState } from 'react';
 import { MyContextSearch, useMyContextSearch } from '../../../hooks/useContext/InputSearch';
 
-
+import { MyTagShowHide, useMyTagShowHide } from '../../../hooks/useContext/TagShowHide';
 
 
 
@@ -47,6 +47,9 @@ function SearchBar  (props) {
 
     // 全域引入的 新增輸入搜尋 點擊後會存放全域 輸入的值
     const { inputGlobal, setInputGlobal } = useMyContextSearch(MyContextSearch);
+
+    // 全域引入的 新增輸入搜尋 點擊後會存放全域 輸入的值
+    const {  areaChoose, setAreaChoose, areaChooseId, setAreaChooseId } = useMyTagShowHide(MyTagShowHide);
 
     // // 新增輸入想改變
     const [inputChange, setInputChange] = useState("");
@@ -174,6 +177,10 @@ function SearchBar  (props) {
 
                                 {/* 點擊後執行寫入 瞬間把input值 拿去使用 */}
                                 <button disabled={inputChange === ''} className="bg-p_color text-white rounded-full font-semibold px-8 py-4 hover:bg-my_green focus:bg-sub_color focus:outline-none" onClick={() => {
+
+                                    setAreaChooseId(null)
+                                    setAreaChoose(null)
+
                                     setInputGlobal(inputChange)
                                     navigate(`/search`)
 

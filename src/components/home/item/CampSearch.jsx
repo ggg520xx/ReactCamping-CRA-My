@@ -7,6 +7,10 @@ import { indexIcon, location1, location2, location3, location4, location5 } from
 
 import React, { useState } from 'react';
 import { MyContextSearch, useMyContextSearch } from '../../../hooks/useContext/InputSearch';
+import { MyTagShowHide, useMyTagShowHide } from '../../../hooks/useContext/TagShowHide';
+
+
+
 
 const CampSearch = (props) => {
 
@@ -14,6 +18,9 @@ const CampSearch = (props) => {
     // 全域引入的 新增輸入搜尋 點擊後會存放全域 輸入的值
     const { inputGlobal, setInputGlobal } = useMyContextSearch(MyContextSearch);
 
+
+    // 全域引入的 新增輸入搜尋 點擊後會存放全域 輸入的值
+    const { areaChoose, setAreaChoose, areaChooseId, setAreaChooseId, locationStatus, setlocationStatus } = useMyTagShowHide(MyTagShowHide);
 
     return (
         <>
@@ -42,6 +49,8 @@ const CampSearch = (props) => {
 
                   
                     <div className="col-span-4 mt-5 ">  <Link className='block' to="/search" onClick={() => {
+                        setAreaChooseId(0)
+                        setAreaChoose(null)
                         setInputGlobal('北部營區')
                     }}><img className="mb-2 h-[200px] w-full object-cover rounded-[30px]" src={location1} alt="" />
                         <strong className="">北部營區</strong> </Link>
@@ -49,6 +58,8 @@ const CampSearch = (props) => {
                     
 
                     <div className="col-span-4 mt-5 "><Link className='block' to="/search" onClick={() => {
+                        setAreaChooseId(0)
+                        setAreaChoose(null)
                         setInputGlobal('中部營區')
                     }}><img className="mb-2 h-[200px] w-full object-cover rounded-[30px]" src={location2} alt="" />
                         <strong className="">中部營區</strong></Link>
@@ -56,6 +67,8 @@ const CampSearch = (props) => {
 
 
                     <div className="col-span-4 mt-5 "><Link className='block' to="/search" onClick={() => {
+                        setAreaChooseId(0)
+                        setAreaChoose(null)
                         setInputGlobal('南部營區')
                     }}><img className="mb-2 h-[200px] w-full object-cover rounded-[30px]" src={location3} alt="" />
                         <strong className="">南部營區</strong></Link>
@@ -69,6 +82,8 @@ const CampSearch = (props) => {
 
 
                     <div className="col-span-4 col-start-2 col-end-6 mt-5 "><Link className='block' to="/search" onClick={() => {
+                        setAreaChooseId(0)
+                        setAreaChoose(null)
                         setInputGlobal('東部營區')
                     }}><img className="mb-2 h-[200px] w-full object-cover rounded-[30px]" src={location4} alt="" />
                         <strong className="">東部營區</strong></Link>
@@ -77,6 +92,8 @@ const CampSearch = (props) => {
 
                     <div className="col-span-4 col-start-8 col-end-12 mt-5 ">
                         <Link className='block' to="/search" onClick={() => {
+                            setAreaChooseId(0)
+                            setAreaChoose(null)
                             setInputGlobal('外島營區')
                         }}>
                         <img className="mb-2 h-[200px] w-full object-cover rounded-[30px]" src={location5} alt="" />

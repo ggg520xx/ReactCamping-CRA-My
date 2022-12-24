@@ -40,14 +40,15 @@ import NotFound from './components/NotFound'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+
+
 import { MyContextSearch } from './hooks/useContext/InputSearch';
+import { MyTagShowHide } from './hooks/useContext/TagShowHide';
 // import { MyAllCamps } from './hooks/useContext/AllCamp-停用';
 
 
 
 function App() {
-
-
 
 
 
@@ -70,8 +71,6 @@ function App() {
   const AllCampGet = useAllCampData();
 
 
-
-
   // 搜尋我要的關鍵
   const [inputGlobal, setInputGlobal] = useState('');
 
@@ -83,38 +82,97 @@ function App() {
 
 
 
+
+  // 點擊顯現的狀態 藉由useContext傳給包裹provider按鈕
+
+
+  const [buildWood, setBuildWood] = useState(false);
+  const [buildTruck, setBuildTruck] = useState(false);
+  const [buildOther, setBuildOther] = useState(false);
+  const [buildNone, setBuildNone] = useState(false);
+
+  const [providShower, setProvidShower] = useState(false);
+  const [providPlay, setProvidPlay] = useState(false);
+  const [providRentEquip, setProvidRentEquip] = useState(false);
+  const [providMeal, setProvidMeal] = useState(false);
+  const [providGuide, setProvidGuide] = useState(false);
+  const [providPool, setProvidPool] = useState(false);
+  const [providSpring, setProvidSpring] = useState(false);
+  const [providRainCover, setProvidRainCover] = useState(false);
+  const [providCarArea, setProvidCarArea] = useState(false);
+
+  const [viewHigh, setViewHigh] = useState(false);
+  const [viewForest, setViewForest] = useState(false);
+  const [viewGrass, setViewGrass] = useState(false);
+  const [viewKawa, setViewKawa] = useState(false);
+  const [viewCloudSea, setViewCloudSea] = useState(false);
+  const [viewSunrise, setviewSunrise] = useState(false);
+
+
+
+
+  // 傳給子元件地區選擇
+  const [areaChoose, setAreaChoose] = useState('');
+  const [areaChooseId, setAreaChooseId] = useState(0);
+
+  // 維持雙條件篩選的狀態
+  const [locationStatus, setlocationStatus] = useState(false);
+
+  // 提供給地區篩選比對 交叉比對
+  const [locationFilter, setlocationFilter] = useState(null);
+
+  // 產出的轉到篩選 特點
+  const [campDataFilter, setcampDataFilter] = useState([]);
+  
+  // 特點產出 最後變成結果 導出陣列的結果狀態
+  const [campDataResult, setcampDataResult] = useState([]);
+
+
+
+  // 定義點擊篩選的標籤的值存放為陣列
+  const [tagvalues, setTagValues] = useState([]);
+
+
+
+
+
   return (
     <div className="App wrapper">
       {/* <div className="header_public">App這邊可以設計一處共用全路由共用的表頭表尾 或是純粹用Layout階層去設計也可以</div> */}
 
       <MyContextSearch.Provider value={{ inputGlobal, setInputGlobal, AllCampGet }}>
 
-        <Routes>
-          <Route path='/' element={<Layout />} >
+
+        <MyTagShowHide.Provider value={{ buildWood, setBuildWood, buildTruck, setBuildTruck, buildOther, setBuildOther, buildNone, setBuildNone, providShower, setProvidShower, providPlay, setProvidPlay, providRentEquip, setProvidRentEquip, providMeal, setProvidMeal, providGuide, setProvidGuide, providPool, setProvidPool, providSpring, setProvidSpring, providRainCover, setProvidRainCover, providCarArea, setProvidCarArea, viewHigh, setViewHigh, viewForest, setViewForest, viewGrass, setViewGrass, viewKawa, setViewKawa, viewCloudSea, setViewCloudSea, viewSunrise, setviewSunrise, areaChoose, setAreaChoose, areaChooseId, setAreaChooseId, locationStatus, setlocationStatus, locationFilter, setlocationFilter, campDataFilter, setcampDataFilter, tagvalues, setTagValues, campDataResult, setcampDataResult }}>
 
 
 
-            <Route index element={<Home />} />
-            <Route path='search' element={<Search />} />
-
-            <Route path='page' element={<Page />} />
+          <Routes>
+            <Route path='/' element={<Layout />} >
 
 
 
-            <Route path='reserve' element={<Reserve />} />
-            <Route path='payment' element={<Payment />} />
-            <Route path='finish' element={<Finish />} />
+              <Route index element={<Home />} />
+              <Route path='search' element={<Search />} />
+
+              <Route path='page' element={<Page />} />
 
 
 
-            <Route path='login' element={<Login />} />
-            <Route path='register' element={<Register />} />
+              <Route path='reserve' element={<Reserve />} />
+              <Route path='payment' element={<Payment />} />
+              <Route path='finish' element={<Finish />} />
 
 
 
-            <Route path='demo' element={<Demo />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
+              <Route path='login' element={<Login />} />
+              <Route path='register' element={<Register />} />
+
+
+
+              <Route path='demo' element={<Demo />} />
+              <Route path="*" element={<NotFound />} />
+            </Route>
 
 
 
@@ -122,30 +180,31 @@ function App() {
 
 
 
-          {/* 如果要設計後台的話 */}
-          {/* 可能會寫 那個元件 必須登入權限為何才可以造訪頁面 */}
-          <Route path='member' element={<MemberLayout />} >
+            {/* 如果要設計後台的話 */}
+            {/* 可能會寫 那個元件 必須登入權限為何才可以造訪頁面 */}
+            <Route path='member' element={<MemberLayout />} >
 
 
 
-            <Route index element={<MemberMain />} />
-            <Route path='order' element={<MemberOrder />} />
-            <Route path='like' element={<MemberLike />} />
+              <Route index element={<MemberMain />} />
+              <Route path='order' element={<MemberOrder />} />
+              <Route path='like' element={<MemberLike />} />
 
 
 
-          </Route>
+            </Route>
 
 
-          {/* <Route path='reserve' element={<Reserve />} >
+            {/* <Route path='reserve' element={<Reserve />} >
           </Route> */}
 
-          {/* <Route path="member" element={<member />} />
+            {/* <Route path="member" element={<member />} />
           <Route path="task" element={<task />} /> */}
-          {/* <Route path="*" element={<NotFound />} /> */}
-          {/* </Route> */}
-        </Routes>
+            {/* <Route path="*" element={<NotFound />} /> */}
+            {/* </Route> */}
+          </Routes>
 
+        </MyTagShowHide.Provider>
 
       </MyContextSearch.Provider>
 

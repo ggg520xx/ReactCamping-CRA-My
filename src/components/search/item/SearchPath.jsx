@@ -1,11 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 
-
+import { MyContextSearch, useMyContextSearch } from '../../../hooks/useContext/InputSearch';
 
 
 const SearchPath = (props) => {
 
 
+    // 全域引入的 新增輸入搜尋 點擊後會存放全域 輸入的值
+    const { inputGlobal, setInputGlobal } = useMyContextSearch(MyContextSearch);
 
 
 
@@ -38,7 +40,7 @@ const SearchPath = (props) => {
 
                         &nbsp;&nbsp;
 
-                        <span>大括號項目props提取</span>
+                        <span>{inputGlobal === '' ? '全部' : inputGlobal }</span>
                     </p>
                 </div>
 

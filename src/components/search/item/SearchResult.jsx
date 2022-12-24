@@ -37,7 +37,7 @@ const SearchResult = (props) => {
 
 
     // 全域引入的 新增輸入搜尋 點擊後會存放全域 輸入的值
-    const { areaChoose, setAreaChoose } = useMyTagShowHide(MyTagShowHide);
+    const { areaChoose, setAreaChoose, areaChooseId, setAreaChooseId, locationStatus, setlocationStatus, locationFilter, setlocationFilter, campDataFilter, setcampDataFilter, campDataResult, setcampDataResult, tagvalues, setTagValues } = useMyTagShowHide(MyTagShowHide);
 
 
 
@@ -45,17 +45,25 @@ const SearchResult = (props) => {
 
 
 
- 
+
+
+
+
+
+
 
 
     function useData() {
 
+        // 提供跑陣列模型的
         const [data, setData] = useState(null);
+
+
 
         useEffect(() => {
 
 
-            if (areaChoose !== '') {
+            if (areaChoose !== null && areaChooseId >= 1) {
                 // 调用另一个 API 进行数据获取
                 // 例如：${areaChoose}
                 axios.get(`http://localhost:3000/camps?_expand=location`)
@@ -65,11 +73,26 @@ const SearchResult = (props) => {
                         let locationCamp = locationSearch?.filter(item => item.location['name'] === areaChoose);
 
 
-                        setInputGlobal(null)
-                        setData(locationCamp);
 
-                        setValueAttr(locationCamp.length);
-                        console.log(locationCamp)
+                        // locationFilter != null && 
+                        if (locationStatus === true) {
+                            // 原陣列中有 地區 等同 我點擊的 的 id項目 就再次篩選的結果
+                            // 利用點擊捕獲到的id
+                            const clickSetChoose = locationFilter?.filter(camp => camp.locationId === areaChooseId)
+
+                            setData(clickSetChoose);
+                            // 導出原搜尋的 進階篩選地區
+
+                            setValueAttr(clickSetChoose?.length);
+
+                            setlocationStatus(true)
+
+                        } else {
+
+                            setData(locationCamp);
+                            setValueAttr(locationCamp.length);
+
+                        }
 
                         return
 
@@ -77,22 +100,26 @@ const SearchResult = (props) => {
                     .catch(error => {
                         console.log(error);
                     });
-            } 
-            
+            }
+
 
             else if (inputGlobal === '北部營區' || inputGlobal === '中部營區' || inputGlobal === '南部營區' || inputGlobal === '東部營區' || inputGlobal === '外島營區') {
 
                 axios.get(`http://localhost:3000/camps?_expand=area`)
                     .then(response => {
 
+
+                        // setAreaChooseId(0)
+                        // setAreaChoose(null)
+
                         let areaSearch = response.data
                         const areaCamp = areaSearch?.filter(item => item.area['name'] === inputGlobal);
 
-                        console.log(areaCamp)
+
+                        // setlocationFilter 這個很重要 另外存放 到全域 才能在篩選處做調整
+                        setlocationFilter(areaCamp)
                         setData(areaCamp);
                         // 賦予與當前一樣選擇的結果 下面回傳出去
-
-                        setAreaChoose('')
                         setValueAttr(areaCamp.length);
 
                     })
@@ -100,22 +127,22 @@ const SearchResult = (props) => {
                         console.log(error);
                     });
 
-            } else if (areaChoose ===''){
+            } else if (areaChoose === null || areaChooseId === 0) {
+                // 原本寫 areaChoose =''
+                // inputGlobal !== null && areaChoose === ''
 
                 axios.get(`http://localhost:3000/camps?q=${inputGlobal}`)
                     .then(response => {
-                        console.log(response.data)
+
+                        // setlocationFilter 這個很重要 另外存放 到全域 才能在篩選處做調整
+                        setlocationFilter(response.data)
                         setData(response.data);
-
-                     
                         setValueAttr(response.data.length);
-
                     })
                     .catch(error => {
                         console.log(error);
                     });
             }
-
 
         }, [inputGlobal, areaChoose]);
 
@@ -127,31 +154,51 @@ const SearchResult = (props) => {
 
 
 
-    
     let campData = useData();
 
 
-
-   
-
-
+    // 將上面跑完判斷的 設為filter 值 去跑 特點挑選 回傳需要的組陣列結果
+    // setcampDataFilter(campData);
 
 
- 
+    // 最後才使用 篩選結果跑result
+    // campDataResult, setcampDataResult
+    // 結果 藉由執行搜尋 傳過來了
+
+
+
+    
 
 
 
 
+    // if (tagvalues !== []) { 
+
+    //     const result = campData.filter(item => { 
+
+
+    //     })
+
+    // }
 
     return (
 
+
+
+
+
         <>
-
-
-
 
             {/* 全列表範圍 */}
             <div className=' w-full'>
+
+
+                
+
+
+
+
+
 
                 {/* border border-blue-200 */}
                 {/* bg-white */}
@@ -260,13 +307,24 @@ const SearchResult = (props) => {
                     </Link>
 
                 )) : null}
-
-
                 {/* 当 campData 不存在时，你可以使用 && 运算符判断来确保不会渲染空元素 或者你也可以使用 ternary operator 来进行判断  { ?  : null} 这两种方法都能在 campData 不存在时防止渲染空元素 */}
+
+
+
+                        
+
+
+          
+
+
 
             </div>
 
         </>
+
+
+        
+        
     );
 
 }
