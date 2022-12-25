@@ -71,13 +71,18 @@ const CampHot = (props) => {
 
 
                             {/* <Link to="/about">About</Link> */}
-                            <Link>
+                            <Link to={`/page/${item.id}`} key={item.id} className="block  ">
 
                                 {/* 包裹img和文字欄 */}
                                 <div>
 
                                     {/*  此處上層圖片區  h-[200px] 拿掉了 否則會讓他不能填滿 */}
-                                    <img src={hot1} className="hover:opacity-80 min-h-[200px] w-full object-cover" alt="" />
+                                    {/* <img src={hot1} className="hover:opacity-80 min-h-[200px] w-full object-cover" alt="" /> */}
+
+                                    {item?.showLogo ? <img src={require(`../../../../assets/showLogo/${item.showLogo}`)} className="hover:opacity-80 h-full min-h-[200px] max-h-[210px] w-full object-cover" alt="" /> : <img className='h-full max-h-[210px] w-full object-cover' src={require('../../../images/search/collect/404.png')} alt="" />}
+                              
+
+
 
                                     {/* 此處包裹為下層文字區塊 */}
                                     <div className=" text-gray-900 min-h-[30px] text-left px-6 py-5">

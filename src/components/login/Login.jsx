@@ -11,6 +11,8 @@ import './LoginStyle.css'
 import { useForm, useWatch } from 'react-hook-form'
 
 
+import axios from 'axios';
+
 const Login = (props) => {
 
 
@@ -68,7 +70,32 @@ const Login = (props) => {
     // }
 
 
+    // post/login
+    // post/signin
+    // 登入只要帶兩個欄位
+  
 
+    function signinApi() {
+
+        axios.post(`http://localhost:3000/users`, {
+
+            "name": "心海",
+            "nickname": "kokomi",
+            "email": "kokomi@gmail.com",
+            "password": "123456"
+
+        })
+            .then(function (response) {
+                console.log(response.data)
+
+            })
+            .catch(function (error) {
+                console.log(error.response)
+                alert(error.response.data)
+            })
+
+
+    }
 
 
 

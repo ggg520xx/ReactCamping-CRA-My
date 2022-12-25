@@ -10,16 +10,15 @@ import './RegisterStyle.css'
 
 import { useForm, useWatch } from 'react-hook-form'
 
+import axios from 'axios';
+
+
 
 const Register = (props) => {
-
-
 
     const { onLogin, loginAlert, role, msgReg, setMsgReg } = props;
     const [memberEmail, setMemberEmail] = useState("");
     const [memberPassword, setMemberPassword] = useState("");
-
-
 
 
     // 一定要這段
@@ -33,9 +32,6 @@ const Register = (props) => {
         handleSubmit,
         formState: { errors }
     } = useForm()
-
-
-
 
 
 
@@ -68,9 +64,6 @@ const Register = (props) => {
 
 
 
-
-
-
     const onSubmit = (data) => {
         // 輸入後彈現導向
         // 有抓取物件再轉換 頁面
@@ -82,11 +75,6 @@ const Register = (props) => {
             navigate("/")
         }
     }
-
-
-
-
-
 
 
 
@@ -107,11 +95,45 @@ const Register = (props) => {
 
 
 
+    // post/register
+    // post/signup
+    // post/users
+    // 註冊的依照需要的欄位做要求
+
+    // function signupApi() {
+
+    //     axios.post(`http://localhost:3000/users`, {
+
+    //         "name": "心海",
+    //         "nickname": "kokomi",
+    //         "email": "kokomi@gmail.com",
+    //         "password": "123456"
+
+    //     })
+    //         .then(function (response) {
+    //             console.log(response.data)
+
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error.response)
+    //             alert(error.response.data)
+    //         })
+
+
+    // }
+
+
 
 
 
     return (
         <>
+
+
+            {/* 測試有回傳 */}
+            {/* <button onClick={() => { signupApi() }}>555</button> */}
+
+
             {/* <!-- login_page --> */}
             <div class="h-screen container relative">
 
@@ -260,10 +282,6 @@ const Register = (props) => {
 
 
 
-
-
-
-
                                 {/* 點擊註冊會帶上hook form的物件 與資料庫內的信箱比對 api內是否有重複註冊 沒有重複才顯示成功且寫入 */}
 
                                 <div className="flex justify-center py-5">
@@ -275,43 +293,26 @@ const Register = (props) => {
                                 </div>
 
 
-
-
                                 <hr className="bg-my_green h-[1px] w-8/12 mx-auto" style={{ border: 'none' }} />
-
-
 
                                 <div className="flex justify-center py-5">
 
                                     <strong className="">按錯了
-
                                         <span className='text-sub_color mx-1'>我要回前頁</span>阿！
                                     </strong>
 
-
-
                                     <div className="px-3">
-
                                         <Link to="/login" className="text-sub_color hover:text-my_green font-bold" >
                                             現在去登入
                                             <FontAwesomeIcon icon={faCaretRight} className=" text-black" />
                                         </Link>
                                     </div>
 
-
-
                                 </div>
-
-
                             </form>
-
-
                         </div>
-
                     </div>
-
                 </div>
-
 
             </div>
             {/* <!-- 登入頁面到此 --> */}

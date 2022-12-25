@@ -8,6 +8,26 @@ import MyDatePicker from './func/ReactDateRange';
 
 
 
+
+
+
+
+
+// http://localhost:3000/camps/4/campinfos
+// 一樣是可以抓單一id 下的 關於他連結的關連
+
+// http://localhost:3000/camps/4/campinfos?_expand=type
+// 甚至可以對 選中的 該項 做展開
+
+
+// http://localhost:3000/camps?_expand=high&&_expand=owner
+// http://localhost:3000/camps?_expand=high&&_expand=owner&&_expand=area
+// 同時開展項目的展開...... 早知道可以 當初跑搜尋項目search 也不用那麼麻煩了 還多打幾隻api
+// 直接從全露營搜尋處 拉陣列來比對就好 
+
+
+
+
 const PageReserve = (props) => {
 
 

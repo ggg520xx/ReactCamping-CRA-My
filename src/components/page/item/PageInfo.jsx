@@ -68,6 +68,7 @@ const PageInfo = (props) => {
 
 
     // 其實可以單一展開導出 http://localhost:3000/camps/4/?_expand=owner
+    // http://localhost:3000/camps/{id}/?_expand=owner
     // 我後來才知道 使用id去 api那個就好 可以省略比對項目的步驟
 
     // 全露營地主人

@@ -57,29 +57,35 @@ const PagePic = (props) => {
 
 
 
+
+    // 抓營區主人和高度時 我忘記能直接針對需要的資料來抓取不用比對 那邊多打了api 也不用比對
+    // 所以那邊可能比較耗能且麻煩不好寫
+
+    // 因此這邊我直接針對 id 需要的那筆photo來跑就好
+
+
     // 全露營地照片5張
-    // function useAllCampPhoto() {
-    //     const [Data, setData] = useState(null);
-    //     useEffect(() => {
-    //         axios.get(`http://localhost:3000/highs`)
-    //             .then(response => {
-    //                 // 抓到高度的
-    //                 // console.log(response.data)
-    //                 // console.log(item.highId)
+    function useAllCampPhoto() {
+        const [Data, setData] = useState(null);
+        useEffect(() => {
+            axios.get(`http://localhost:3000/photos?campId=${id}`)
+                .then(response => {
+                    console.log(response.data)
 
-    //                 const allhigh = response.data
-    //                 const singleHigh = allhigh?.filter(newItem => newItem.id == item.highId);
 
-    //                 // console.log(singleHigh[0].name)
-    //                 setData(singleHigh[0].name);
-    //             })
-    //             .catch(error => {
-    //                 console.log(error);
-    //             });
-    //     }, []);
-    //     return Data;
-    // }
-    // const campHigh = useAllCampHigh();
+                    // const allhigh = response.data
+                    // const singleHigh = allhigh?.filter(newItem => newItem.id == item.highId);
+
+
+                    setData(response.data);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }, []);
+        return Data;
+    }
+    const campPhoto = useAllCampPhoto();
 
 
 
@@ -181,9 +187,25 @@ const PagePic = (props) => {
                     >
 
 
+                        {campPhoto ? campPhoto?.map((item, index) => (
 
 
-                        <SwiperSlide >
+
+                            <SwiperSlide >
+                                <img src={require(`../../../../assets/campPhoto/${id}/${item.image}`)} alt="product images" className='block h-full w-full object-cover ' />
+                            </SwiperSlide>
+
+
+
+                        )) : null}
+
+
+
+
+
+
+
+                        {/* <SwiperSlide >
                             <img src={p1} alt="product images" className='block h-full w-full object-cover ' />
                         </SwiperSlide>
                         <SwiperSlide >
@@ -197,9 +219,9 @@ const PagePic = (props) => {
                         </SwiperSlide>
                         <SwiperSlide >
                             <img src={p5} alt="product images" className='block h-full w-full object-cover ' />
-                        </SwiperSlide>
+                        </SwiperSlide> */}
 
-                        
+
 
 
 
@@ -224,30 +246,15 @@ const PagePic = (props) => {
                         className='mySwiper h-1/5 py-2.5'
                     >
 
-                        <SwiperSlide className='' >
-                            <img src={p1} alt="product images" className='block h-full w-full object-cover ' />
-                        </SwiperSlide>
+                        {campPhoto ? campPhoto?.map((item, index) => (
 
 
-                        <SwiperSlide className='' >
-                            <img src={p2} alt="product images" className='block h-full w-full object-cover ' />
-                        </SwiperSlide>
+                            <SwiperSlide >
+                                <img src={require(`../../../../assets/campPhoto/${id}/${item.image}`)} alt="product images" className='block h-full w-full object-cover ' />
+                            </SwiperSlide>
 
 
-                        <SwiperSlide className='' >
-                            <img src={p3} alt="product images" className='block h-full w-full object-cover ' />
-                        </SwiperSlide>
-
-
-                        <SwiperSlide className='' >
-                            <img src={p4} alt="product images" className='block h-full w-full object-cover ' />
-                        </SwiperSlide>
-
-
-                        <SwiperSlide className='' >
-                            <img src={p5} alt="product images" className='block h-full w-full object-cover ' />
-                        </SwiperSlide>
-
+                        )) : null}
 
 
                     </Swiper>
