@@ -1,4 +1,4 @@
-import { underDemo } from '../../../assets/search/SearchMange';
+import { underDemo } from '../../../images/search/SearchMange';
 import { Link, useNavigate } from "react-router-dom";
 
 
@@ -10,8 +10,8 @@ const SearchUnderSlogan = (props) => {
     return (
 
         <>
-            
-         
+
+
 
             <div className="bg-my_green ">
 
@@ -60,7 +60,7 @@ const SearchUnderSlogan = (props) => {
 
 
                                     <p className='text-lg mt-3'>或已是會員？
-                                        <Link to='/Login' className="hover:text-p_color">登入</Link> 
+                                        <Link to='/Login' className="hover:text-p_color">登入</Link>
                                     </p>
                                 </div>
                             </div>
@@ -77,9 +77,9 @@ const SearchUnderSlogan = (props) => {
                     </div>
                 </div>
             </div>
-         
 
-          
+
+
         </>
     );
 

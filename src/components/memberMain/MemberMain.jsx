@@ -7,14 +7,14 @@ import React, { useState } from "react";
 
 import { DivContentZone, DivCoverStyled } from './MemberMainStyle'
 
-import { searchDemo, searchDemo2, solidstar, halfstar, emptystar } from '../../assets/search/SearchMange';
+import { searchDemo, searchDemo2, solidstar, halfstar, emptystar } from '../../images/search/SearchMange';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBolt, faHeart, faMapMarkerAlt, faCaretRight, faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faTwitter, faLine } from "@fortawesome/free-brands-svg-icons"
 import { Link } from "react-router-dom";
 
-// import { indexLogo, FbSvgComp, InsSvgComp, TwiSvgComp, LineSvgComp } from '../../assets/layout/LayoutMange';
+// import { indexLogo, FbSvgComp, InsSvgComp, TwiSvgComp, LineSvgComp } from '../../images/layout/LayoutMange';
 
 
 

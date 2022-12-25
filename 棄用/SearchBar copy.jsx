@@ -1,7 +1,7 @@
-import indexBanner from '../../../assets/index/index.jpg';
+import indexBanner from '../../../images/index/index.jpg';
 
 
-const SearchBar = (props) => { 
+const SearchBar = (props) => {
 
 
     // const inputStyle = {
@@ -17,9 +17,9 @@ const SearchBar = (props) => {
 
     return (
         <>
-            
+
             <img src={indexBanner} alt="" className="w-screen max-h-[900px] object-cover rounded-b-[100px]" />
-            
+
 
             <form className="searchBarIndex" action="">
 
@@ -39,8 +39,8 @@ const SearchBar = (props) => {
                                 className="w-100 m-searchInput rounded-left font-weight-bold "
                                 placeholder="Hi！想去哪裡？"
                                 name="place"
-                               
-                                
+
+
                                 style={{ fontSize: 16 }}
                             />
                         </div>
@@ -51,13 +51,13 @@ const SearchBar = (props) => {
                                     選擇入營及離營日期
                                 </label>
                             </p>
-                            
+
 
                         </div>
 
                         <div className="inputHome p-2 pl-4" style={{ width: "20%" }}>
                             <p className="mb-1 text-secondary " style={{ fontSize: 16 }}>
-                               
+
                                 選擇帳數
                             </p>
 
@@ -66,7 +66,7 @@ const SearchBar = (props) => {
                                 className="w-100 border-0"
                                 id="exampleFormControlSelect1"
                                 style={{ outline: "none", fontSize: 16, cursor: "pointer" }}
-                                
+
                             >
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -82,15 +82,15 @@ const SearchBar = (props) => {
 
                     </div>
 
-                  
+
                 </div>
 
 
             </form>
-            
 
-            
-       
+
+
+
 
         </>
     );

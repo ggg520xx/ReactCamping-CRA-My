@@ -4,7 +4,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 
 
 
-import { indexLogo, FbSvgComp, InsSvgComp, TwiSvgComp, LineSvgComp } from '../../assets/layout/LayoutMange';
+import { indexLogo, FbSvgComp, InsSvgComp, TwiSvgComp, LineSvgComp } from '../../images/layout/LayoutMange';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 // import { faFacebook, faInstagram, faTwitter, faLine } from "@fortawesome/free-brands-svg-icons"
@@ -18,7 +18,7 @@ import React, { useState } from "react";
 
 
 // 突然想放背景圖 來包裹所有元件
-import { indexBottomBg } from '../../assets/search/SearchMange';
+import { indexBottomBg } from '../../images/search/SearchMange';
 
 
 
@@ -122,11 +122,11 @@ const MemberLayout = () => {
                             <div class="flex  items-center">
 
 
-                             
 
-                                
-                                
-                                <button onClick={handleBack}  className="px-3">
+
+
+
+                                <button onClick={handleBack} className="px-3">
                                     <div class="flex items-center">
                                         <FontAwesomeIcon className="text-white mx-1" icon={faArrowLeft} />
                                         <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">回上頁 </span>

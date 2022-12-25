@@ -5,7 +5,7 @@ import CampAboutUs from './item/CampAboutUs';
 
 // 首頁兩個底部的灰色漸層
 import { MyDivBottom } from './HomeStyle'
-import { MyDivBottomShape } from '../../assets/index/IndexMange';
+import { MyDivBottomShape } from '../../images/index/IndexMange';
 
 
 
@@ -21,7 +21,7 @@ function Home(props) {
     return (
         <>
 
-            <SearchBar  />
+            <SearchBar />
 
 
 

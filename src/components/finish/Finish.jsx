@@ -1,5 +1,5 @@
 import './FinishStyle.css'
-import { indexIcon, hot1, hot2, hot3 } from '../../assets/index/IndexMange'
+import { indexIcon, hot1, hot2, hot3 } from '../../images/index/IndexMange'
 
 
 import { Link } from "react-router-dom";
@@ -77,7 +77,7 @@ function Finish() {
                     <h3 className='text-md font-bold text-my_yellow'>若對此次訂購有疑慮，請來電 02-2222222</h3>
 
 
-                    
+
                     <div className='pt-8'>
                         <input
                             className="text-md h-[50px] w-3/6 bg-my_black py-1 px-3 font-semibold text-white  hover:bg-white hover:text-my_green"
@@ -192,7 +192,7 @@ function Finish() {
 
 
 
-                        
+
                     </div>
                 </div>
 

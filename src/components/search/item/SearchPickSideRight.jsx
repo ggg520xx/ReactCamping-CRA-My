@@ -85,6 +85,15 @@ const SearchPickSideRight = (props) => {
 
         console.log(e.target.value)
 
+
+
+
+
+
+ 
+        if (e.target.value === 'hotFilter') {
+            setcampDataPrice('hotFilter')
+        }
         if (e.target.value === 'price_hightolow') {
             setcampDataPrice('price_hightolow')
         }
@@ -216,7 +225,9 @@ const SearchPickSideRight = (props) => {
 
                     <select onChange={(e) => { handleChange(e) }} id="underline_filter" class="text-center block py-2.5 px-0 w-1/4 text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
 
-                        <option selected value="default_filter">預設推薦</option>
+                        {/* 我想想一點也不需要預設 誰會看預設id的 */}
+                        {/* <option selected value="default_filter">預設推薦</option> */}
+                        <option selected value="hotFilter">熱門推薦</option>
                         <hr />
                         <option value="like_hightolow">評價-高到低</option>
                         <option value="like_lowtohigh">評價-低到高</option>

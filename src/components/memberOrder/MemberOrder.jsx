@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { DivContentZone, DivCoverStyled } from './MemberOrderStyle'
 
-import { searchDemo, searchDemo2, solidstar, halfstar, emptystar } from '../../assets/search/SearchMange';
+import { searchDemo, searchDemo2, solidstar, halfstar, emptystar } from '../../images/search/SearchMange';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBolt, faHeart, faMapMarkerAlt, faCaretRight, faBookmark } from '@fortawesome/free-solid-svg-icons';

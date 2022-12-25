@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 
-import { indexLogo, FbSvgComp, InsSvgComp, TwiSvgComp, LineSvgComp } from '../../src/assets/layout/LayoutMange';
+import { indexLogo, FbSvgComp, InsSvgComp, TwiSvgComp, LineSvgComp } from '../../src/images/layout/LayoutMange';
 
 
 
@@ -18,8 +18,8 @@ function AdminTopBar() {
     return (
         <>
 
-    
-         
+
+
 
 
 

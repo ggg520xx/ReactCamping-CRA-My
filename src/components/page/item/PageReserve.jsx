@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Link, useNavigate } from "react-router-dom";
-import { ga1, ga2 } from '../../../assets/page/PageMange';
+import { ga1, ga2 } from '../../../images/page/PageMange';
 
 
 import MyDatePicker from './func/ReactDateRange';
@@ -134,14 +134,14 @@ const PageReserve = (props) => {
 
                                     <div className='border border-psub_color w-full py-2.5 px-5'>
 
-                                        
+
                                         <MyDatePicker callDate={handleStateChange} />
 
                                     </div>
 
 
 
-                                    
+
                                     <div className="w-full">
 
                                         {/* <label htmlFor="quantity">Quantity:</label> */}

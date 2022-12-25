@@ -7,7 +7,7 @@ import {
     solidstar,
     halfstar,
     emptystar
-} from '../../assets/search/SearchMange'
+} from '../../images/search/SearchMange'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -26,9 +26,9 @@ import {
     faLine
 } from '@fortawesome/free-brands-svg-icons'
 
-import { indexIcon, hot1, hot2, hot3 } from '../../assets/index/IndexMange'
+import { indexIcon, hot1, hot2, hot3 } from '../../images/index/IndexMange'
 
-import { Link , useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 function Reserve() {
@@ -59,7 +59,7 @@ function Reserve() {
 
 
 
-  
+
 
 
 

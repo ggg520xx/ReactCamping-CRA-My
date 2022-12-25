@@ -3,7 +3,7 @@
 // import { faAtom } from '@fortawesome/free-solid-svg-icons'
 
 import { Link, useNavigate } from "react-router-dom";
-import { indexIcon, location1, location2, location3, location4, location5 } from '../../../assets/index/IndexMange';
+import { indexIcon, location1, location2, location3, location4, location5 } from '../../../images/index/IndexMange';
 
 import React, { useState } from 'react';
 import { MyContextSearch, useMyContextSearch } from '../../../hooks/useContext/InputSearch';
@@ -47,15 +47,15 @@ const CampSearch = (props) => {
                 <div className="grid grid-cols-12 gap-7">
 
 
-                  
+
                     <div className="col-span-4 mt-5 ">  <Link className='block' to="/search" onClick={() => {
                         setAreaChooseId(0)
                         setAreaChoose(null)
                         setInputGlobal('北部營區')
                     }}><img className="mb-2 h-[200px] w-full object-cover rounded-[30px]" src={location1} alt="" />
                         <strong className="">北部營區</strong> </Link>
-                        </div>
-                    
+                    </div>
+
 
                     <div className="col-span-4 mt-5 "><Link className='block' to="/search" onClick={() => {
                         setAreaChooseId(0)
@@ -96,7 +96,7 @@ const CampSearch = (props) => {
                             setAreaChoose(null)
                             setInputGlobal('外島營區')
                         }}>
-                        <img className="mb-2 h-[200px] w-full object-cover rounded-[30px]" src={location5} alt="" />
+                            <img className="mb-2 h-[200px] w-full object-cover rounded-[30px]" src={location5} alt="" />
                             <strong className="">外島營區</strong></Link>
                     </div>
 

@@ -1,5 +1,5 @@
 
-import { view } from '../../../assets/page/PageMange';
+import { view } from '../../../images/page/PageMange';
 
 const PageOverview = (props) => {
 
@@ -19,9 +19,9 @@ const PageOverview = (props) => {
 
                     <div className="pt-6">
 
-                       
 
-                        <img src={view } alt="" className="w-full max-h-[600px] object-cover rounded-[50px]" />
+
+                        <img src={view} alt="" className="w-full max-h-[600px] object-cover rounded-[50px]" />
 
                     </div>
 

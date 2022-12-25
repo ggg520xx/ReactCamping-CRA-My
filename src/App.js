@@ -144,7 +144,10 @@ function App() {
 
 
   // 執行搜尋按鈕 會將 tagValue 藉由點擊所組起來的 陣列拿去和 物件比對 該項目為true回傳
+  // 這裡的問題是 campfilter 導出的資料 和 我進行篩選的資料會有讀取過程差異
   const startFilters = () => {
+
+
 
     // console.log(campDataFilter)
     // console.log(result)
@@ -152,11 +155,35 @@ function App() {
     // const result = campDataFilter?.filter(item => {
     //   return tagvalues?.every(tag => item.tag[tag] === true);
     // });
-
-
     // 不知道為何 寫進去 幫判斷式才不會報錯
 
-    if (campDataPrice === 'price_hightolow') {
+
+
+
+
+    // if (campDataPrice === 'default_filter') {
+
+    //   const result = campDataFilter?.filter(item => {
+    //     return tagvalues?.every(tag => item.tag[tag] === true);
+    //   });
+    //   setcampDataNum(result?.length);
+    //   setcampDataResult(result)
+
+    // }
+
+
+    // hot true false 使用在首頁  hotday購買時間越多越新的擺在越前面
+    if (campDataPrice === 'hotFilter') {
+
+      const result = campDataFilter?.filter(item => {
+        return tagvalues?.every(tag => item.tag[tag] === true);
+      }).sort((a, b) => b.hotday - a.hotday);
+      setcampDataNum(result?.length);
+      setcampDataResult(result)
+
+    }
+
+    else if (campDataPrice === 'price_hightolow') {
 
       const result = campDataFilter?.filter(item => {
         return tagvalues?.every(tag => item.tag[tag] === true);
@@ -164,7 +191,6 @@ function App() {
 
       setcampDataNum(result?.length);
       setcampDataResult(result)
-
     }
 
     else if (campDataPrice === 'price_lowtohigh') {
@@ -175,50 +201,23 @@ function App() {
 
       setcampDataNum(result?.length);
       setcampDataResult(result)
-
-
     }
+
 
     else {
 
+      // 這裡會是剛進來跑的 但我想過誰會想看預設id順序 剛好都用熱門來跑就好
       const result = campDataFilter?.filter(item => {
         return tagvalues?.every(tag => item.tag[tag] === true);
-      });
-
+      }).sort((a, b) => b.hotday - a.hotday);
       setcampDataNum(result?.length);
       setcampDataResult(result)
+
     }
 
   }
-
   useEffect(startFilters, [campDataFilter, campDataPrice]);
 
-
-
-  // const useStartFilters = () => {
-
-  //   const [data, setData] = useState(null);
-
-  //   useEffect(() => {
-  //     console.log(campDataFilter)
-
-
-
-  //     const result = campDataFilter?.filter(item => {
-  //       return tagvalues?.every(tag => item.tag[tag] === true);
-  //     });
-  //     setData(result)
-
-
-  //   }, [campDataFilter])
-
-  //   return data;
-
-  // }
-
-  // let resultA = useStartFilters();
-
-  // setcampDataResult(resultA)
 
 
 
@@ -245,7 +244,7 @@ function App() {
               <Route index element={<Home />} />
               <Route path='search' element={<Search />} />
 
-              <Route path='page' element={<Page />} />
+              <Route path='page/:id' element={<Page />} />
 
 
 

@@ -7,11 +7,11 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
 import { FreeMode, Navigation, Thumbs } from 'swiper'
-import { useState } from 'react'
+
 
 // -------------------------------------
 
-import { p1, p2, p3, p4, p5,solidstar, halfstar, emptystar } from '../../../assets/page/PageMange';
+import { p1, p2, p3, p4, p5, solidstar, halfstar, emptystar } from '../../../images/page/PageMange';
 import "./itemStyle/PagePicStyle.css";
 
 
@@ -20,7 +20,81 @@ import { faBolt, faHeart, faMapMarkerAlt, faCaretRight, faBookmark } from '@fort
 
 
 
+import React, { useState, useEffect } from 'react';
+import { MyContextSearch, useMyContextSearch } from '../../../hooks/useContext/InputSearch';
+
+
+import axios from 'axios';
+
+
+
 const PagePic = (props) => {
+
+
+
+    // 首先導出id頁=id頁面 
+
+    // 全域引入的 新增輸入搜尋 點擊後會存放全域 輸入的值
+    const { AllCampGet } = useMyContextSearch(MyContextSearch);
+
+    // 在這裡你可以使用 id 參數來取得你想要的項目資料
+    // 例如：const item = getItemById(id);
+    const id = props.itemId;
+
+
+    // 創建一個函式，根據傳入的id參數取得特定的項目
+    // 假設有一個名為items的陣列，其中包含許多不同的項目，每個項目都有一個唯一的id欄位
+    function getItemById(id) {
+        // console.log(AllCampGet) 確保陣列中有元素
+        return AllCampGet?.find((item) => item.id == id);
+    }
+    // 使用 == 才抓的到資料   使用恆等運算子 === 導致結果為 undefined
+    // 可能是因為您的陣列中的元素的 id 欄位的資料類型與您指定的搜尋值的資料類型不同
+    const item = getItemById(id);
+
+
+
+
+
+
+    // 全露營地照片5張
+    // function useAllCampPhoto() {
+    //     const [Data, setData] = useState(null);
+    //     useEffect(() => {
+    //         axios.get(`http://localhost:3000/highs`)
+    //             .then(response => {
+    //                 // 抓到高度的
+    //                 // console.log(response.data)
+    //                 // console.log(item.highId)
+
+    //                 const allhigh = response.data
+    //                 const singleHigh = allhigh?.filter(newItem => newItem.id == item.highId);
+
+    //                 // console.log(singleHigh[0].name)
+    //                 setData(singleHigh[0].name);
+    //             })
+    //             .catch(error => {
+    //                 console.log(error);
+    //             });
+    //     }, []);
+    //     return Data;
+    // }
+    // const campHigh = useAllCampHigh();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     const [thumbsSwiper, setThumbsSwiper] = useState();
@@ -32,15 +106,15 @@ const PagePic = (props) => {
 
                 <div className="flex flex-col justify-around items-start py-3">
 
-                    <h5 className="font-bold text-2xl mb-3">安安休閒露營區</h5>
+                    <h5 className="font-bold text-2xl mb-3">{item.name}</h5>
 
                     <p>
                         <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
-                        <strong>地區：xxx</strong>
+                        <strong>地點：{item.address}</strong>
                     </p>
 
 
-                    
+
 
                     {/* 星星和價格 用flex共排 用老師的星星評價map*/}
                     <div className='flex items-center justify-between w-full'>
@@ -72,7 +146,7 @@ const PagePic = (props) => {
 
                 </div>
 
-                
+
                 {/* 圓形周圍空白 包裹愛心flex just. 及位置調整absolute*/}
                 <div className="rounded-full bg-gray-300 w-9 h-9 flex justify-center items-center absolute top-2 right-2 z-10" onClick={() => { }}>
 
@@ -105,6 +179,10 @@ const PagePic = (props) => {
 
                         className='relative overflow-hidden h-4/5 w-full object-cover '
                     >
+
+
+
+
                         <SwiperSlide >
                             <img src={p1} alt="product images" className='block h-full w-full object-cover ' />
                         </SwiperSlide>
@@ -120,6 +198,16 @@ const PagePic = (props) => {
                         <SwiperSlide >
                             <img src={p5} alt="product images" className='block h-full w-full object-cover ' />
                         </SwiperSlide>
+
+                        
+
+
+
+
+
+
+
+
 
                     </Swiper>
 

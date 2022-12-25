@@ -1,4 +1,4 @@
-import logo from '../../assets/logo.svg';
+import logo from '../../images/logo.svg';
 import { Link } from "react-router-dom";
 
 import { Btn } from './demoStyle'
@@ -26,7 +26,7 @@ function Demo() {
                 <h1 class='ttt'>安安</h1>
 
                 <button class='sm:hover:circle-blue'>滑過去的變化設定 太小不觸發</button>
-                
+
                 <Btn className="p-1">我的按鈕</Btn>
 
 

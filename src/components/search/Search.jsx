@@ -6,7 +6,7 @@ import SearchUnderSlogan from './item/SearchUnderSlogan';
 
 
 // 突然想放背景圖 來包裹所有元件
-import { indexBottomBg } from '../../assets/search/SearchMange';
+import { indexBottomBg } from '../../images/search/SearchMange';
 
 
 import React, { useState } from 'react';
@@ -15,7 +15,7 @@ function Search() {
 
 
 
-  
+
 
     return (
         <>
@@ -32,11 +32,11 @@ function Search() {
 
                     <div className='row'>
 
-                       
-                            <SearchPickSide />
-                            <SearchPickSideRight />
 
-                      
+                        <SearchPickSide />
+                        <SearchPickSideRight />
+
+
 
                     </div>
 

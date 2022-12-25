@@ -7,7 +7,7 @@ import {
     solidstar,
     halfstar,
     emptystar
-} from '../../assets/search/SearchMange'
+} from '../../images/search/SearchMange'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -25,7 +25,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 
 
-import { indexIcon, hot1, hot2, hot3 } from '../../assets/index/IndexMange'
+import { indexIcon, hot1, hot2, hot3 } from '../../images/index/IndexMange'
 
 import { Link, useNavigate } from "react-router-dom";
 
@@ -101,7 +101,7 @@ function Payment() {
 
                         <CreditCardInput />
 
-                        
+
 
                         {/* 要寫的 確認click執行後 要post的上 (專案內搜尋 */}
 
@@ -120,7 +120,7 @@ function Payment() {
                             />
                         </div>
 
-                        
+
 
                         <hr className="mt-5 bg-white h-[1px]" style={{ border: 'none' }} />
 
@@ -170,7 +170,7 @@ function Payment() {
 
 
 
-                    
+
 
                             </div>
 

@@ -1,4 +1,4 @@
-import { p1, p2, p3, p4, p5, solidstar, halfstar, emptystar } from '../../../assets/page/PageMange';
+import { p1, p2, p3, p4, p5, solidstar, halfstar, emptystar } from '../../../images/page/PageMange';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -192,11 +192,11 @@ const PageFeedback = (props) => {
                                             <div className='flex flex-col justify-between 0 h-full items-center'>
 
 
-                                                
+
                                                 <div className='dark:bg-gray-700 h-[30px] w-[50px] text-white rounded-xl flex justify-center items-center'>
 
                                                     <strong className='text-md'>4</strong>
-                                                   
+
                                                 </div>
 
                                                 <strong>2022-12-02</strong>
@@ -306,10 +306,10 @@ const PageFeedback = (props) => {
 
 
 
-                                
-                                    {/* more */}
-                                    <button className='mt-5 w-2/12 rounded-[30px] mx-auto  bg-p_color p-2 flex text-white justify-center items-center text-md text-grey-500 ' > <span className=''>看更多評價</span>   <FontAwesomeIcon icon={faCaretRight} className="ml-2" /></button>
-                                
+
+                                {/* more */}
+                                <button className='mt-5 w-2/12 rounded-[30px] mx-auto  bg-p_color p-2 flex text-white justify-center items-center text-md text-grey-500 ' > <span className=''>看更多評價</span>   <FontAwesomeIcon icon={faCaretRight} className="ml-2" /></button>
+
 
 
 

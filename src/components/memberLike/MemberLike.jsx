@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { DivContentZone, DivCoverStyled } from './MemberLikeStyle'
 
-import { searchDemo, searchDemo2, solidstar, halfstar, emptystar } from '../../assets/search/SearchMange';
+import { searchDemo, searchDemo2, solidstar, halfstar, emptystar } from '../../images/search/SearchMange';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBolt, faHeart, faMapMarkerAlt, faCaretRight, faBookmark } from '@fortawesome/free-solid-svg-icons';
@@ -10,7 +10,7 @@ import { faFacebook, faInstagram, faTwitter, faLine } from "@fortawesome/free-br
 import { Link } from "react-router-dom";
 
 
-import { indexIcon, hot1, hot2, hot3 } from '../../assets/index/IndexMange';
+import { indexIcon, hot1, hot2, hot3 } from '../../images/index/IndexMange';
 
 
 

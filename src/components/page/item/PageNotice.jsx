@@ -1,4 +1,4 @@
-import { indexIcon, indexBottomBg } from '../../../assets/index/IndexMange';
+import { indexIcon, indexBottomBg } from '../../../images/index/IndexMange';
 
 
 import { NoticeLi } from './itemStyle/PageNoticeStyle'
@@ -54,7 +54,7 @@ const PageNotice = (props) => {
                                         <NoticeLi>請尊重大自然之生態共生，勿任意破壞營區環境，延續眼前美麗景致。</NoticeLi>
 
 
-                                        
+
 
                                     </ol>
 
@@ -66,7 +66,7 @@ const PageNotice = (props) => {
                                 {/* flex flex-col justify-center items-center flex-wrap */}
 
 
-                               
+
 
 
 

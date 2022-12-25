@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import { searchDemo, searchDemo2, solidstar, halfstar, emptystar } from '../../../assets/search/SearchMange';
+import { searchDemo, searchDemo2, solidstar, halfstar, emptystar } from '../../../images/search/SearchMange';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBolt, faHeart, faMapMarkerAlt, faCaretRight, faBookmark } from '@fortawesome/free-solid-svg-icons';
@@ -182,18 +182,58 @@ const SearchResult = (props) => {
             <div className=' w-full'>
 
 
+
+
                 {/* campDataFilter */}
 
                 {campDataResult ? campDataResult?.map((item, index) => (
 
-                    <Link to='/page' key={item.id} className="block mb-5   ">
+                    // 連結中使用帶參數的連結
+                    <Link to={`/page/${item.id}`} key={item.id} className="block mb-5   ">
 
                         <div className="row min-h-[210px] border-psub_color bg-white hover:shadow-xl border  hover:border-sub_color">
 
                             {/* <div className="col-4 border border-red-100"> */}
                             <div className="col-4 pl-0">
-                                <img className='h-full w-full object-cover' src={searchDemo} alt="" />
+
+                
+
+                                
+
+
+
+                                {item?.showLogo ? <img className='h-full max-h-[210px] w-full object-cover' src={require(`../../../../assets/showLogo/${item.showLogo}`)} alt="" /> : <img className='h-full max-h-[210px] w-full object-cover' src={require('../../../images/search/collect/404.png')} alt="" />}
+
+
+
+
+                                {item.hotday > 0 && <div className="rounded-r-3xl bg-white w-32 h-9 flex justify-center items-center absolute top-5 left-0 z-10" onClick={() => { }}>
+
+                                    <strong className="  text-lg font-bold text-my-green">New<span className='ml-2 italic'>!!</span></strong>
+                                </div>}
+
+
+
+                                {item.hotday >= 60 && <div className="rounded-r-3xl bg-white w-32 h-9 flex justify-center items-center absolute top-5 left-0 z-20" onClick={() => { }}>
+
+
+                                    <strong className="  text-lg font-bold text-red-500">
+
+                                        超人氣
+
+                                        <span className='ml-2 italic'>!!</span>
+
+                                    </strong>
+
+                                    {/* 是否為最愛 是的話顯示 否的話顯示另一段 有色無色 */}
+                                    {/* <FontAwesomeIcon icon={faBookmark} className="text-lg" /> */}
+
+                                </div>}
+
+
                             </div>
+
+
 
                             <div className="col-8  relative">
 
@@ -207,11 +247,7 @@ const SearchResult = (props) => {
                                     </p>
 
 
-
-
                                     <div className='text-left py-2  flex flex-wrap'>
-
-
 
                                         {item.tag['小木屋營區類'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">小木屋營區類</span>}
 
@@ -219,6 +255,7 @@ const SearchResult = (props) => {
                                         {item.tag['其他遮蔽建物'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">其他遮蔽建物</span>}
                                         {item.tag['僅提供營地類'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">僅提供營地類</span>}
                                         {item.tag['盥洗淋浴設施'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">盥洗淋浴設施</span>}
+                                        {item.tag['遊樂器材設施'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">遊樂器材設施</span>}
                                         {item.tag['提供租借裝備'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">提供租借裝備</span>}
                                         {item.tag['供早或晚餐點'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">供早或晚餐點</span>}
                                         {item.tag['供導覽或活動'] && <span className="mr-1 mt-2 rounded-xl bg-psub_color py-1 px-2.5 text-sm font-bold text-my-green">供導覽或活動</span>}
@@ -279,10 +316,20 @@ const SearchResult = (props) => {
                         } */}
                                 </div>
 
+
+
+
+
+
+
                             </div>
 
                         </div>
                     </Link>
+
+
+
+
 
                 )) : null}
                 {/* 当 campData 不存在时，你可以使用 && 运算符判断来确保不会渲染空元素 或者你也可以使用 ternary operator 来进行判断  { ?  : null} 这两种方法都能在 campData 不存在时防止渲染空元素 */}

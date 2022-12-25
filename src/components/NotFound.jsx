@@ -3,7 +3,7 @@
 
 import { Link } from "react-router-dom";
 
-import cantFound from '../assets/notFound/cant.png';
+import cantFound from '../images/notFound/cant.png';
 
 
 
@@ -19,11 +19,11 @@ function NotFound() {
                     <h2 className="text-xl font-bold mb-3">找不到該頁面, 您的網址出錯了~</h2>
                     <Link to="/">
                         <span className="text-xl font-bold bg-blue-800 px-5 py-2 block rounded-xl">回到首頁</span>
-                    </Link>  
+                    </Link>
                 </div>
-            
-                    <img className='mx-auto max-h-screen' src={cantFound} alt="" />
-                
+
+                <img className='mx-auto max-h-screen' src={cantFound} alt="" />
+
 
             </div>
         </>

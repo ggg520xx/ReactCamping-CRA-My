@@ -1,5 +1,5 @@
-// import indexBanner from '../../../assets/index/index.jpg';
-import { indexBanner, indexBanner2, indexBanner3, indexBanner4, coverBanner } from '../../../assets/index/IndexMange';
+// import indexBanner from '../../../images/index/index.jpg';
+import { indexBanner, indexBanner2, indexBanner3, indexBanner4, coverBanner } from '../../../images/index/IndexMange';
 import { Link, useNavigate } from "react-router-dom";
 
 
@@ -39,7 +39,7 @@ import { MyTagShowHide, useMyTagShowHide } from '../../../hooks/useContext/TagSh
 
 
 
-function SearchBar  (props) {
+function SearchBar(props) {
 
 
 
@@ -49,7 +49,7 @@ function SearchBar  (props) {
     const { inputGlobal, setInputGlobal } = useMyContextSearch(MyContextSearch);
 
     // 全域引入的 新增輸入搜尋 點擊後會存放全域 輸入的值
-    const {  areaChoose, setAreaChoose, areaChooseId, setAreaChooseId } = useMyTagShowHide(MyTagShowHide);
+    const { areaChoose, setAreaChoose, areaChooseId, setAreaChooseId } = useMyTagShowHide(MyTagShowHide);
 
     // // 新增輸入想改變
     const [inputChange, setInputChange] = useState("");
@@ -173,7 +173,7 @@ function SearchBar  (props) {
 
                             {/* 最中間白色搜尋框樣式 */}
                             <form action="" className="relative flex z-50 bg-white rounded-full">
-                                <input value={inputChange} onChange={(e) => { setInputChange(e.target.value) }} type="text" placeholder="立即開啟你的行程，這次想去哪呢？" className="rounded-full flex-1 px-6 py-4 text-gray-700 focus:outline-none" />
+                                <input value={inputChange} onChange={(e) => { setInputChange(e.target.value) }} type="text" placeholder="立即開啟你的行程，這次想去哪呢？(e.g. 地區、任一關鍵字或相關活動)" className="rounded-full flex-1 px-6 py-4 text-gray-700 focus:outline-none" />
 
                                 {/* 點擊後執行寫入 瞬間把input值 拿去使用 */}
                                 <button disabled={inputChange === ''} className="bg-p_color text-white rounded-full font-semibold px-8 py-4 hover:bg-my_green focus:bg-sub_color focus:outline-none" onClick={() => {
