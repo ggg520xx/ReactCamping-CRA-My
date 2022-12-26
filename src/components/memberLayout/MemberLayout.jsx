@@ -20,11 +20,12 @@ import React, { useState } from "react";
 // 突然想放背景圖 來包裹所有元件
 import { indexBottomBg } from '../../images/search/SearchMange';
 
-
+import { MyContextSearch, useMyContextSearch } from '../../hooks/useContext/InputSearch';
 
 
 const MemberLayout = () => {
-
+    // 全域引入的 登入 點擊後會存放全域 輸入的值
+    const { loginStatus, setLoginStatus } = useMyContextSearch(MyContextSearch);
 
 
     const navigate = useNavigate();
@@ -135,7 +136,11 @@ const MemberLayout = () => {
 
                                 <hr className="border h-[20px]" />
 
-                                <button className="px-3">
+                                <button onClick={() => {
+                                    localStorage.clear()
+                                    setLoginStatus(false)
+                                    navigate("/")
+                                }} className="px-3">
                                     <div class="flex items-center">
                                         <FontAwesomeIcon className="text-white mx-1" icon={faSignOutAlt} />
                                         <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">登出 </span>

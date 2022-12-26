@@ -102,8 +102,24 @@ const Register = (props) => {
                 
 
                 setLoginStatus(true)
-                alert('註冊成功,將導向至會員頁面')
-                navigate("/member")
+
+
+
+                if (localStorage.getItem('prevpage')) {
+
+                    let id = localStorage.getItem('prevpage');
+                    alert('註冊成功,將導向至先前頁面')
+                    navigate(`/page/${id}`)
+                    localStorage.removeItem('prevpage');
+                }
+
+                else {
+
+                    alert('註冊成功,將導向至會員頁面')
+                    navigate("/member")
+                }
+
+
 
 
             })

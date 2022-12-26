@@ -37,6 +37,16 @@ function Layout() {
     const [isOpen, setIsOpen] = useState(false);
 
 
+
+
+
+    let name = localStorage.getItem('name');
+    let nickname = localStorage.getItem('nickname');
+
+
+
+
+
     // 一定要這段
     const navigate = useNavigate();
 
@@ -62,7 +72,7 @@ function Layout() {
                     <div class="relative flex md:order-2">
 
 
-                      
+
 
                         {loginStatus ? <div>
                             {/* 大畫面時的 頭像按鈕 */}
@@ -74,7 +84,8 @@ function Layout() {
                             {isOpen && (
                                 <div class="dropdown_position w-[160px] z-50 absolute my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600">
                                     <div class="px-4 py-3">
-                                        <span class="block text-sm text-gray-900 dark:text-white">Bonnie Anko</span>
+                                        <strong class="block text-md text-gray-900 dark:text-white">{name}</strong>
+                                        <span class="block text-sm text-gray-900 dark:text-white">{nickname}</span>
                                         <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">一般會員身分</span>
                                     </div>
                                     <ul class="py-1" aria-labelledby="user-menu-button">
@@ -93,7 +104,7 @@ function Layout() {
                                                 localStorage.clear()
                                                 setLoginStatus(false)
                                                 navigate("/")
-                                            }}class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">登出</Link>
+                                            }} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">登出</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -107,16 +118,16 @@ function Layout() {
                                 <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">登入 </span>
                             </div>
                         </button>}
-                        
 
 
 
-                      
 
 
 
-                        
-                       
+
+
+
+
 
 
 

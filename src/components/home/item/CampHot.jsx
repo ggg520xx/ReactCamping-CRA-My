@@ -123,7 +123,7 @@ const CampHot = (props) => {
 
                                         <p>
                                             <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
-                                            <strong className=''>地區：xxx</strong>
+                                            <strong className=''>地點：{item.address}</strong>
                                         </p>
 
 

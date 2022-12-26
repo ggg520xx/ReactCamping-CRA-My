@@ -7,7 +7,7 @@ import { ga1, ga2 } from '../../../images/page/PageMange';
 import MyDatePicker from './func/ReactDateRange';
 
 
-
+import { MyContextSearch, useMyContextSearch } from '../../../hooks/useContext/InputSearch';
 
 
 
@@ -29,10 +29,34 @@ import MyDatePicker from './func/ReactDateRange';
 
 
 const PageReserve = (props) => {
+    // 首先導出id頁=id頁面 
 
-
+    // 全域引入的 登入 點擊後會存放全域 輸入的值
+    const { loginStatus, setLoginStatus, AllCampGet } = useMyContextSearch(MyContextSearch);
 
     const navigate = useNavigate();
+
+
+
+    // 在這裡你可以使用 id 參數來取得你想要的項目資料
+    // 例如：const item = getItemById(id);
+    const id = props.itemId;
+
+
+    // 創建一個函式，根據傳入的id參數取得特定的項目
+    // 假設有一個名為items的陣列，其中包含許多不同的項目，每個項目都有一個唯一的id欄位
+    function getItemById(id) {
+        // console.log(AllCampGet) 確保陣列中有元素
+        return AllCampGet?.find((item) => item.id == id);
+    }
+    // 使用 == 才抓的到資料   使用恆等運算子 === 導致結果為 undefined
+    // 可能是因為您的陣列中的元素的 id 欄位的資料類型與您指定的搜尋值的資料類型不同
+    const item = getItemById(id);
+
+
+
+
+
 
 
 
@@ -209,7 +233,14 @@ const PageReserve = (props) => {
 
                                     {/* disabled={pageReserveDisable === true} */}
                                     <button onClick={() => {
-                                        pageReserveBtn();
+
+                                        loginStatus ?
+                                            pageReserveBtn() :
+
+                                            localStorage.setItem('prevpage', id);
+
+                                        alert('未登入,請先登入後使用')
+                                        navigate("/login")
                                     }} className='w-full border border-psub_color rounded-3xl py-1 px-3 text-md font-semibold hover:bg-sub_color hover:text-white'>預訂</button>
 
 

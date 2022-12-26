@@ -50,7 +50,7 @@ const SearchPath = (props) => {
                         
                         &nbsp;&nbsp;
 
-                        <span>{areaChoose === null ? '不限' : areaChoose}</span>
+                        <span>{areaChoose === null ? '不限地區' : areaChoose}</span>
                     </p>
                 </div>
 

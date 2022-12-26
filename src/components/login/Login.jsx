@@ -65,10 +65,10 @@ const Login = (props) => {
         })
             .then(function (response) {
                 console.log(response.data)
-                
+
                 // console.log(response.data.accessToken)
                 // console.log(response.data.user)
-                
+
 
                 localStorage.setItem('token', response.data.accessToken);
                 localStorage.setItem('name', response.data.user.name);
@@ -83,14 +83,29 @@ const Login = (props) => {
                 //         const singleUsers = allusers?.filter(newItem => newItem.email == response.data.login_email);
 
                 //         console.log(singleUsers)
-                
+
                 //     })
                 //     .catch(error => {
                 //         console.log(error);
                 //     });
 
-                alert('登入成功,將導向至會員頁面')
-                navigate("/member")
+                if (localStorage.getItem('prevpage')) {
+
+                    let id = localStorage.getItem('prevpage');
+                    alert('登入成功,將導向至先前頁面')
+                    navigate(`/page/${id}`)
+                    localStorage.removeItem('prevpage');
+
+                }
+
+                else {
+
+
+                    alert('登入成功,將導向至會員頁面')
+                    navigate("/member")
+                }
+
+
             })
             .catch(function (error) {
                 console.log(error.response)
@@ -99,6 +114,8 @@ const Login = (props) => {
             })
 
     }
+
+
 
 
 

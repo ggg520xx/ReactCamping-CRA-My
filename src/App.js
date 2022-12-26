@@ -145,8 +145,12 @@ function App() {
   const [loginStatus, setLoginStatus] = useState(false);
 
   useEffect(() => {
-    if (token !== '') {
-      setLoginStatus(true)
+    if (localStorage.getItem('token')) {
+      // localStorage 中存在名为 'token' 的项
+      console.log('登入了')
+    } else {
+      // localStorage 中不存在名为 'token' 的项
+      setLoginStatus(false)
     }
   }, [token]);
 

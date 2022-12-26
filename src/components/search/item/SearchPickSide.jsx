@@ -65,7 +65,7 @@ const SearchPickSide = (props) => {
                                     setInputGlobal('')
                                     
                                     
-                                     }} className='col-11  mx-auto my-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>不限</button>
+                                     }} className='col-11  mx-auto my-1 border border-sub_color rounded-sm py-1 px-3 text-md font-semibold hover:bg-p_color hover:text-white'>不限地區</button>
                             </div>
                         </div>
                     </div>
