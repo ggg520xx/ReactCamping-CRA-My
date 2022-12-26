@@ -30,7 +30,10 @@ const MemberLayout = () => {
 
     const navigate = useNavigate();
     const handleBack = () => {
+
+
         navigate(-1);
+
     };
 
 

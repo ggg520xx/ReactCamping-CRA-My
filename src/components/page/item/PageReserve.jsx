@@ -86,6 +86,16 @@ const PageReserve = (props) => {
     // 前往預定的按鈕判斷 如果還沒選會是UNDEFINED 
     const pageReserveBtn = () => {
 
+        if (loginStatus !== true) {
+
+            localStorage.setItem('prevpage', id);
+
+            alert('未登入,請先登入後使用')
+            navigate("/login")
+            return
+
+        }
+
 
 
         if (datePickerState === undefined) {
@@ -205,12 +215,6 @@ const PageReserve = (props) => {
 
                                     {/* <input className='w-3/4' type="text" value='選擇入營及離營日期' />
                                     <input className='w-3/4' type="text" value='帳數' /> */}
-
-
-
-
-
-
                                 </div>
 
                             </div>
@@ -233,14 +237,7 @@ const PageReserve = (props) => {
 
                                     {/* disabled={pageReserveDisable === true} */}
                                     <button onClick={() => {
-
-                                        loginStatus ?
-                                            pageReserveBtn() :
-
-                                            localStorage.setItem('prevpage', id);
-
-                                        alert('未登入,請先登入後使用')
-                                        navigate("/login")
+                                        pageReserveBtn()
                                     }} className='w-full border border-psub_color rounded-3xl py-1 px-3 text-md font-semibold hover:bg-sub_color hover:text-white'>預訂</button>
 
 

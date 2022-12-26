@@ -39,6 +39,18 @@ const Register = (props) => {
 
 
 
+    useEffect(() => {
+        if (loginStatus === true) {
+            navigate('/')
+            return
+        }
+
+
+    
+
+    }, []);
+
+
     // // 監控二次密碼和第一次輸入相同 監控第一個輸入欄位的值到 錯誤訊息處測試 下面是失敗的
     const password = watch('register_password');
 
@@ -92,20 +104,22 @@ const Register = (props) => {
         })
             .then(function (response) {
                 console.log(response.data)
-                
+
                 console.log(response.data.accessToken)
                 console.log(response.data.user)
-                
+
                 localStorage.setItem('token', response.data.accessToken);
                 localStorage.setItem('name', response.data.user.name);
                 localStorage.setItem('nickname', response.data.user.nickname);
-                
 
-                setLoginStatus(true)
+
+
 
 
 
                 if (localStorage.getItem('prevpage')) {
+
+                    setLoginStatus(true)
 
                     let id = localStorage.getItem('prevpage');
                     alert('註冊成功,將導向至先前頁面')
@@ -114,6 +128,8 @@ const Register = (props) => {
                 }
 
                 else {
+
+                    setLoginStatus(true)
 
                     alert('註冊成功,將導向至會員頁面')
                     navigate("/member")
@@ -129,6 +145,8 @@ const Register = (props) => {
             })
 
     }
+
+
 
 
 

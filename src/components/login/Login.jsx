@@ -42,7 +42,16 @@ const Login = (props) => {
     } = useForm()
 
 
+    useEffect(() => {
+        if (loginStatus === true) {
+            navigate('/')
+            return
+        }
 
+
+        
+
+    }, []);
 
 
     // post/login
@@ -74,7 +83,7 @@ const Login = (props) => {
                 localStorage.setItem('name', response.data.user.name);
                 localStorage.setItem('nickname', response.data.user.nickname);
 
-                setLoginStatus(true)
+               
                 // axios.get(`http://localhost:3000/users`)
                 //     .then(response => {
 
@@ -91,6 +100,8 @@ const Login = (props) => {
 
                 if (localStorage.getItem('prevpage')) {
 
+                    setLoginStatus(true)
+
                     let id = localStorage.getItem('prevpage');
                     alert('登入成功,將導向至先前頁面')
                     navigate(`/page/${id}`)
@@ -100,6 +111,7 @@ const Login = (props) => {
 
                 else {
 
+                    setLoginStatus(true)
 
                     alert('登入成功,將導向至會員頁面')
                     navigate("/member")
@@ -119,26 +131,7 @@ const Login = (props) => {
 
 
 
-    // function useGetWho() {
-    //     const [Data, setData] = useState(null);
-
-    //     useEffect(() => {
-    //         axios.get(`http://localhost:3000/users`)
-    //             .then(response => {
-
-    //                 const allusers = response.data
-    //                 const singleUsers = allusers?.filter(newItem => newItem.id == item.ownerId);
-
-    //                 // console.log(singleOwners[0].name)
-    //                 setData(singleOwners[0].name);
-    //             })
-    //             .catch(error => {
-    //                 console.log(error);
-    //             });
-    //     }, []);
-    //     return Data;
-    // }
-    // const getWho = useGetWho();
+  
 
 
 
