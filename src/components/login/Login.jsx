@@ -13,11 +13,16 @@ import { useForm, useWatch } from 'react-hook-form'
 
 import axios from 'axios';
 
+import { MyContextSearch, useMyContextSearch } from '../../hooks/useContext/InputSearch';
+
 const Login = (props) => {
 
+    // 全域引入的 登入 點擊後會存放全域 輸入的值
+    const { loginStatus, setLoginStatus } = useMyContextSearch(MyContextSearch);
 
 
-    const { onLogin, loginAlert, role, msgReg, setMsgReg } = props;
+
+    // const { onLogin, loginAlert, role, msgReg, setMsgReg } = props;
     const [memberEmail, setMemberEmail] = useState("");
     const [memberPassword, setMemberPassword] = useState("");
 
@@ -39,16 +44,87 @@ const Login = (props) => {
 
 
 
+
+    // post/login
+    // post/signin
+    // 登入只要帶兩個欄位
+
     const onSubmit = (data) => {
         // 輸入後彈現導向
         // 有抓取物件再轉換 頁面
+        console.log(data);
         let formdata = JSON.stringify(data)
-        alert(formdata);
+        console.log(formdata);
 
-        if (formdata !== '') {
-            navigate("/")
-        }
+
+        axios.post(`http://localhost:3000/login`, {
+
+            "email": `${data.login_email}`,
+            "password": `${data.login_password}`
+
+        })
+            .then(function (response) {
+                console.log(response.data)
+                
+                // console.log(response.data.accessToken)
+                // console.log(response.data.user)
+                
+
+                localStorage.setItem('token', response.data.accessToken);
+                localStorage.setItem('name', response.data.user.name);
+                localStorage.setItem('nickname', response.data.user.nickname);
+
+                setLoginStatus(true)
+                // axios.get(`http://localhost:3000/users`)
+                //     .then(response => {
+
+                //         const allusers = response.data
+
+                //         const singleUsers = allusers?.filter(newItem => newItem.email == response.data.login_email);
+
+                //         console.log(singleUsers)
+                
+                //     })
+                //     .catch(error => {
+                //         console.log(error);
+                //     });
+
+                alert('登入成功,將導向至會員頁面')
+                navigate("/member")
+            })
+            .catch(function (error) {
+                console.log(error.response)
+                console.log(error.response.data)
+                alert(`帳號密碼有誤,無法正確登入`)
+            })
+
     }
+
+
+
+    // function useGetWho() {
+    //     const [Data, setData] = useState(null);
+
+    //     useEffect(() => {
+    //         axios.get(`http://localhost:3000/users`)
+    //             .then(response => {
+
+    //                 const allusers = response.data
+    //                 const singleUsers = allusers?.filter(newItem => newItem.id == item.ownerId);
+
+    //                 // console.log(singleOwners[0].name)
+    //                 setData(singleOwners[0].name);
+    //             })
+    //             .catch(error => {
+    //                 console.log(error);
+    //             });
+    //     }, []);
+    //     return Data;
+    // }
+    // const getWho = useGetWho();
+
+
+
 
 
 
@@ -70,32 +146,9 @@ const Login = (props) => {
     // }
 
 
-    // post/login
-    // post/signin
-    // 登入只要帶兩個欄位
-  
-
-    function signinApi() {
-
-        axios.post(`http://localhost:3000/users`, {
-
-            "name": "心海",
-            "nickname": "kokomi",
-            "email": "kokomi@gmail.com",
-            "password": "123456"
-
-        })
-            .then(function (response) {
-                console.log(response.data)
-
-            })
-            .catch(function (error) {
-                console.log(error.response)
-                alert(error.response.data)
-            })
 
 
-    }
+
 
 
 
@@ -146,7 +199,7 @@ const Login = (props) => {
                                             }
                                         })} style={{ letterSpacing: 1 }} onChange={(e) => {
                                             setMemberEmail(e.target.value);
-                                        }} onFocus={(e) => setMemberEmail("user@gmail.com")} value={memberEmail} />
+                                        }} onFocus={(e) => setMemberEmail("kokomi@gmail.com")} value={memberEmail} />
 
                                         {/* required */}
                                     </div>
@@ -157,7 +210,7 @@ const Login = (props) => {
                                 </div>
 
 
-                                
+
 
                                 {/* 帳號通過 資料庫比對 還要比對密碼 兩者都通過才能使用進入 */}
 
@@ -168,7 +221,7 @@ const Login = (props) => {
                                     </div>
 
                                     <div>
-                                        <input className="border-transparent" type="password" placeholder="請輸入密碼" {...register('register_password', {
+                                        <input className="border-transparent" type="password" placeholder="請輸入密碼" {...register('login_password', {
                                             required: { value: true, message: '此欄位必填寫' },
                                             pattern: {
                                                 value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/g,
@@ -176,22 +229,23 @@ const Login = (props) => {
                                             }
                                         })} style={{ letterSpacing: 1 }} onChange={(e) => {
                                             setMemberPassword(e.target.value)
-                                            }} onFocus={(e) => setMemberPassword("1qaz!QAZ2")} value={memberPassword} />
+                                        }} onFocus={(e) => setMemberPassword("Kokomi123456")} value={memberPassword} />
                                         {/* required */}
 
                                     </div>
                                 </div>
 
                                 <div className="min-h-[20px] font-semibold text-sm text-red-500">
-                                    {errors.register_password?.message}
-                                    {/* {errors.register_password && <span>此欄位必填</span>} */}
+                                    {errors.login_password?.message}
+                                    {/* {errors.login_password && <span>此欄位必填</span>} */}
                                 </div>
 
 
 
                                 <div className="flex justify-center py-5">
 
-                                    <button type="" className="font-bold text-my_green button_effect  " onClick={() => onLogin(memberEmail, memberPassword)}
+                                    {/* onLogin(memberEmail, memberPassword) */}
+                                    <button type="" className="font-bold text-my_green button_effect  " onClick={() => { '登入' }}
                                         style={{ fontSize: 18 }}>登 入</button>
 
 

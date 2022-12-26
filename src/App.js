@@ -140,9 +140,18 @@ function App() {
 
 
 
+  let token = localStorage.getItem('token');
+  // 登入狀態
+  const [loginStatus, setLoginStatus] = useState(false);
+
+  useEffect(() => {
+    if (token !== '') {
+      setLoginStatus(true)
+    }
+  }, [token]);
 
 
-
+  
   // 執行搜尋按鈕 會將 tagValue 藉由點擊所組起來的 陣列拿去和 物件比對 該項目為true回傳
   // 這裡的問題是 campfilter 導出的資料 和 我進行篩選的資料會有讀取過程差異
   const startFilters = () => {
@@ -156,8 +165,6 @@ function App() {
     //   return tagvalues?.every(tag => item.tag[tag] === true);
     // });
     // 不知道為何 寫進去 幫判斷式才不會報錯
-
-
 
 
 
@@ -229,7 +236,7 @@ function App() {
     <div className="App wrapper">
       {/* <div className="header_public">App這邊可以設計一處共用全路由共用的表頭表尾 或是純粹用Layout階層去設計也可以</div> */}
 
-      <MyContextSearch.Provider value={{ inputGlobal, setInputGlobal, AllCampGet }}>
+      <MyContextSearch.Provider value={{ inputGlobal, setInputGlobal, AllCampGet, loginStatus, setLoginStatus }}>
 
 
         <MyTagShowHide.Provider value={{ buildWood, setBuildWood, buildTruck, setBuildTruck, buildOther, setBuildOther, buildNone, setBuildNone, providShower, setProvidShower, providPlay, setProvidPlay, providRentEquip, setProvidRentEquip, providMeal, setProvidMeal, providGuide, setProvidGuide, providPool, setProvidPool, providSpring, setProvidSpring, providRainCover, setProvidRainCover, providCarArea, setProvidCarArea, viewHigh, setViewHigh, viewForest, setViewForest, viewGrass, setViewGrass, viewKawa, setViewKawa, viewCloudSea, setViewCloudSea, viewSunrise, setviewSunrise, areaChoose, setAreaChoose, areaChooseId, setAreaChooseId, locationStatus, setlocationStatus, locationFilter, setlocationFilter, campDataFilter, setcampDataFilter, tagvalues, setTagValues, campDataResult, setcampDataResult, startFilters, campDataNum, setcampDataNum, campDataPrice, setcampDataPrice }}>

@@ -12,13 +12,16 @@ import { useForm, useWatch } from 'react-hook-form'
 
 import axios from 'axios';
 
-
+import { MyContextSearch, useMyContextSearch } from '../../hooks/useContext/InputSearch';
 
 const Register = (props) => {
 
-    const { onLogin, loginAlert, role, msgReg, setMsgReg } = props;
-    const [memberEmail, setMemberEmail] = useState("");
-    const [memberPassword, setMemberPassword] = useState("");
+    // const { onLogin, loginAlert, role, msgReg, setMsgReg } = props;
+    // const [memberEmail, setMemberEmail] = useState("");
+    // const [memberPassword, setMemberPassword] = useState("");
+
+    // 全域引入的 登入 點擊後會存放全域 輸入的值
+    const { loginStatus, setLoginStatus } = useMyContextSearch(MyContextSearch);
 
 
     // 一定要這段
@@ -37,7 +40,7 @@ const Register = (props) => {
 
 
     // // 監控二次密碼和第一次輸入相同 監控第一個輸入欄位的值到 錯誤訊息處測試 下面是失敗的
-    const password = watch('member_password');
+    const password = watch('register_password');
 
     // // 監控二次密碼和第一次輸入相同
     // const password = watch('member_password'); // 監控第一個輸入欄位的值
@@ -64,17 +67,62 @@ const Register = (props) => {
 
 
 
+
+
+
+    // post/register
+    // post/signup
+    // post/users
+    // 註冊的依照需要的欄位做要求
+
     const onSubmit = (data) => {
         // 輸入後彈現導向
         // 有抓取物件再轉換 頁面
+        console.log(data);
         let formdata = JSON.stringify(data)
-        alert(formdata);
+        console.log(formdata);
+
+        axios.post(`http://localhost:3000/users`, {
+
+            "name": `${data.register_name}`,
+            "nickname": `${data.register_nickname}`,
+            "email": `${data.register_email}`,
+            "password": `${data.register_checkpassword}`
+
+        })
+            .then(function (response) {
+                console.log(response.data)
+                
+                console.log(response.data.accessToken)
+                console.log(response.data.user)
+                
+                localStorage.setItem('token', response.data.accessToken);
+                localStorage.setItem('name', response.data.user.name);
+                localStorage.setItem('nickname', response.data.user.nickname);
+                
+
+                setLoginStatus(true)
+                alert('註冊成功,將導向至會員頁面')
+                navigate("/member")
 
 
-        if (formdata !== '') {
-            navigate("/")
-        }
+            })
+            .catch(function (error) {
+                console.log(error.response)
+                alert(`錯誤情況${error.response.data}無法正確註冊`)
+            })
+
     }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -93,34 +141,6 @@ const Register = (props) => {
     //     }
     // }
 
-
-
-    // post/register
-    // post/signup
-    // post/users
-    // 註冊的依照需要的欄位做要求
-
-    // function signupApi() {
-
-    //     axios.post(`http://localhost:3000/users`, {
-
-    //         "name": "心海",
-    //         "nickname": "kokomi",
-    //         "email": "kokomi@gmail.com",
-    //         "password": "123456"
-
-    //     })
-    //         .then(function (response) {
-    //             console.log(response.data)
-
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error.response)
-    //             alert(error.response.data)
-    //         })
-
-
-    // }
 
 
 
@@ -287,7 +307,9 @@ const Register = (props) => {
                                 <div className="flex justify-center py-5">
 
 
-                                    <button type="" className="font-bold text-my_green button_effect" onClick={() => onLogin(memberEmail, memberPassword)}
+
+                                    {/* onLogin(memberEmail, memberPassword) */}
+                                    <button type="" className="font-bold text-my_green button_effect" onClick={() => { console.log('註冊') }}
                                         style={{ fontSize: 18 }}>註 冊</button>
 
                                 </div>

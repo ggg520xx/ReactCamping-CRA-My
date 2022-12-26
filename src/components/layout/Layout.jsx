@@ -10,6 +10,10 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSignOutAlt, faArrowLeft, faUser } from '@fortawesome/free-solid-svg-icons';
 
+
+import { MyContextSearch, useMyContextSearch } from '../../hooks/useContext/InputSearch';
+
+
 // ---------------------------------------------------------------------------
 
 // 可引入圖標 但我想用 svg component 因此暫時不用這個ㄌ
@@ -26,6 +30,9 @@ import { faSignOutAlt, faArrowLeft, faUser } from '@fortawesome/free-solid-svg-i
 
 
 function Layout() {
+
+    // 全域引入的 登入 點擊後會存放全域 輸入的值
+    const { loginStatus, setLoginStatus } = useMyContextSearch(MyContextSearch);
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -55,21 +62,9 @@ function Layout() {
                     <div class="relative flex md:order-2">
 
 
+                      
 
-                        <button onClick={() => {
-                            navigate("/login")
-                        }} className="px-3">
-                            <div class="flex items-center">
-                                <FontAwesomeIcon className="text-white mx-1" icon={faUser} />
-                                <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">登入 </span>
-                            </div>
-                        </button>
-
-
-                        <div>
-
-
-
+                        {loginStatus ? <div>
                             {/* 大畫面時的 頭像按鈕 */}
                             <button onClick={() => setIsOpen(!isOpen)} type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" >
                                 <img class='rounded-2xl' src="https://avatar2.bahamut.com.tw/avataruserpic/f/8/f853853/f853853_s.png?v=1669060152382" alt="" />
@@ -94,13 +89,33 @@ function Layout() {
                                         </li>
 
                                         <li>
-                                            <Link to="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">登出</Link>
+                                            <Link onClick={() => {
+                                                localStorage.clear()
+                                                setLoginStatus(false)
+                                            }}class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">登出</Link>
                                         </li>
                                     </ul>
                                 </div>
                             )}
 
-                        </div>
+                        </div> : <button onClick={() => {
+                            navigate("/login")
+                        }} className="px-3">
+                            <div class="flex items-center">
+                                <FontAwesomeIcon className="text-white mx-1" icon={faUser} />
+                                <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">登入 </span>
+                            </div>
+                        </button>}
+                        
+
+
+
+                      
+
+
+
+                        
+                       
 
 
 
